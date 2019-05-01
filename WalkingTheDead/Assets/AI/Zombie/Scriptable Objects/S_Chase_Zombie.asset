@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac67b056161eec40b3a03fa4b29315e, type: 3}
+  m_Name: S_Chase_Zombie
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 95b291bf1b02b5d4eae84b33b144e6ef, type: 2}
+  - {fileID: 11400000, guid: 5bcc8be4dc8754e4d8167f1c2be7297e, type: 2}
+  transitions:
+  - decisionToMake: {fileID: 11400000, guid: d8e5681395ab69d488748b47bac59ae1, type: 2}
+    stateIfTrue: {fileID: 11400000}
+    stateIfFalse: {fileID: 11400000, guid: 79d1246a29f965f42abe8fd98c19bf60, type: 2}
+  - decisionToMake: {fileID: 11400000, guid: 07d741d8810e88843ac1625752a53e7c, type: 2}
+    stateIfTrue: {fileID: 11400000, guid: cc2204998c0a0d34ab2ee08befb02677, type: 2}
+    stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
+  sceneGizmoColor: {r: 0.9622642, g: 0.031772893, b: 0.031772893, a: 1}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac67b056161eec40b3a03fa4b29315e, type: 3}
+  m_Name: S_Patrol_MeleeSoldier
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 042ee569e788c9e408327c4fbff7488b, type: 2}
+  transitions:
+  - decisionToMake: {fileID: 11400000, guid: 78eae7681208be04ca9a1a72be9b8d75, type: 2}
+    stateIfTrue: {fileID: 11400000, guid: ecb4563e4882cab49bd3fed96a61b9a0, type: 2}
+    stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
+  sceneGizmoColor: {r: 0.8679245, g: 0.8386456, b: 0.28248486, a: 1}
