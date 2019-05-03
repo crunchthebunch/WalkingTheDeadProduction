@@ -58,10 +58,13 @@ public class PlayerMovement : MonoBehaviour
         {
             soulCollectionScanner.radius += radiusIncrease;
             soulCollectionActive = true;
+            anim.SetBool("isWalking", false);
+            walkSpeed = 0.0f;
         }
         else if (!Input.GetKey("e") && soulCollectionScanner.radius > 0.0f)
         {
             soulCollectionScanner.radius -= (radiusIncrease * 3);
+            walkSpeed = 3.0f;
         }
         else if (soulCollectionScanner.radius <= 0.0f)
         {
@@ -73,10 +76,13 @@ public class PlayerMovement : MonoBehaviour
         {
             resurrectionScanner.radius += radiusIncrease;
             resurrectionActive = true;
+            anim.SetBool("isWalking", false);
+            walkSpeed = 0.0f;
         }
         else if (!Input.GetKey("r") && resurrectionScanner.radius > 0.0f)
         {
             resurrectionScanner.radius -= (radiusIncrease * 3);
+            walkSpeed = 3.0f;
         }
         else if (resurrectionScanner.radius <= 0.0f)
         {
