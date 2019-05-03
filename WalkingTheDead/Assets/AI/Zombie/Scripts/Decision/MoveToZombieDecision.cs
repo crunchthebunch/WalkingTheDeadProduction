@@ -16,9 +16,7 @@ public class MoveToZombieDecision : Decision
 
         if (zombieController.Owner.CommandGiven || (Mathf.Abs(Vector3.Distance(zombieController.Owner.transform.position, zombieController.Owner.DesiredPosition)) > zombieController.Settings.WalkRadius && zombieController.Owner.FollowPlayer))
         {
-
             return true;
-
         }
 
         return false;

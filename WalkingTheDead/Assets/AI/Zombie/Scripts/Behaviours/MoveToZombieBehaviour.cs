@@ -27,7 +27,7 @@ public class MoveToZombieBehaviour : Behaviour
     void MoveTo()
     {
         agent.SetDestination(owner.DesiredPosition);
-        agent.speed = settings.WalkingSpeed;
+        agent.speed = settings.WalkingSpeed * owner.WalkSpeedModifier;
         agent.isStopped = false;
         if (Mathf.Abs(Vector3.Distance(transform.position, owner.DesiredPosition)) < settings.WalkRadius)
         {

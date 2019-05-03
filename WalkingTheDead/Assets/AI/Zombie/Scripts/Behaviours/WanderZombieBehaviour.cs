@@ -18,12 +18,12 @@ public class WanderZombieBehaviour : Behaviour
             Vector3 wanderPosition = owner.DesiredPosition + Random.onUnitSphere * settings.WalkRadius;
             wanderPosition = owner.DesiredPosition + Random.onUnitSphere * settings.WalkRadius;
             agent.SetDestination(wanderPosition);
-            agent.speed = settings.WalkingSpeed;
+            agent.speed = settings.WalkingSpeed * owner.WalkSpeedModifier;
             startedWandering = true;
         }
         else
         {
-            agent.speed = settings.WalkingSpeed;
+            agent.speed = settings.WalkingSpeed * owner.WalkSpeedModifier;
         }
 
         if (Random.value < settings.WanderChance)
@@ -38,13 +38,12 @@ public class WanderZombieBehaviour : Behaviour
         agent = owner.Agent;
         settings = owner.Settings;
         startedWandering = false;
-
     }
 
     void Wander()
     {
         Vector3 wanderPosition = owner.DesiredPosition + Random.insideUnitSphere * settings.WalkRadius;
         agent.SetDestination(wanderPosition);
-        agent.speed = settings.WalkingSpeed;
+        agent.speed = settings.WalkingSpeed * owner.WalkSpeedModifier;
     }
 }

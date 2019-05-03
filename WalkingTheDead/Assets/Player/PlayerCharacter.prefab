@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2278864110251223398}
   - component: {fileID: 4172635563701925910}
-  - component: {fileID: 355203326106480014}
   - component: {fileID: 1937312643227737708}
   m_Layer: 0
   m_Name: Camera
@@ -45,9 +44,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -75,14 +75,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &355203326106480014
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5178773074320471425}
-  m_Enabled: 1
 --- !u!114 &1937312643227737708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,12 +181,13 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9083072937810427343}
   m_Enabled: 1
-  serializedVersion: 8
+  serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.9150943, g: 0.17130156, b: 0.06474723, a: 1}
   m_Intensity: 1
   m_Range: 9.77
   m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -204,6 +197,24 @@ Light:
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -211,12 +222,15 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!1 &9166500947553831116
@@ -328,6 +342,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8171068610250063899}
     m_Modifications:
+    - target: {fileID: 100046, guid: 0730aa664ee887a46af94fcda74e1768, type: 3}
+      propertyPath: m_Name
+      value: Body v5
+      objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 0730aa664ee887a46af94fcda74e1768, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -371,10 +389,6 @@ PrefabInstance:
     - target: {fileID: 400046, guid: 0730aa664ee887a46af94fcda74e1768, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100046, guid: 0730aa664ee887a46af94fcda74e1768, type: 3}
-      propertyPath: m_Name
-      value: Body v5
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 0730aa664ee887a46af94fcda74e1768, type: 3}
       propertyPath: m_Controller

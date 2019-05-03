@@ -61,11 +61,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 2840382505304573919}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 50
+  m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -235,6 +235,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1665908546146190988}
     m_Modifications:
+    - target: {fileID: 100048, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
+      propertyPath: m_Name
+      value: Idle_zombie
+      objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -279,10 +283,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100048, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
-      propertyPath: m_Name
-      value: Idle_zombie
-      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
       propertyPath: m_Controller
       value: 
@@ -312,6 +312,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1665908546146190988}
     m_Modifications:
+    - target: {fileID: 7253371942412690115, guid: 473244b2af67d7742bead05ae9ae98e1,
+        type: 3}
+      propertyPath: m_Name
+      value: HumanScanner
+      objectReference: {fileID: 0}
     - target: {fileID: 3257683339434440070, guid: 473244b2af67d7742bead05ae9ae98e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -366,11 +371,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7253371942412690115, guid: 473244b2af67d7742bead05ae9ae98e1,
-        type: 3}
-      propertyPath: m_Name
-      value: HumanScanner
       objectReference: {fileID: 0}
     - target: {fileID: 1582812863123882716, guid: 473244b2af67d7742bead05ae9ae98e1,
         type: 3}
