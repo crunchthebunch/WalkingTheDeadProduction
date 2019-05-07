@@ -12,7 +12,7 @@ public class MouseCursor : MonoBehaviour
 
     private void Awake()
     {
-        offSet = cursorSpriteCalculation.pivot;
+        offSet = cursorSpriteCalculation.pivot; // TODO Change to actual math instead of magic numbers
         offSet.y = 100f;
         SetMouseTextureToStandard();
     }
@@ -20,7 +20,7 @@ public class MouseCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO MAKE THIS NICER
+        // TODO MAKE THIS DIFFERENT
         // If left is clicked
         if (Input.GetMouseButtonDown(0))
         {
