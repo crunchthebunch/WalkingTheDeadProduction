@@ -9,6 +9,7 @@ public class SpellUI : MonoBehaviour
 {
     [SerializeField] string spellDescription;
     [SerializeField] double maxCoolDown = 1.0f;
+    AudioSource onCoolDownSound = null;
 
     Image coolDownImage;
     TextMeshProUGUI coolDownText;
@@ -24,6 +25,7 @@ public class SpellUI : MonoBehaviour
         coolDownRemaining = maxCoolDown;
         coolDownText = GetComponentInChildren<TextMeshProUGUI>();
         coolDownImage = FindChildImage();
+        onCoolDownSound = GetComponentInParent<AudioSource>();
     }
 
     private Image FindChildImage()
@@ -48,16 +50,15 @@ public class SpellUI : MonoBehaviour
         coolDownText.text = "";
     }
 
-    // FOR TESTING ONLY
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Put this on cooldown
             PutSpellOnCoolDown();
         }
     }
 
+    // Makes the UI
     public void PutSpellOnCoolDown()
     {
         if (!isOnCoolDown)
@@ -72,7 +73,13 @@ public class SpellUI : MonoBehaviour
         }
         else
         {
-            // Light up Border
+            // Play Sound
+            if (!onCoolDownSound.isPlaying)
+            {
+                onCoolDownSound.Play();
+            }
+                
+
         }
         
     }
