@@ -8,13 +8,6 @@ public class UIManager : MonoBehaviour
 {
 
     [SerializeField] GameObject spellDescription;
-    [SerializeField] Texture2D cursorTexture;
-    CursorMode cursorMode = CursorMode.Auto;
-
-    private void Awake()
-    {
-        Cursor.SetCursor(cursorTexture, Vector2.zero, cursorMode);
-    }
 
     public void ShowSpellDescription(SpellUI spell)
     {
