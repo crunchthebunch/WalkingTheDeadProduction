@@ -13,24 +13,28 @@ public class UIManager : MonoBehaviour
     {
         spellDescription.SetActive(true);
 
+        spell.HoverSpell();
+
         // Update the spell Text
         spellDescription.GetComponentInChildren<TextMeshProUGUI>().text = spell.SpellDescription;
     }
 
-    public void HideSpellDescription()
+    public void HideSpellDescription(SpellUI spell)
     {
         spellDescription.SetActive(false);
+
+        spell.StopHoveringSpell();
     }
 
-    public void ShowStatValue(StatTextUI stat)
+    public void ShowStatValue(StatUI stat)
     {
         // Make the value text visible
-        stat.gameObject.SetActive(true);
+        stat.DisplayValues(true);
     }
 
-    public void HideStatValue(StatTextUI stat)
+    public void HideStatValue(StatUI stat)
     {
         // Make value invisible
-        stat.gameObject.SetActive(false);
+        stat.DisplayValues(false);
     }
 }

@@ -11,7 +11,12 @@ public class SpellUI : MonoBehaviour
     [SerializeField] double maxCoolDown = 1.0f;
     AudioSource onCoolDownSound = null;
 
-    Image coolDownImage;
+    // Images
+    [SerializeField] Image standard = null;
+    [SerializeField] Image coolDown = null;
+    [SerializeField] Image hovered = null;
+
+
     TextMeshProUGUI coolDownText;
     double coolDownRemaining;
     bool isOnCoolDown = false;
@@ -24,29 +29,28 @@ public class SpellUI : MonoBehaviour
     {
         coolDownRemaining = maxCoolDown;
         coolDownText = GetComponentInChildren<TextMeshProUGUI>();
-        coolDownImage = FindChildImage();
         onCoolDownSound = GetComponentInParent<AudioSource>();
     }
 
-    private Image FindChildImage()
-    {
-        // Find all images
-        var imageComponents = GetComponentsInChildren<Image>();
-        Image foundImage = imageComponents[0];
+    //private Image FindChildImage()
+    //{
+    //    // Find all images
+    //    var imageComponents = GetComponentsInChildren<Image>();
+    //    Image foundImage = imageComponents[0];
 
-        // Find the first object that is from the child component and NOT the parent
-        foreach (Image image in imageComponents)
-        {
-            if (image.gameObject.name != gameObject.name)
-                foundImage = image;
-        }
+    //    // Find the first object that is from the child component and NOT the parent
+    //    foreach (Image image in imageComponents)
+    //    {
+    //        if (image.gameObject.name != gameObject.name)
+    //            foundImage = image;
+    //    }
 
-        return foundImage;
-    }
+    //    return foundImage;
+    //}
 
     private void Start()
     {
-        coolDownImage.fillAmount = 0.0f;
+        coolDown.fillAmount = 0.0f;
         coolDownText.text = "";
     }
 
@@ -58,13 +62,12 @@ public class SpellUI : MonoBehaviour
         }
     }
 
-    // Makes the UI
     public void PutSpellOnCoolDown()
     {
         if (!isOnCoolDown)
         {
             coolDownText.text = coolDownRemaining.ToString();
-            coolDownImage.fillAmount = 1.0f;
+            coolDown.fillAmount = 1.0f;
             isOnCoolDown = true;
 
             // Start Cooldown
@@ -78,10 +81,18 @@ public class SpellUI : MonoBehaviour
             {
                 onCoolDownSound.Play();
             }
-                
-
         }
         
+    }
+
+    public void HoverSpell()
+    {
+        hovered.gameObject.SetActive(true);
+    }
+
+    public void StopHoveringSpell()
+    {
+        hovered.gameObject.SetActive(false);
     }
 
     IEnumerator CoolDown()
@@ -92,7 +103,7 @@ public class SpellUI : MonoBehaviour
             coolDownRemaining -= Time.deltaTime;
 
             // Make cooldown visible
-            coolDownImage.fillAmount = (float)(coolDownRemaining / maxCoolDown);
+            coolDown.fillAmount = (float)(coolDownRemaining / maxCoolDown);
 
             // Show value with 1 decimal
             coolDownText.text = System.Math.Round(coolDownRemaining, 1).ToString();

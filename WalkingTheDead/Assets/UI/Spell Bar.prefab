@@ -321,7 +321,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2276212394180937932}
   - component: {fileID: 2276212394180937935}
-  - component: {fileID: 2276212394180937934}
   - component: {fileID: 2276212394180937933}
   - component: {fileID: 2276212394180937928}
   m_Layer: 5
@@ -358,35 +357,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2276212394180937923}
   m_CullTransparentMesh: 0
---- !u!114 &2276212394180937934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2276212394180937923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
 --- !u!114 &2276212394180937933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +417,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellDescription: Ultimate Spell Description
+  maxCoolDown: 1
+  standard: {fileID: 0}
+  coolDown: {fileID: 0}
+  hovered: {fileID: 0}
 --- !u!1 &2276212394303336319
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +431,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2276212394303336312}
   - component: {fileID: 2276212394303336260}
-  - component: {fileID: 2276212394303336315}
   - component: {fileID: 2276212394303336314}
   - component: {fileID: 2276212394303336313}
   m_Layer: 5
@@ -494,35 +467,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2276212394303336319}
   m_CullTransparentMesh: 0
---- !u!114 &2276212394303336315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2276212394303336319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
 --- !u!114 &2276212394303336314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +527,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellDescription: Spell 1 Description
+  maxCoolDown: 1
+  standard: {fileID: 0}
+  coolDown: {fileID: 0}
+  hovered: {fileID: 0}
 --- !u!1 &2276212394375737892
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +541,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2276212394375737893}
   - component: {fileID: 2276212394375737888}
-  - component: {fileID: 2276212394375737895}
   - component: {fileID: 2276212394375737894}
   - component: {fileID: 2276212394375737889}
   m_Layer: 5
@@ -630,35 +577,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2276212394375737892}
   m_CullTransparentMesh: 0
---- !u!114 &2276212394375737895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2276212394375737892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
 --- !u!114 &2276212394375737894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +637,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellDescription: Spell 2 Description
+  maxCoolDown: 1
+  standard: {fileID: 0}
+  coolDown: {fileID: 0}
+  hovered: {fileID: 0}
 --- !u!1 &2276212394740432204
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +651,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2276212394740432205}
   - component: {fileID: 2276212394740432200}
-  - component: {fileID: 2276212394740432207}
   - component: {fileID: 2276212394740432206}
   - component: {fileID: 2276212394740432201}
   m_Layer: 5
@@ -766,35 +687,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2276212394740432204}
   m_CullTransparentMesh: 0
---- !u!114 &2276212394740432207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2276212394740432204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
 --- !u!114 &2276212394740432206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,3 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellDescription: Spell 3 Description
+  maxCoolDown: 1
+  standard: {fileID: 0}
+  coolDown: {fileID: 0}
+  hovered: {fileID: 0}
