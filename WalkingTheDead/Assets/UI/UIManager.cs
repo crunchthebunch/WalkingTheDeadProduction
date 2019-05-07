@@ -22,13 +22,13 @@ public class UIManager : MonoBehaviour
         spellDescription.SetActive(false);
     }
 
-    public void ShowStatValue(StatUI stat)
+    public void ShowStatValue(StatTextUI stat)
     {
         // Make the value text visible
         stat.gameObject.SetActive(true);
     }
 
-    public void HideStatValue(StatUI stat)
+    public void HideStatValue(StatTextUI stat)
     {
         // Make value invisible
         stat.gameObject.SetActive(false);

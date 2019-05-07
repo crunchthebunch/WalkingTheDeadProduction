@@ -2,22 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class StatUI : MonoBehaviour
 {
     Slider slider;
-    TextMeshProUGUI text;
+    ParticleSystem glowEffect;
+    [SerializeField] float triggerValue = 0.3f;
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Awake()
     {
-        slider = GetComponentInParent<Slider>();
-        text = GetComponent<TextMeshProUGUI>();
+        slider = GetComponent<Slider>();
+        glowEffect = GetComponentInChildren<ParticleSystem>();
+
+        glowEffect.Pause(); // TODO Fix
     }
 
-    private void OnEnable()
+    // Update is called once per frame
+    void Update()
     {
-        text.text = (int)slider.value + "/" + (int)slider.maxValue;
+        // If the value is under the trigger value
+        if (slider.value / slider.maxValue < triggerValue)
+        {
+            
+            // Play Glow if it's not being played
+            if (!glowEffect.isPlaying)
+            {
+                print("Start Playing");
+                glowEffect.Play();
+            }
+        }
+        else
+        {
+            // Disable Emission
+            if (glowEffect.isPlaying) { glowEffect.Pause(); }
+        }
     }
 
     public void SetupStatUI(float currentValue, float maximumValue)
@@ -29,6 +48,12 @@ public class StatUI : MonoBehaviour
     public void SetCurrentValue(float newValue)
     {
         slider.value = newValue;
-    }
 
+        //// If the value is under the trigger value
+        //if (slider.value / slider.maxValue < triggerValue)
+        //{
+        //    // Play Glow if it's not being played
+        //    if (!glowEffect.isPlaying) { glowEffect.Play(); }
+        //}
+    }
 }
