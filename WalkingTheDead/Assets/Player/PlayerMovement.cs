@@ -18,6 +18,16 @@ public class PlayerMovement : MonoBehaviour
     bool soulCollectionActive;
     bool resurrectionActive;
 
+    private Vector2 horizontalInput;
+
+    public Camera cam;
+
+    private float angle = 0.0f;
+    private Quaternion targetRotation = Quaternion.identity;
+
+    public float turnSpeed = 4.0f;
+
+
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -29,19 +39,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        //float moveHorizontal = Input.GetAxis("Horizontal");
+        //float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = Vector3.zero;
-        movement.x = moveHorizontal;
-        movement.z = moveVertical;
+        //Vector3 movement = Vector3.zero;
+        //movement.x = moveHorizontal;
+        //movement.z = moveVertical;
 
-        if (movement != Vector3.zero)
-        {
-            transform.Translate(movement * walkSpeed * Time.deltaTime, Space.World);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-            tempQuaternion = transform.rotation;
-        }
+        //if (movement != Vector3.zero)
+        //{
+        //    transform.Translate(movement * walkSpeed * Time.deltaTime, Space.World);
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+        //    tempQuaternion = transform.rotation;
+        //}
 
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
@@ -89,8 +99,41 @@ public class PlayerMovement : MonoBehaviour
             resurrectionActive = false;
         }
 
+        GetInput();
 
+        if (Mathf.Abs(horizontalInput.x) < 1 && Mathf.Abs(horizontalInput.y) < 1)
+        {
+            return;
+        }
 
+        CalculateDirection();
+        Rotate();
+        Move();
+
+    }
+
+    void GetInput()
+    {
+        horizontalInput.x = Input.GetAxisRaw("Horizontal");
+        horizontalInput.y = Input.GetAxisRaw("Vertical");
+    }
+
+    void CalculateDirection()
+    {
+        angle = Mathf.Atan2(horizontalInput.x, horizontalInput.y);
+        angle = Mathf.Rad2Deg * angle;
+        angle += cam.transform.eulerAngles.y;
+    }
+
+    void Rotate()
+    {
+        targetRotation = Quaternion.Euler(0, angle, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
+    }
+
+    void Move()
+    {
+        transform.position += transform.forward * walkSpeed * Time.deltaTime;
     }
 
     private void OnDrawGizmos()

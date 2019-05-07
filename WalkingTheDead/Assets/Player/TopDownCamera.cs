@@ -6,23 +6,29 @@ using UnityEngine;
 public class TopDownCamera : MonoBehaviour
 {
     public Transform target;
-    public float height = 30.0f;
-    public float distance = 10.0f;
-    public float angle = 45.0f;
-    public float smoothing = 0.0f;
-    public float scrollspeed = 15.0f;
-    public float minScroll = 20.0f;
-    public float maxScroll = 30.0f;
-    public float rotationSpeed = 2.0f;
+    public float height;
+    public float distance;
+    public float angle;
+    public float smoothing;
+    public float scrollspeed;
+    public float minScroll;
+    public float maxScroll;
+    public float rotationSpeed;
 
     private Vector3 offset;
 
     private Vector3 refVelocity;
+    private float scroll;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        HandleCamera();
+        offset = new Vector3(target.position.x, target.position.y + height, target.position.z + distance);
+        transform.position = target.position + offset;
+        transform.LookAt(target.position);
+
+        //HandleCamera();
     }
 
     // Update is called once per frame
@@ -31,6 +37,8 @@ public class TopDownCamera : MonoBehaviour
         HandleCamera();
     }
 
+    
+
     protected virtual void HandleCamera()
     {
         if (!target)
@@ -38,14 +46,24 @@ public class TopDownCamera : MonoBehaviour
             return;
         }
 
+        transform.position = target.position + offset;
+        transform.LookAt(target.position);
+
+        scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+
+        height = Mathf.Clamp(height, minScroll, maxScroll);
+
+        height -= scroll * scrollspeed * 20.0f * Time.deltaTime;
+
+        offset.y = target.position.y + height;
 
         if (Input.GetMouseButton(2))
         {
             offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeed, Vector3.up) * offset;
-            transform.position = offset;
-            transform.LookAt(target.position);
         }
-        else
+
+        
+        /*else
         {
             // World Position Vector
             Vector3 worldPosition = (Vector3.forward * -distance) + (Vector3.up * height);
@@ -66,6 +84,6 @@ public class TopDownCamera : MonoBehaviour
             height -= scroll * scrollspeed * 20.0f * Time.deltaTime;
 
             offset = finalposition;
-        }
+        }*/
     }
 }

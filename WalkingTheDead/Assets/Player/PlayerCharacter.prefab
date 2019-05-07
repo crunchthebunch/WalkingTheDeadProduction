@@ -280,14 +280,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 8171068610250063899}
   height: 20
-  distance: 20
+  distance: 30
   angle: 45
   smoothing: 0
   scrollspeed: 15
   minScroll: 10
   maxScroll: 30
-  rotationSpeed: 2
-  player: {fileID: 8171068610250063899}
+  rotationSpeed: 5
 --- !u!1 &8534865592809802877
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +496,8 @@ MonoBehaviour:
   soulCollectionScanner: {fileID: 7657091367230827421}
   resurrectionScanner: {fileID: 4738058146021786283}
   radiusIncrease: 0.02
+  cam: {fileID: 4172635563701925910}
+  turnSpeed: 4
 --- !u!54 &1450907657992680204
 Rigidbody:
   m_ObjectHideFlags: 0
