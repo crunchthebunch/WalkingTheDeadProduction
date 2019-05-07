@@ -20,4 +20,15 @@ public class StatUI : MonoBehaviour
         text.text = (int)slider.value + "/" + (int)slider.maxValue;
     }
 
+    public void SetupStatUI(float currentValue, float maximumValue)
+    {
+        slider.value = currentValue;
+        slider.value = maximumValue;
+    }
+
+    public void SetCurrentValue(float newValue)
+    {
+        slider.value = newValue;
+    }
+
 }
