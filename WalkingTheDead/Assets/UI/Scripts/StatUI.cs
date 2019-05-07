@@ -8,7 +8,6 @@ public class StatUI : MonoBehaviour
     [SerializeField] float warningValue = 0.3f;
 
     Slider slider;
-    ParticleSystem.EmissionModule emissionModule;
     StatTextUI textUI;
     
 
@@ -16,7 +15,6 @@ public class StatUI : MonoBehaviour
     void Awake()
     {
         slider = GetComponent<Slider>();
-        emissionModule = GetComponentInChildren<ParticleSystem>().emission;
         textUI = GetComponentInChildren<StatTextUI>(true);
     }
 
@@ -41,16 +39,6 @@ public class StatUI : MonoBehaviour
 
     private void CheckForGlow()
     {
-        // If the value is under the trigger value
-        if (slider.value / slider.maxValue < warningValue)
-        {
-            emissionModule.enabled = true;
-        }
-        else
-        {
-            // Disable Emission
-            emissionModule.enabled = false;
-        }
     }
 
     public void DisplayValues(bool isDisplaying)
