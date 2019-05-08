@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+struct AnimationID
+{
+    public void SetupAnimation(string name)
+    {
+        this.name = name;
+        this.hashID = Animator.StringToHash(name);
+    }
+
+    string name;
+    int hashID;
+
+    public string Name { get => name; }
+    public int HashID { get => hashID; }
+}
 public class Villager : MonoBehaviour
 {
     [SerializeField] VillagerSettings settings = null;
@@ -12,8 +26,10 @@ public class Villager : MonoBehaviour
     NavMeshAgent agent;
     GameManager gameManager;
 
+    AnimationID idleAnimation;
+
     WanderVillagerBehaviour wanderBehaviour;
-    FleeVillagerBehaviour fleeBehaviour;
+    FleeBehaviour fleeBehaviour;
     MoveBackVillagerBehaviour moveBackBehaviour;
 
     
@@ -25,7 +41,7 @@ public class Villager : MonoBehaviour
     public VillagerSettings Settings { get => settings; }
     public Scanner ZombieScanner { get => zombieScanner; }
     public WanderVillagerBehaviour WanderBehaviour { get => wanderBehaviour; }
-    public FleeVillagerBehaviour FleeBehaviour { get => fleeBehaviour; }
+    public FleeBehaviour FleeBehaviour { get => fleeBehaviour; }
     public MoveBackVillagerBehaviour MoveBackBehaviour { get => moveBackBehaviour; }
 
     private void Awake()
@@ -43,7 +59,7 @@ public class Villager : MonoBehaviour
         wanderBehaviour = gameObject.AddComponent<WanderVillagerBehaviour>();
 
         // Add Flee Behaviour
-        fleeBehaviour = gameObject.AddComponent<FleeVillagerBehaviour>();
+        fleeBehaviour = gameObject.AddComponent<FleeBehaviour>();
 
         // Add Moving Back Behaviour
         moveBackBehaviour = gameObject.AddComponent<MoveBackVillagerBehaviour>();

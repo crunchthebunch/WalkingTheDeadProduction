@@ -52,7 +52,6 @@ public class DeadBodyResurrect : MonoBehaviour
     private void InstantiateZombie()
     {
         Instantiate(zombieSpawn, transform.position, transform.rotation);
-        gameManager.numberOFZombies += 1;
         //Destroy(resurrectParticle);
         Destroy(this.gameObject);
     }

@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MoveBackVillagerBehaviour : Behaviour
+public class MoveBackBehaviour : Behaviour
 {
-    Villager owner;
     NavMeshAgent agent;
-    VillagerSettings settings;
+    AISettings settings;
     Vector3 navigationCenter = Vector3.down;
     bool isTravelling = false;
 
     public bool IsTravelling { get => isTravelling; set => isTravelling = value; }
-    public Vector3 NavigationCenter { get => navigationCenter; }
+    public Vector3 NavigationCenter { get => navigationCenter; set => navigationCenter = value; }
 
     private void Awake()
     {
-        owner = GetComponent<Villager>();
-        agent = owner.Agent;
+        agent = GetComponent<NavMeshAgent>();
         navigationCenter = transform.position;
-        settings = owner.Settings;
     }
 
     public override void DoBehaviour()
@@ -30,4 +27,8 @@ public class MoveBackVillagerBehaviour : Behaviour
         agent.isStopped = false;
     }
 
+    public override void SetupBehaviour(AISettings settings)
+    {
+        this.settings = settings;
+    }
 }

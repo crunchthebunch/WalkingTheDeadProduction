@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Human/Villager/Actions/Flee")]
+[CreateAssetMenu(menuName = "AI/Actions/Flee")]
 public class FleeAction : Action
 {
     public override void Act(StateController controller)
@@ -13,9 +13,6 @@ public class FleeAction : Action
 
     private void Flee(StateController controller)
     {
-        // Access Villager State Controller functions
-        VillagerStateController villagerController = controller as VillagerStateController;
-
-        villagerController.Owner.FleeBehaviour.DoBehaviour();
+        controller.FleeBehaviour.DoBehaviour();
     }
 }

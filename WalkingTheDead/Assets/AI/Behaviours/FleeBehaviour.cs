@@ -3,43 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FleeVillagerBehaviour : Behaviour
+public class FleeBehaviour : Behaviour
 {
-    VillagerSettings settings;
-    Villager owner;
+    AISettings settings;
     NavMeshAgent agent;
-    Scanner zombieScanner;
-
+    Scanner scanner;
 
     private void Awake()
     {
-        owner = GetComponent<Villager>();
-        agent = owner.Agent;
-        zombieScanner = owner.ZombieScanner;
-        settings = owner.Settings;
+        agent = GetComponent<NavMeshAgent>();
+        scanner = GetComponentInChildren<Scanner>();
     }
 
     public override void DoBehaviour()
     {
-        // Keep Calculating New Flee routes until there are zombies around
-        if (owner.ZombieScanner.ObjectsInRange.Count > 0)
+        // Keep Calculating New Flee routes until there are enemies around
+        if (scanner.ObjectsInRange.Count > 0)
         {
-
             StopCoroutine(FleeFromClosestEnemy());
             StartCoroutine(FleeFromClosestEnemy());
         }
     }
 
+    public override void SetupBehaviour(AISettings settings)
+    {
+        this.settings = settings;
+    }
+
     Vector3 GetFleeDirection()
     {
-        // Get the closest one's location
+        // Get the closest enemy's location
         Vector3 fleeDirection = transform.forward;
-        GameObject closestZombie = zombieScanner.GetClosestTargetInRange();
+        GameObject closestEnemy = scanner.GetClosestTargetInRange();
 
-        if (closestZombie)
+        if (closestEnemy)
         {
             // Get a vector pointing towards you
-            fleeDirection = transform.position - closestZombie.transform.position;
+            fleeDirection = transform.position - closestEnemy.transform.position;
             fleeDirection.y = 0.0f;
             fleeDirection.Normalize();
         }
@@ -50,7 +50,7 @@ public class FleeVillagerBehaviour : Behaviour
     IEnumerator FleeFromClosestEnemy()
     {
         // Get the target position for the flee
-        Vector3 fleePosition = transform.position + (GetFleeDirection() * settings.FleeDistance);
+        Vector3 fleePosition = transform.position + (GetFleeDirection() * settings.RunSpeed);
 
         Debug.DrawLine(transform.position, fleePosition, Color.red);
 
@@ -58,11 +58,13 @@ public class FleeVillagerBehaviour : Behaviour
         if (agent.destination != fleePosition)
         {
             agent.destination = fleePosition;
-            agent.speed = settings.FleeSpeed;
+            agent.speed = settings.RunSpeed;
             agent.isStopped = false;
         }
 
         // Only change directions every 1 seconds
         yield return null;
     }
+
+    
 }

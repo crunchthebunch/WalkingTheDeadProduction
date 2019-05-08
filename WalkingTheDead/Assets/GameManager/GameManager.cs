@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
         healthBar.value = CalculateHealth();
         hungerBar.value = CalculateHunger();
-        numberOFZombies = FindObjectsOfType<Zombie>().Length;
+        //numberOFZombies = FindObjectsOfType<Zombie>().Length;
         click = Instantiate(clickSystemEffect, Vector3.zero, Quaternion.Euler(90.0f, 0.0f, 0.0f));
 
         groundLayerMask = LayerMask.GetMask("Ground");
@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
 
         particleEffectActive = false;
         mainCamera = GameObject.Find("PlayerCharacter/Camera").GetComponent<Camera>();
-
     }
 
     // Update is called once per frame
