@@ -8,6 +8,20 @@ public class UIManager : MonoBehaviour
 {
 
     [SerializeField] GameObject spellDescription;
+    PauseMenu pauseMenu;
+
+    private void Awake()
+    {
+        pauseMenu = GetComponentInChildren<PauseMenu>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePauseMenu();
+        }
+    }
 
     public void ShowSpellDescription(SpellUI spell)
     {
@@ -36,5 +50,20 @@ public class UIManager : MonoBehaviour
     {
         // Make value invisible
         stat.DisplayValues(false);
+    }
+
+    public void TogglePauseMenu()
+    {
+        // Show or Hide the Pause Menu
+        if (pauseMenu.MainCanvas.enabled)
+        {
+            pauseMenu.MainCanvas.enabled = false;
+        }
+        else
+        {
+            pauseMenu.MainCanvas.enabled = true;
+        }
+
+        
     }
 }
