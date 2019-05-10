@@ -92,9 +92,6 @@ public class MeleeSoldier : MonoBehaviour
 
         Instantiate(deadBodies[bodyIndex], deadPosition, transform.rotation);
 
-        // Simulate feeding
-        gameManager.DecreaseHungerLevel();
-
         soldierAudioSource.Play();
         // Kill yourself
         Destroy(gameObject);

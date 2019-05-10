@@ -12,8 +12,6 @@ public class DeadBodyResurrect : MonoBehaviour
 
     [SerializeField] GameObject zombieSpawn = null;
 
-    //public ParticleSystem resurrectParticle;
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,19 +26,16 @@ public class DeadBodyResurrect : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "PlayerCharacter")
+        if (other.gameObject.name == "ResurrectScanner")
         {
-            print("PLAYER DETECTED");
-            if (Input.GetKeyDown("e"))
-            {
-                anim.SetBool("isResurrecting", true);
+            Invoke("InstantiateZombie", 0.5f);
+        }
 
-                Invoke("setAnimationFalse", 2.0f);
-                Invoke("InstantiateZombie", 2.5f);
-
-            }
+        else if (other.gameObject.name == "SoulCollectionScanner")
+        {
+            Invoke("SoulCollected", 0.5f);
         }
     }
 
@@ -53,7 +48,11 @@ public class DeadBodyResurrect : MonoBehaviour
     {
         Instantiate(zombieSpawn, transform.position, transform.rotation);
         gameManager.numberOFZombies += 1;
-        //Destroy(resurrectParticle);
+        Destroy(this.gameObject);
+    }
+
+    private void SoulCollected()
+    {
         Destroy(this.gameObject);
     }
 }
