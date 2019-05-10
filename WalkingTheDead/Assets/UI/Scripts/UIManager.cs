@@ -17,9 +17,15 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        // Escape - Pause Menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePauseMenu();
+        }
+        // M - Show Map
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            ShowMap();
         }
     }
 
@@ -54,16 +60,30 @@ public class UIManager : MonoBehaviour
 
     public void TogglePauseMenu()
     {
-        // Show or Hide the Pause Menu
-        if (pauseMenu.MainCanvas.enabled)
+        // If already Paused
+        if (pauseMenu.ParentCanvas.enabled)
         {
-            pauseMenu.MainCanvas.enabled = false;
+            // Return to Game
+            pauseMenu.DisplayPauseMenu(false);
+            Time.timeScale = 1.0f;
         }
         else
         {
-            pauseMenu.MainCanvas.enabled = true;
+            // Show main screen
+            pauseMenu.DisplayPauseMenu(true);
+            pauseMenu.ShowMain();
+            Time.timeScale = 0.0f;
         }
+    }
 
-        
+    public void ShowMap()
+    {
+        // Allow hotkey in game mode (not in pause mode)
+        if (!pauseMenu.ParentCanvas.enabled)
+        {
+            pauseMenu.DisplayPauseMenu(true);
+            pauseMenu.ShowMap();
+            Time.timeScale = 0.0f;
+        }
     }
 }

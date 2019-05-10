@@ -4,19 +4,56 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    Canvas mainCanvas;
+    Canvas parentCanvas;
 
+    [SerializeField] Canvas mainCanvas;
+    [SerializeField] Canvas controlsCanvas;
+    [SerializeField] Canvas mapCanvas;
+
+    public Canvas ParentCanvas { get => parentCanvas; }
+    public Canvas ControlsCanvas { get => controlsCanvas; }
+    public Canvas MapCanvas { get => mapCanvas; }
     public Canvas MainCanvas { get => mainCanvas; }
 
     // Start is called before the first frame update
     void Awake()
     {
-        mainCanvas = GetComponent<Canvas>();
+        parentCanvas = GetComponent<Canvas>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowMain()
     {
-        
+        mainCanvas.enabled = true;
+        mapCanvas.enabled = false;
+        controlsCanvas.enabled = false;
+    }
+
+    public void ShowMap()
+    {
+        mapCanvas.enabled = true;
+        mainCanvas.enabled = false;
+        controlsCanvas.enabled = false;
+    }
+
+    public void ShowControls()
+    {
+        controlsCanvas.enabled = true;
+        mainCanvas.enabled = false;
+        mapCanvas.enabled = false;
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneLoader.LoadMainMenu();
+    }
+
+    public void DisplayPauseMenu(bool isDisplaying)
+    {
+        parentCanvas.enabled = isDisplaying;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
