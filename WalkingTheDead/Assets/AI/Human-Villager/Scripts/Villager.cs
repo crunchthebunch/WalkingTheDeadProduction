@@ -66,9 +66,6 @@ public class Villager : MonoBehaviour
 
         Instantiate(deadBodies[bodyIndex], deadPosition, transform.rotation);
 
-        // Simulate feeding
-        gameManager.DecreaseHungerLevel();
-
         // Kill yourself
         Destroy(gameObject);
     }

@@ -498,6 +498,11 @@ MonoBehaviour:
   radiusIncrease: 0.02
   cam: {fileID: 4172635563701925910}
   turnSpeed: 4
+  gameManager: {fileID: 8463295589053395098, guid: e626d149aef383e4fb5802cb154aff94,
+    type: 3}
+  meshRendererObject: {fileID: 1117903230868440511}
+  disguiseMaterial: {fileID: 2100000, guid: 9bc31c1b94de3c847b62002ebcd4abce, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 82af6db86c907524693a94a079df0112, type: 2}
 --- !u!54 &1450907657992680204
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -602,6 +607,12 @@ PrefabInstance:
 --- !u!4 &1117903230868347329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400046, guid: 0730aa664ee887a46af94fcda74e1768,
+    type: 3}
+  m_PrefabInstance: {fileID: 1117903230868472687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1117903230868440511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100048, guid: 0730aa664ee887a46af94fcda74e1768,
     type: 3}
   m_PrefabInstance: {fileID: 1117903230868472687}
   m_PrefabAsset: {fileID: 0}

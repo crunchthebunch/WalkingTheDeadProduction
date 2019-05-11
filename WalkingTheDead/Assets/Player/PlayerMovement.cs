@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     bool soulCollectionActive;
     bool resurrectionActive;
 
+    bool disguiseSpellActive;
+
     private Vector2 horizontalInput;
 
     public Camera cam;
@@ -27,6 +29,14 @@ public class PlayerMovement : MonoBehaviour
 
     public float turnSpeed = 4.0f;
 
+    public GameManager gameManager;
+
+    public GameObject meshRendererObject;
+    SkinnedMeshRenderer skinnedMeshRenderer;
+    public Material disguiseMaterial;
+    public Material defaultMaterial;
+
+
 
     private void Awake()
     {
@@ -34,25 +44,16 @@ public class PlayerMovement : MonoBehaviour
 
         soulCollectionActive = false;
         resurrectionActive = false;
+        disguiseSpellActive = false;
+
+        skinnedMeshRenderer = meshRendererObject.GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //float moveHorizontal = Input.GetAxis("Horizontal");
-        //float moveVertical = Input.GetAxis("Vertical");
 
-        //Vector3 movement = Vector3.zero;
-        //movement.x = moveHorizontal;
-        //movement.z = moveVertical;
-
-        //if (movement != Vector3.zero)
-        //{
-        //    transform.Translate(movement * walkSpeed * Time.deltaTime, Space.World);
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-        //    tempQuaternion = transform.rotation;
-        //}
-
+        // Animation booleans for Animator
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             anim.SetBool("isWalking", true);
@@ -61,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
         }
-
 
         // Soul Collection Sphere
         if (Input.GetKey("e") && !resurrectionActive && soulCollectionScanner.radius <= 10.0f)
@@ -98,6 +98,24 @@ public class PlayerMovement : MonoBehaviour
         {
             resurrectionActive = false;
         }
+
+        // Disguise Spell
+        if (Input.GetKeyUp("1") && disguiseSpellActive == false && gameManager.manaValue > 0.0f)
+        {
+            this.tag = "Disguise";
+            gameManager.disguiseManaCostActive = true;
+            skinnedMeshRenderer.material = disguiseMaterial;
+            disguiseSpellActive = true;
+            
+        }
+        else if (Input.GetKeyUp("1") && disguiseSpellActive == true || gameManager.manaValue <= 0.0f)
+        {
+            this.tag = "Necromancer";
+            gameManager.disguiseManaCostActive = false;
+            skinnedMeshRenderer.material = defaultMaterial;
+            disguiseSpellActive = false;
+        }
+
 
         GetInput();
 
