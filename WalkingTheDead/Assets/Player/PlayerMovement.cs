@@ -13,12 +13,16 @@ public class PlayerMovement : MonoBehaviour
 
     public SphereCollider soulCollectionScanner;
     public SphereCollider resurrectionScanner;
+    public SphereCollider fearScanner;
     public float radiusIncrease;
 
     bool soulCollectionActive;
     bool resurrectionActive;
 
     bool disguiseSpellActive;
+    bool fearSpellActive;
+    bool zombieSpellActive;
+    bool mendFleshSpellActive;
 
     private Vector2 horizontalInput;
 
@@ -45,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
         soulCollectionActive = false;
         resurrectionActive = false;
         disguiseSpellActive = false;
+        fearSpellActive = false;
+        zombieSpellActive = false;
+        mendFleshSpellActive = false;
 
         skinnedMeshRenderer = meshRendererObject.GetComponent<SkinnedMeshRenderer>();
     }
@@ -87,11 +94,13 @@ public class PlayerMovement : MonoBehaviour
             resurrectionScanner.radius += radiusIncrease;
             resurrectionActive = true;
             anim.SetBool("isWalking", false);
+            anim.SetBool("isResurrecting", true);
             walkSpeed = 0.0f;
         }
         else if (!Input.GetKey("r") && resurrectionScanner.radius > 0.0f)
         {
             resurrectionScanner.radius -= (radiusIncrease * 3);
+            anim.SetBool("isResurrecting", false);
             walkSpeed = 3.0f;
         }
         else if (resurrectionScanner.radius <= 0.0f)
@@ -114,6 +123,12 @@ public class PlayerMovement : MonoBehaviour
             gameManager.disguiseManaCostActive = false;
             skinnedMeshRenderer.material = defaultMaterial;
             disguiseSpellActive = false;
+        }
+
+        else if (Input.GetKeyUp("2") && gameManager.manaValue > 20.0f)
+        {
+            fearSpellActive = true;
+
         }
 
 
