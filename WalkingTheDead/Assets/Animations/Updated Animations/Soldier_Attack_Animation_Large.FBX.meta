@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 4e29ae69ef7082241a03e2162149d084
+guid: cc731d0637deb974783e2d6a350f75cc
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ResurrectAnim
+    second: Take 001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ResurrectAnim
+      name: Take 001
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 50
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
