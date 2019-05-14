@@ -566,5 +566,35 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4359641502350668399, guid: 9c9d47420d818a548bf6e03774223ea9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840174911454822520, guid: 9c9d47420d818a548bf6e03774223ea9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840174911454822520, guid: 9c9d47420d818a548bf6e03774223ea9,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840174911454822520, guid: 9c9d47420d818a548bf6e03774223ea9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840174911454822520, guid: 9c9d47420d818a548bf6e03774223ea9,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840174911454822520, guid: 9c9d47420d818a548bf6e03774223ea9,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9d47420d818a548bf6e03774223ea9, type: 3}
