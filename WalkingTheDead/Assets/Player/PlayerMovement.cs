@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public SphereCollider resurrectionScanner;
     public SphereCollider fearScanner;
     public float radiusIncrease;
+    public ParticleSystem smoke;
+    public ParticleSystem pentagram;
 
     bool soulCollectionActive;
     bool resurrectionActive;
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     bool fearSpellActive;
     bool zombieSpellActive;
     bool mendFleshSpellActive;
-
+    bool pentagramPlaying;
     private Vector2 horizontalInput;
 
     public Camera cam;
@@ -34,13 +36,6 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 4.0f;
 
     public GameManager gameManager;
-
-    public GameObject meshRendererObject;
-    SkinnedMeshRenderer skinnedMeshRenderer;
-    public Material disguiseMaterial;
-    public Material defaultMaterial;
-
-
 
     private void Awake()
     {
@@ -53,7 +48,10 @@ public class PlayerMovement : MonoBehaviour
         zombieSpellActive = false;
         mendFleshSpellActive = false;
 
-        skinnedMeshRenderer = meshRendererObject.GetComponent<SkinnedMeshRenderer>();
+        pentagram.Stop();
+        pentagramPlaying = false;
+
+        smoke.Stop();
     }
 
     // Update is called once per frame
@@ -92,6 +90,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("r") && !soulCollectionActive && resurrectionScanner.radius <= 10.0f)
         {
             resurrectionScanner.radius += radiusIncrease;
+            //if (!pentagramPlaying)
+            //{
+            //    pentagram.Play();
+            //    pentagramPlaying = true;
+            //}
+            
             resurrectionActive = true;
             anim.SetBool("isWalking", false);
             anim.SetBool("isResurrecting", true);
@@ -100,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
         else if (!Input.GetKey("r") && resurrectionScanner.radius > 0.0f)
         {
             resurrectionScanner.radius -= (radiusIncrease * 3);
+            //pentagram.Stop();
+            pentagramPlaying = false;
             anim.SetBool("isResurrecting", false);
             walkSpeed = 3.0f;
         }
@@ -113,23 +119,23 @@ public class PlayerMovement : MonoBehaviour
         {
             this.tag = "Disguise";
             gameManager.disguiseManaCostActive = true;
-            skinnedMeshRenderer.material = disguiseMaterial;
+            smoke.Play();
             disguiseSpellActive = true;
-            
+
         }
         else if (Input.GetKeyUp("1") && disguiseSpellActive == true || gameManager.manaValue <= 0.0f)
         {
             this.tag = "Necromancer";
             gameManager.disguiseManaCostActive = false;
-            skinnedMeshRenderer.material = defaultMaterial;
+            smoke.Stop();
             disguiseSpellActive = false;
         }
 
         else if (Input.GetKeyUp("2") && gameManager.manaValue > 20.0f)
         {
             fearSpellActive = true;
-
-        }
+            pentagram.Play();
+        }        
 
 
         GetInput();
@@ -147,8 +153,8 @@ public class PlayerMovement : MonoBehaviour
 
     void GetInput()
     {
-        horizontalInput.x = Input.GetAxisRaw("Horizontal");
-        horizontalInput.y = Input.GetAxisRaw("Vertical");
+        horizontalInput.x = Input.GetAxis("Horizontal");
+        horizontalInput.y = Input.GetAxis("Vertical");
     }
 
     void CalculateDirection()
