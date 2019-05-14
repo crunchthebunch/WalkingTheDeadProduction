@@ -13,11 +13,19 @@ public class PlayerMovement : MonoBehaviour
 
     public SphereCollider soulCollectionScanner;
     public SphereCollider resurrectionScanner;
+    public SphereCollider fearScanner;
     public float radiusIncrease;
+    public ParticleSystem smoke;
+    public ParticleSystem pentagram;
 
     bool soulCollectionActive;
     bool resurrectionActive;
 
+    bool disguiseSpellActive;
+    bool fearSpellActive;
+    bool zombieSpellActive;
+    bool mendFleshSpellActive;
+    bool pentagramPlaying;
     private Vector2 horizontalInput;
 
     public Camera cam;
@@ -27,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float turnSpeed = 4.0f;
 
+    public GameManager gameManager;
 
     private void Awake()
     {
@@ -34,25 +43,22 @@ public class PlayerMovement : MonoBehaviour
 
         soulCollectionActive = false;
         resurrectionActive = false;
+        disguiseSpellActive = false;
+        fearSpellActive = false;
+        zombieSpellActive = false;
+        mendFleshSpellActive = false;
+
+        pentagram.Stop();
+        pentagramPlaying = false;
+
+        smoke.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //float moveHorizontal = Input.GetAxis("Horizontal");
-        //float moveVertical = Input.GetAxis("Vertical");
 
-        //Vector3 movement = Vector3.zero;
-        //movement.x = moveHorizontal;
-        //movement.z = moveVertical;
-
-        //if (movement != Vector3.zero)
-        //{
-        //    transform.Translate(movement * walkSpeed * Time.deltaTime, Space.World);
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-        //    tempQuaternion = transform.rotation;
-        //}
-
+        // Animation booleans for Animator
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             anim.SetBool("isWalking", true);
@@ -61,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
         }
-
 
         // Soul Collection Sphere
         if (Input.GetKey("e") && !resurrectionActive && soulCollectionScanner.radius <= 10.0f)
@@ -85,19 +90,53 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("r") && !soulCollectionActive && resurrectionScanner.radius <= 10.0f)
         {
             resurrectionScanner.radius += radiusIncrease;
+            //if (!pentagramPlaying)
+            //{
+            //    pentagram.Play();
+            //    pentagramPlaying = true;
+            //}
+            
             resurrectionActive = true;
             anim.SetBool("isWalking", false);
+            anim.SetBool("isResurrecting", true);
             walkSpeed = 0.0f;
         }
         else if (!Input.GetKey("r") && resurrectionScanner.radius > 0.0f)
         {
             resurrectionScanner.radius -= (radiusIncrease * 3);
+            //pentagram.Stop();
+            pentagramPlaying = false;
+            anim.SetBool("isResurrecting", false);
             walkSpeed = 3.0f;
         }
         else if (resurrectionScanner.radius <= 0.0f)
         {
             resurrectionActive = false;
         }
+
+        // Disguise Spell
+        if (Input.GetKeyUp("1") && disguiseSpellActive == false && gameManager.manaValue > 0.0f)
+        {
+            this.tag = "Disguise";
+            gameManager.disguiseManaCostActive = true;
+            smoke.Play();
+            disguiseSpellActive = true;
+
+        }
+        else if (Input.GetKeyUp("1") && disguiseSpellActive == true || gameManager.manaValue <= 0.0f)
+        {
+            this.tag = "Necromancer";
+            gameManager.disguiseManaCostActive = false;
+            smoke.Stop();
+            disguiseSpellActive = false;
+        }
+
+        else if (Input.GetKeyUp("2") && gameManager.manaValue > 20.0f)
+        {
+            fearSpellActive = true;
+            pentagram.Play();
+        }        
+
 
         GetInput();
 
@@ -114,8 +153,8 @@ public class PlayerMovement : MonoBehaviour
 
     void GetInput()
     {
-        horizontalInput.x = Input.GetAxisRaw("Horizontal");
-        horizontalInput.y = Input.GetAxisRaw("Vertical");
+        horizontalInput.x = Input.GetAxis("Horizontal");
+        horizontalInput.y = Input.GetAxis("Vertical");
     }
 
     void CalculateDirection()
