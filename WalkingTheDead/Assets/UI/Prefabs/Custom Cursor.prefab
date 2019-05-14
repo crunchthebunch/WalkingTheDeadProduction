@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70c2bb5d3534e541b61e340e61a3311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorSpriteCalculation: {fileID: 21300000, guid: 0d0396315a276df4ebdf1c2bded112ca,
+  cursorSpriteCalculation: {fileID: 21300000, guid: 6b7b0dd2960cc3c41bfa44cffec201a4,
     type: 3}
-  standardCursor: {fileID: 2800000, guid: b02136b466a05f043b4e50872dc17242, type: 3}
-  clickedCursor: {fileID: 2800000, guid: b5c84cab07d916d4d9cae361a5892ffd, type: 3}
+  standardCursor: {fileID: 2800000, guid: 0d15d6da87b72504aa2f0c0b8e0dcabe, type: 3}
+  clickedCursor: {fileID: 2800000, guid: fcfaa8ef693e64248b60b1b5fb61c6d8, type: 3}
   cursorMode: 0
   offSet: {x: 0, y: 0}
