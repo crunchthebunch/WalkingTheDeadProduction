@@ -787,6 +787,11 @@ PrefabInstance:
       propertyPath: InitialModule.startLifetime.scalar
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1879824312924036032, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17, type: 3}
 --- !u!4 &2743204316981723904 stripped
@@ -971,7 +976,7 @@ PrefabInstance:
     - target: {fileID: 4253673845352270777, guid: 2651f0c89be277b4ba9bdd3375517e8b,
         type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2651f0c89be277b4ba9bdd3375517e8b, type: 3}

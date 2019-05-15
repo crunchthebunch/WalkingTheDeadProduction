@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public int numberOFZombies;
     bool isPlayerTarget;
 
-    public Slider healthBar;
-    public Slider manaBar;
+    //public Slider healthBar;
+    //public Slider manaBar;
 
     bool particleEffectActive;
     float particleEffectCounter;
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         manaValue = maxMana;
         isPlayerTarget = false;
 
-        healthBar.value = CalculateHealth();
+        //healthBar.value = CalculateHealth();
         //manaBar.value = CalculateMana();
 
         numberOFZombies = FindObjectsOfType<Zombie>().Length;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        healthBar.value = CalculateHealth();
+        //healthBar.value = CalculateHealth();
 
             // Else don't target him
             isPlayerTarget = false;
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             PlayParticleEffect();
         }
 
-        numberOfZombiesUI.text = numberOFZombies.ToString();
+        //numberOfZombiesUI.text = numberOFZombies.ToString();
 
         disguiseSpellActive();
     }
