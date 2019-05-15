@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     LoadSceneOnClick sceneLoader;
     PlayerMovement necromancer;
 
+    public bool disguiseManaCostActive;
+
     public ParticleSystem clickSystemEffect;
     Camera mainCamera;
 
@@ -37,11 +39,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         playerHealth = maxHealth;
-        manaValue = 0.0f;
+        manaValue = maxMana;
         isPlayerTarget = false;
 
         healthBar.value = CalculateHealth();
-        manaBar.value = CalculateMana();
+        //manaBar.value = CalculateMana();
 
         numberOFZombies = FindObjectsOfType<Zombie>().Length;
         click = Instantiate(clickSystemEffect, Vector3.zero, Quaternion.Euler(90.0f, 0.0f, 0.0f));
@@ -71,6 +73,8 @@ public class GameManager : MonoBehaviour
         }
 
         numberOfZombiesUI.text = numberOFZombies.ToString();
+
+        disguiseSpellActive();
     }
 
 
@@ -118,5 +122,13 @@ public class GameManager : MonoBehaviour
     float CalculateMana()
     {
         return manaValue / maxMana;
+    }
+
+    void disguiseSpellActive()
+    {
+        if (disguiseManaCostActive)
+        {
+            manaValue -= 0.0001f;
+        }
     }
 }

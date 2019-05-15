@@ -130,7 +130,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1766a306d8bd1e748ba4eb0571d8f4b7, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -235,6 +235,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1665908546146190988}
     m_Modifications:
+    - target: {fileID: 100048, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
+      propertyPath: m_Name
+      value: Idle_zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 100048, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -279,10 +287,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100048, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
-      propertyPath: m_Name
-      value: Idle_zombie
-      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
       propertyPath: m_Controller
       value: 
@@ -312,6 +316,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1665908546146190988}
     m_Modifications:
+    - target: {fileID: 7253371942412690115, guid: 473244b2af67d7742bead05ae9ae98e1,
+        type: 3}
+      propertyPath: m_Name
+      value: HumanScanner
+      objectReference: {fileID: 0}
     - target: {fileID: 3257683339434440070, guid: 473244b2af67d7742bead05ae9ae98e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -366,11 +375,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7253371942412690115, guid: 473244b2af67d7742bead05ae9ae98e1,
-        type: 3}
-      propertyPath: m_Name
-      value: HumanScanner
       objectReference: {fileID: 0}
     - target: {fileID: 1582812863123882716, guid: 473244b2af67d7742bead05ae9ae98e1,
         type: 3}
