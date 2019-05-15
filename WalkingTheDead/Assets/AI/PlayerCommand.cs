@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerCommand : MonoBehaviour
 {
     Camera mainCamera;
-    Camera testCamera;
-    Scanner zombieScanner;
 
     LayerMask groundLayer;
 
@@ -16,17 +14,10 @@ public class PlayerCommand : MonoBehaviour
     public delegate void ClickAction(Vector3 position, bool followPlayer);
     public static event ClickAction Click;
 
-    void Start()
-    {
-        zombieScanner.SetupScanner("Zombie", 20f);
-    }
-
     private void Awake()
     {
-        zombieScanner = GetComponentInChildren<Scanner>();
         groundLayer = LayerMask.GetMask("Ground");
         mainCamera = GetComponentInChildren<Camera>();
-        if(mainCamera == null) mainCamera = GameObject.Find("TestCamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
