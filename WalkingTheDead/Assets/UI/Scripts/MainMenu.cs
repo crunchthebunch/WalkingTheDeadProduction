@@ -1,42 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject book = null;
+    [SerializeField] NecromancerMainMenu necromancer = null;
+    [SerializeField] float startDelay = 2.0f;
+    [SerializeField] AudioClip menuClickSound = null;
+    [SerializeField] AudioClip menuHoverSound = null;
+    [SerializeField] GameObject buttons = null;
+    Animator buttonAnimator;
+    AudioSource audioSource;
+
 
     private void Awake()
     {
-        StopCoroutine(RotateBook());
-        StartCoroutine(RotateBook());
-    }
-
-    IEnumerator RotateBook()
-    {
-        while (true)
-        {
-            Vector3 rotation = transform.rotation.eulerAngles;
-            rotation.y += Time.deltaTime * 10f;
-
-            book.transform.Rotate(rotation);
-
-            yield return null;
-        }
+        audioSource = GetComponent<AudioSource>();
+        buttonAnimator = buttons.GetComponent<Animator>();  
     }
 
     public void StartGame()
     {
-        SceneLoader.LoadTutorial();
-    }
+        // Make Necromancer Stand up
+        necromancer.StandUp(5.0f);
 
-    public void LoadCredits()
-    {
-        SceneLoader.LoadCredits();
+        // Play Sound
+        audioSource.PlayOneShot(menuClickSound);
+
+        // Move Menu Down
+        buttonAnimator.SetTrigger("MoveDown");
+
+        // Start Game with Delay
+        StopCoroutine(WaitSeconds(startDelay));
+        StartCoroutine(WaitSeconds(startDelay));
     }
 
     public void QuitGame()
     {
+        // Play Sound
+        audioSource.PlayOneShot(menuClickSound);
+
         Application.Quit();
+    }
+
+    IEnumerator WaitSeconds(float seconds)
+    {
+        print("Waiting for " + seconds + " seconds.");
+        yield return new WaitForSeconds(seconds);
+
+        SceneLoader.LoadLevel0();
     }
 }

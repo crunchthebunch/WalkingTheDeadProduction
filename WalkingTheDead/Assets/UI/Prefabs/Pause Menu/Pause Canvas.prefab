@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3670886410243294585}
   - component: {fileID: 5909530560444607879}
   - component: {fileID: 2288221828653859162}
+  - component: {fileID: 6419031625313431687}
   m_Layer: 5
   m_Name: Pause Canvas
   m_TagString: Untagged
@@ -119,6 +120,103 @@ MonoBehaviour:
   mainCanvas: {fileID: 7171186925954709239}
   controlsCanvas: {fileID: 8188729897758489302}
   mapCanvas: {fileID: 779782033560128776}
+  pageTurnSound: {fileID: 8300000, guid: 1fa2f09bc57e86e4bafd3eaa4770c858, type: 3}
+--- !u!82 &6419031625313431687
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88083600114800404}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1fa2f09bc57e86e4bafd3eaa4770c858, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3701282020614105742
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.19000244, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2415098197877281703
@@ -204,6 +302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Controls Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292458910092915449, guid: 85a50078fafd5e346ad24589945bed70,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2475556482792868679, guid: 85a50078fafd5e346ad24589945bed70,
         type: 3}
@@ -341,6 +444,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minimap Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 596187313792327696, guid: bbe9ba06770660c4daa1f92de3e4b303,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6138094855581042759, guid: bbe9ba06770660c4daa1f92de3e4b303,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -476,6 +584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Background Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588249843611259439, guid: bc81811f6468dc0468d30fda88d54cd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7133128260311593301, guid: bc81811f6468dc0468d30fda88d54cd8,
         type: 3}
@@ -621,6 +734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007182202177768218, guid: 7419ed78736c9e94bb182a46a47e5c08,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6206324966371267054, guid: 7419ed78736c9e94bb182a46a47e5c08,
         type: 3}
