@@ -32,34 +32,10 @@ public class SpellUI : MonoBehaviour
         onCoolDownSound = GetComponentInParent<AudioSource>();
     }
 
-    //private Image FindChildImage()
-    //{
-    //    // Find all images
-    //    var imageComponents = GetComponentsInChildren<Image>();
-    //    Image foundImage = imageComponents[0];
-
-    //    // Find the first object that is from the child component and NOT the parent
-    //    foreach (Image image in imageComponents)
-    //    {
-    //        if (image.gameObject.name != gameObject.name)
-    //            foundImage = image;
-    //    }
-
-    //    return foundImage;
-    //}
-
     private void Start()
     {
         coolDown.fillAmount = 0.0f;
         coolDownText.text = "";
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PutSpellOnCoolDown();
-        }
     }
 
     public void PutSpellOnCoolDown()

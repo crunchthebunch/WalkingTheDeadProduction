@@ -10,6 +10,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] Canvas controlsCanvas;
     [SerializeField] Canvas mapCanvas;
 
+    [SerializeField] AudioClip pageTurnSound;
+
+    AudioSource audioSource;
+    
+
     public Canvas ParentCanvas { get => parentCanvas; }
     public Canvas ControlsCanvas { get => controlsCanvas; }
     public Canvas MapCanvas { get => mapCanvas; }
@@ -19,6 +24,7 @@ public class PauseMenu : MonoBehaviour
     void Awake()
     {
         parentCanvas = GetComponent<Canvas>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ShowMain()
@@ -26,6 +32,7 @@ public class PauseMenu : MonoBehaviour
         mainCanvas.enabled = true;
         mapCanvas.enabled = false;
         controlsCanvas.enabled = false;
+        audioSource.PlayOneShot(pageTurnSound);
     }
 
     public void ShowMap()
@@ -33,6 +40,7 @@ public class PauseMenu : MonoBehaviour
         mapCanvas.enabled = true;
         mainCanvas.enabled = false;
         controlsCanvas.enabled = false;
+        audioSource.PlayOneShot(pageTurnSound);
     }
 
     public void ShowControls()
@@ -40,6 +48,7 @@ public class PauseMenu : MonoBehaviour
         controlsCanvas.enabled = true;
         mainCanvas.enabled = false;
         mapCanvas.enabled = false;
+        audioSource.PlayOneShot(pageTurnSound);
     }
 
     public void LoadMainMenu()
