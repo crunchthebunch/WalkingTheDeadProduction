@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public static class SceneLoader
 {
+    static public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     static public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");

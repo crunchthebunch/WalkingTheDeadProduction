@@ -421,6 +421,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spell Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 5929258158546480357, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2462344199705168445, guid: fa6d067c86cb3f1478ff2451d2295566,
         type: 3}
       propertyPath: m_LocalPosition.x
