@@ -83,7 +83,6 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (followPlayer && !gameManager.IsPlayerTarget) desiredPosition = player.transform.position;
 
         // Charging
         if (agent.speed == settings.ChaseSpeed)
@@ -105,31 +104,6 @@ public class Zombie : MonoBehaviour
             anim.SetBool("Walking", false);
         }
 
-        // Make player a target if needed
-        ReactToHungerLevel();
-    }
-
-    private void ReactToHungerLevel()
-    {
-        // Check if the hunger level is big enough
-        if (gameManager.IsPlayerTarget)
-        {
-            // Check if player is already added to the list
-            if (!humanScanner.ObjectsInRange.Contains(player))
-            {
-                // If not, add it
-                humanScanner.ObjectsInRange.Add(player);
-            }
-        }
-        else
-        {
-            // Check if player is still in the container
-            if (humanScanner.ObjectsInRange.Contains(player))
-            {
-                // If so remove it
-                humanScanner.ObjectsInRange.Remove(player);
-            }
-        }
     }
 
     private void OnEnable()

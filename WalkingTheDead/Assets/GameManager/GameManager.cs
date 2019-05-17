@@ -15,13 +15,10 @@ public class GameManager : MonoBehaviour
     public int numberOFZombies;
     bool isPlayerTarget;
 
-    //public Slider healthBar;
-    //public Slider manaBar;
+    public StatUI healthUI, manaUI;
 
     bool particleEffectActive;
-    float particleEffectCounter;
 
-    public TextMeshProUGUI numberOfZombiesUI;
     LayerMask groundLayerMask;
     ParticleSystem click;
     LoadSceneOnClick sceneLoader;
@@ -32,20 +29,13 @@ public class GameManager : MonoBehaviour
     public ParticleSystem clickSystemEffect;
     Camera mainCamera;
 
-    // Zombies can target the player
-    public bool IsPlayerTarget { get => isPlayerTarget; }
-
     // Start is called before the first frame update
     void Awake()
     {
         playerHealth = maxHealth;
-        manaValue = maxMana;
+        manaValue = 0.0f;
         isPlayerTarget = false;
 
-        //healthBar.value = CalculateHealth();
-        //manaBar.value = CalculateMana();
-
-        numberOFZombies = FindObjectsOfType<Zombie>().Length;
         click = Instantiate(clickSystemEffect, Vector3.zero, Quaternion.Euler(90.0f, 0.0f, 0.0f));
 
         groundLayerMask = LayerMask.GetMask("Ground");
@@ -57,24 +47,25 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        healthUI.SetupStatUI(30.0f, playerHealth, maxHealth);
+        manaUI.SetupStatUI(30.0f, manaValue, maxMana);
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-        //healthBar.value = CalculateHealth();
-
-            // Else don't target him
-            isPlayerTarget = false;
-
 
         if (Input.GetMouseButtonDown(0))
         {
             PlayParticleEffect();
         }
 
-        //numberOfZombiesUI.text = numberOFZombies.ToString();
-
         disguiseSpellActive();
+
+        healthUI.SetCurrentValue(playerHealth);
+        manaUI.SetCurrentValue(manaValue);
     }
 
 
@@ -90,13 +81,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SpawnSoldiersAroundPlayer()
-    {
-        // Find 10 positions around Player
-        // Instantiate 10 soldiers around him
-        // Set these soldier's destination to go against the player
-    }
-
     void PlayParticleEffect()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -107,10 +91,6 @@ public class GameManager : MonoBehaviour
         {
                 click.transform.position = hitInfo.point;
                 click.Play();
-        }
-        else
-        {
-
         }
     }
 
@@ -128,7 +108,7 @@ public class GameManager : MonoBehaviour
     {
         if (disguiseManaCostActive)
         {
-            manaValue -= 0.0001f;
+            manaValue -= 0.01f;
         }
     }
 }

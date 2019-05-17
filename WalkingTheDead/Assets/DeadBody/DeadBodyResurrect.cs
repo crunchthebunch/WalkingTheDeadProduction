@@ -10,6 +10,9 @@ public class DeadBodyResurrect : MonoBehaviour
 
     GameObject playerObject = null;
 
+    public ParticleSystem soulParticle;
+    public ParticleSystem resurrectParticle;
+
     [SerializeField] GameObject zombieSpawn = null;
 
     // Start is called before the first frame update
@@ -30,12 +33,16 @@ public class DeadBodyResurrect : MonoBehaviour
     {
         if (other.gameObject.name == "ResurrectScanner")
         {
-            Invoke("InstantiateZombie", 0.5f);
+            resurrectParticle.Play();
+            
+            Invoke("InstantiateZombie", 3.5f);
         }
 
         else if (other.gameObject.name == "SoulCollectionScanner")
         {
-            Invoke("SoulCollected", 0.5f);
+            soulParticle.Play();
+            
+            Invoke("SoulCollected", 2.5f);
         }
     }
 
@@ -53,6 +60,7 @@ public class DeadBodyResurrect : MonoBehaviour
 
     private void SoulCollected()
     {
+        gameManager.manaValue += 20.0f;
         Destroy(this.gameObject);
     }
 }

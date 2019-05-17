@@ -17,6 +17,16 @@ public class PlayerMovement : MonoBehaviour
     public float radiusIncrease;
     public ParticleSystem smoke;
     public ParticleSystem pentagram;
+    public ParticleSystem resurrectParticle;
+    public ParticleSystem soulRingParticle;
+
+    public SpellUI FearUI;
+    public SpellUI DisguiseUI;
+    public SpellUI BigBoiUI;
+
+    public float FearCooldown = 5.0f;
+    public float DisguiseCooldown = 3.0f;
+    public float BigBoiCooldown = 3.0f;
 
     bool soulCollectionActive;
     bool resurrectionActive;
@@ -26,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     bool zombieSpellActive;
     bool mendFleshSpellActive;
     bool pentagramPlaying;
+
     private Vector2 horizontalInput;
 
     public Camera cam;
@@ -35,11 +46,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float turnSpeed = 4.0f;
 
-    public GameManager gameManager;
+    GameManager gameManager;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         soulCollectionActive = false;
         resurrectionActive = false;
@@ -48,9 +61,15 @@ public class PlayerMovement : MonoBehaviour
         zombieSpellActive = false;
         mendFleshSpellActive = false;
 
-        pentagram.Stop();
-        pentagramPlaying = false;
 
+        FearUI.MaxCoolDown = FearCooldown;
+        DisguiseUI.MaxCoolDown = DisguiseCooldown;
+        BigBoiUI.MaxCoolDown = BigBoiCooldown;
+
+        // Particle System Initializers
+        pentagram.Stop();
+        resurrectParticle.Stop();
+        soulRingParticle.Stop();
         smoke.Stop();
     }
 
@@ -72,30 +91,30 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("e") && !resurrectionActive && soulCollectionScanner.radius <= 10.0f)
         {
             soulCollectionScanner.radius += radiusIncrease;
+            soulRingParticle.Play();
+            soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
             soulCollectionActive = true;
             anim.SetBool("isWalking", false);
             walkSpeed = 0.0f;
         }
         else if (!Input.GetKey("e") && soulCollectionScanner.radius > 0.0f)
         {
-            soulCollectionScanner.radius -= (radiusIncrease * 3);
+            soulCollectionScanner.radius -= (radiusIncrease * 2);
+            soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
             walkSpeed = 3.0f;
         }
         else if (soulCollectionScanner.radius <= 0.0f)
         {
             soulCollectionActive = false;
+            soulRingParticle.Stop();
         }
 
         // Resurrection Sphere
         if (Input.GetKey("r") && !soulCollectionActive && resurrectionScanner.radius <= 10.0f)
         {
             resurrectionScanner.radius += radiusIncrease;
-            //if (!pentagramPlaying)
-            //{
-            //    pentagram.Play();
-            //    pentagramPlaying = true;
-            //}
-            
+            resurrectParticle.Play();
+            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius/6, 1.0f, resurrectionScanner.radius/6);
             resurrectionActive = true;
             anim.SetBool("isWalking", false);
             anim.SetBool("isResurrecting", true);
@@ -103,40 +122,54 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!Input.GetKey("r") && resurrectionScanner.radius > 0.0f)
         {
-            resurrectionScanner.radius -= (radiusIncrease * 3);
-            //pentagram.Stop();
-            pentagramPlaying = false;
+            resurrectionScanner.radius -= (radiusIncrease * 2);
+            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius/6, 1.0f, resurrectionScanner.radius/6);
             anim.SetBool("isResurrecting", false);
             walkSpeed = 3.0f;
         }
         else if (resurrectionScanner.radius <= 0.0f)
         {
             resurrectionActive = false;
+            resurrectParticle.Stop();
         }
 
         // Disguise Spell
-        if (Input.GetKeyUp("1") && disguiseSpellActive == false && gameManager.manaValue > 0.0f)
+        if (Input.GetKeyUp("2") && disguiseSpellActive == false && gameManager.manaValue > 0.0f && !DisguiseUI.IsOnCoolDown)
         {
             this.tag = "Disguise";
             gameManager.disguiseManaCostActive = true;
+            DisguiseUI.HoverSpell();
+            Debug.Log("DISGUISE");
             smoke.Play();
             disguiseSpellActive = true;
 
         }
-        else if (Input.GetKeyUp("1") && disguiseSpellActive == true || gameManager.manaValue <= 0.0f)
+
+        else if ((Input.GetKeyUp("2") && disguiseSpellActive == true) || (gameManager.manaValue <= 0.0f && disguiseSpellActive == true))
         {
+            disguiseSpellActive = false;
             this.tag = "Necromancer";
+            DisguiseUI.PutSpellOnCoolDown();
+            DisguiseUI.StopHoveringSpell();
             gameManager.disguiseManaCostActive = false;
             smoke.Stop();
-            disguiseSpellActive = false;
         }
 
-        else if (Input.GetKeyUp("2") && gameManager.manaValue > 20.0f)
+        // Fear Spell
+        if (Input.GetKeyUp("1") && gameManager.manaValue > 20.0f && !FearUI.IsOnCoolDown && !fearSpellActive)
         {
             fearSpellActive = true;
+            FearUI.PutSpellOnCoolDown();
+            FearUI.HoverSpell();
             pentagram.Play();
-        }        
-
+            Debug.Log("FEAR");
+        }
+        else
+        {
+            //pentagram.Stop();
+            FearUI.StopHoveringSpell();
+            fearSpellActive = false;
+        }
 
         GetInput();
 
