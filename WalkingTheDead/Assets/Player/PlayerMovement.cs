@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     Animator anim;
 
-    public float walkSpeed = 10.0f;
+    public float walkSpeed = 3.0f;
 
     Quaternion tempQuaternion = Quaternion.Euler(30.0f, 0.0f, 30.0f);
 
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Fear Spell
-        if (Input.GetKeyUp("1") && gameManager.manaValue > 20.0f && !FearUI.IsOnCoolDown && !fearSpellActive)
+        if (Input.GetKeyUp("1") && gameManager.manaValue >= 20.0f && !FearUI.IsOnCoolDown && !fearSpellActive)
         {
             fearSpellActive = true;
             FearUI.PutSpellOnCoolDown();
@@ -171,16 +171,22 @@ public class PlayerMovement : MonoBehaviour
             fearSpellActive = false;
         }
 
-        GetInput();
+        horizontalInput.x = Input.GetAxis("Horizontal");
+        horizontalInput.y = Input.GetAxis("Vertical");
 
-        if (Mathf.Abs(horizontalInput.x) < 1 && Mathf.Abs(horizontalInput.y) < 1)
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) < 1 && Mathf.Abs(Input.GetAxis("Vertical")) < 1)
         {
             return;
         }
 
-        CalculateDirection();
-        Rotate();
-        Move();
+        angle = Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        angle = Mathf.Rad2Deg * angle;
+        angle += cam.transform.eulerAngles.y;
+
+        targetRotation = Quaternion.Euler(0, angle, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
+
+        transform.position += transform.forward * walkSpeed * Time.deltaTime;
 
     }
 
