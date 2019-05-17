@@ -7,15 +7,16 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public float playerHealth;
-    public float hungerValue;
-    public float baseHungerDecrement;
+
+    public float manaValue;
+    public float maxMana = 100.0f;
+
     public float maxHealth = 100.0f;
-    public float maxHunger = 100.0f;
     public int numberOFZombies;
     bool isPlayerTarget;
 
-    public Slider healthBar;
-    public Slider hungerBar;
+    //public Slider healthBar;
+    //public Slider manaBar;
 
     bool particleEffectActive;
     float particleEffectCounter;
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
     ParticleSystem click;
     LoadSceneOnClick sceneLoader;
     PlayerMovement necromancer;
+
+    public bool disguiseManaCostActive;
 
     public ParticleSystem clickSystemEffect;
     Camera mainCamera;
@@ -36,13 +39,10 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         playerHealth = maxHealth;
-        hungerValue = maxHunger;
-        baseHungerDecrement = -0.001f;
+        manaValue = maxMana;
         isPlayerTarget = false;
 
-        healthBar.value = CalculateHealth();
-        hungerBar.value = CalculateHunger();
-        //numberOFZombies = FindObjectsOfType<Zombie>().Length;
+
         click = Instantiate(clickSystemEffect, Vector3.zero, Quaternion.Euler(90.0f, 0.0f, 0.0f));
 
         groundLayerMask = LayerMask.GetMask("Ground");
@@ -56,41 +56,23 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hungerValue += (baseHungerDecrement * numberOFZombies);
 
-        hungerBar.value = CalculateHunger();
+        //healthBar.value = CalculateHealth();
 
-        healthBar.value = CalculateHealth();
-
-        // If the hunger level is down
-        if (hungerValue < 30.0f)
-        {
-            // Make player a target for zombies
-            isPlayerTarget = true;
-        }
-        else
-        {
             // Else don't target him
             isPlayerTarget = false;
-        }
+
 
         if (Input.GetMouseButtonDown(0))
         {
             PlayParticleEffect();
         }
 
-        numberOfZombiesUI.text = numberOFZombies.ToString();
+        //numberOfZombiesUI.text = numberOFZombies.ToString();
+
+        disguiseSpellActive();
     }
 
-    public void DecreaseHungerLevel()
-    {
-        // Increase fed value
-        hungerValue += 2.0f;
-
-        // Keep hunger capped at max
-        if (hungerValue > maxHunger)
-            hungerValue = maxHunger;
-    }
 
     public void DecreaseHealth()
     {
@@ -133,8 +115,16 @@ public class GameManager : MonoBehaviour
         return playerHealth / maxHealth;
     }
 
-    float CalculateHunger()
+    float CalculateMana()
     {
-        return hungerValue / maxHunger;
+        return manaValue / maxMana;
+    }
+
+    void disguiseSpellActive()
+    {
+        if (disguiseManaCostActive)
+        {
+            manaValue -= 0.0001f;
+        }
     }
 }
