@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class StatUI : MonoBehaviour
 {
     [SerializeField] float warningValue = 0.3f;
+    ParticleSystem glowParticle;
+    ParticleSystem.EmissionModule glowEmission;
 
     Slider slider;
     StatTextUI textUI;
@@ -18,6 +20,8 @@ public class StatUI : MonoBehaviour
         slider = GetComponent<Slider>();
         textUI = GetComponentInChildren<StatTextUI>(true);
         isLerping = false;
+        glowParticle = GetComponentInChildren<ParticleSystem>();
+        glowEmission = glowParticle.emission;
     }
 
     public void SetupStatUI(float warningValue, float startingValue, float maximumValue)
@@ -32,10 +36,19 @@ public class StatUI : MonoBehaviour
     {
         if (Mathf.Abs(targetValue - slider.value) > 1f && !isLerping)
         {
-            print("Change Initiated");
             isLerping = true;
             StopCoroutine(LerpToTargetValue());
             StartCoroutine(LerpToTargetValue());
+        }
+
+        // Check for critical value
+        if (slider.value < warningValue)
+        {
+            glowEmission.enabled = true;
+        }
+        else
+        {
+            glowEmission.enabled = false;
         }
     }
 
@@ -60,12 +73,10 @@ public class StatUI : MonoBehaviour
         {
             slider.value += difference * Time.deltaTime * 5.0f;
             yield return null;
-            print("Changing");
         }
 
         slider.value = targetValue;
         isLerping = false;
-        print("Value Reached");
     }
 
     public void DisplayValues(bool isDisplaying)
