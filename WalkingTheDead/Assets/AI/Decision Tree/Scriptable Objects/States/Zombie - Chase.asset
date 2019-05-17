@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cac67b056161eec40b3a03fa4b29315e, type: 3}
-  m_Name: ChasingEnemy
+  m_Name: Zombie - Chase
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: e482b9004f548a04e8760f373aeee06d, type: 2}
   - {fileID: 11400000, guid: 866610815b6288a408e51f69d8774b08, type: 2}
   transitions:
+  - decisionToMake: {fileID: 11400000, guid: 325f58f44df4e6348a3acbc1964aac4f, type: 2}
+    stateIfTrue: {fileID: 11400000, guid: 91e7d122ca08a1441ae29ae086757363, type: 2}
+    stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
   - decisionToMake: {fileID: 11400000, guid: cfb8029e662d66141a3918fa486c0d47, type: 2}
     stateIfTrue: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
-    stateIfFalse: {fileID: 11400000, guid: da520aee9db1c1a45b7501e4c8ac0a45, type: 2}
-  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    stateIfFalse: {fileID: 11400000, guid: 56bc0f367f6bf974faa73cc14d2268f6, type: 2}
+  sceneGizmoColor: {r: 0.8113208, g: 0.049750824, b: 0.049750824, a: 1}

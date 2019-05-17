@@ -9,14 +9,13 @@ public class WanderBehaviour : Behaviour
     AISettings settings;
     bool isReadyToWander;
     Vector3 navigationCenter = Vector3.down;
-    float navigationRadius = 10.0f;
     float maxIdleTime = 5.0f;                    //in seconds, the longest priod of time the agent will wait at it's destination before picking a new direction
     float wanderTime = 0;                    
     [SerializeField] float minWanderTime = 0.5f;
     [SerializeField] float maxWanderTime = 10;
 
     public bool IsReadyToWander { get => isReadyToWander; }
-    public float NavigationRadius { set => navigationRadius = value; }
+    public Vector3 NavigationCenter { get => navigationCenter; set => navigationCenter = value; }
 
     private void Awake()
     {
@@ -82,7 +81,7 @@ public class WanderBehaviour : Behaviour
     Vector3 GetRandomLocationInRadius()
     {
         // Get a random position to travel to
-        Vector3 randomDirection = Random.insideUnitSphere * Random.Range(navigationRadius / 2f, navigationRadius);
+        Vector3 randomDirection = Random.insideUnitSphere * Random.Range(settings.NavigationRadius / 2f, settings.NavigationRadius);
         randomDirection += navigationCenter;
 
         NavMeshHit hit;
@@ -90,7 +89,7 @@ public class WanderBehaviour : Behaviour
         Vector3 walkableTarget = transform.position;
 
         // Check whether  there is anything where he can travel to
-        if (NavMesh.SamplePosition(randomDirection, out hit, navigationRadius, 1))
+        if (NavMesh.SamplePosition(randomDirection, out hit, settings.NavigationRadius, 1))
         {
             walkableTarget = hit.position;
         }
@@ -103,12 +102,12 @@ public class WanderBehaviour : Behaviour
         if (navigationCenter == Vector3.down)
         {
             Gizmos.color = Color.black;
-            Gizmos.DrawWireSphere(transform.position, navigationRadius);
+            Gizmos.DrawWireSphere(transform.position, settings.NavigationRadius);
         }
         else
         {
             Gizmos.color = Color.black;
-            Gizmos.DrawWireSphere(navigationCenter, navigationRadius);
+            Gizmos.DrawWireSphere(navigationCenter, settings.NavigationRadius);
         }
 
     }

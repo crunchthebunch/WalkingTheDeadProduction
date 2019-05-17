@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cac67b056161eec40b3a03fa4b29315e, type: 3}
-  m_Name: Zombie_Wander
+  m_Name: Zombie - Wander
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: f2c5c6eeb6a2b00438cef57e4c35c4fd, type: 2}
   transitions:
-  - decisionToMake: {fileID: 11400000, guid: c1d48f7011a2bfd41b1b058dbf7c456f, type: 2}
-    stateIfTrue: {fileID: 11400000, guid: 7e4c64fc6ab71154a99bc9d4f4a1cbd2, type: 2}
+  - decisionToMake: {fileID: 11400000, guid: 325f58f44df4e6348a3acbc1964aac4f, type: 2}
+    stateIfTrue: {fileID: 11400000, guid: 91e7d122ca08a1441ae29ae086757363, type: 2}
     stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
   - decisionToMake: {fileID: 11400000, guid: cfb8029e662d66141a3918fa486c0d47, type: 2}
-    stateIfTrue: {fileID: 11400000, guid: 99acc17e186121f4294ce90c88aa117e, type: 2}
+    stateIfTrue: {fileID: 11400000, guid: 3738ab47590926b4081ec3ef8b5ba57b, type: 2}
     stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
-  sceneGizmoColor: {r: 0.22352941, g: 0.46327752, b: 0.7529412, a: 1}
+  sceneGizmoColor: {r: 0.8980392, g: 0.7622022, b: 0.18039218, a: 1}

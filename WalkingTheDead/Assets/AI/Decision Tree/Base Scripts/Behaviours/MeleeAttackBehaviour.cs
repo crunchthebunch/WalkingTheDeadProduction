@@ -86,6 +86,7 @@ public class MeleeAttackBehaviour : Behaviour
         if(villager)
         {
             villager.Die();
+            AttackCoolDown();
             return;
         }
 
@@ -93,6 +94,7 @@ public class MeleeAttackBehaviour : Behaviour
         if (zombie)
         {
             zombie.Die();
+            AttackCoolDown();
             return;
         }
 
@@ -100,12 +102,14 @@ public class MeleeAttackBehaviour : Behaviour
         if(soldier)
         {
             soldier.Die();
+            AttackCoolDown();
             return;
         }
 
         if (toKill.CompareTag("Necromancer"))
         {
             gameManager.DecreaseHealth();
+            AttackCoolDown();
         }
         return;
     }

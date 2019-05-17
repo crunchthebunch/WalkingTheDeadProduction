@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8dc857c4bf3ca245950fc52957afa8f, type: 3}
-  m_Name: Move To
+  m_Script: {fileID: 11500000, guid: a3a8eb14b22bbaf4b8656622e49e998c, type: 3}
+  m_Name: Has Command
   m_EditorClassIdentifier: 

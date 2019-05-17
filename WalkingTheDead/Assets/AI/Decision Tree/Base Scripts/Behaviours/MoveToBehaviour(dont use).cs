@@ -33,20 +33,4 @@ public class MoveToBehaviour : Behaviour
         agent.speed = settings.WalkingSpeed;
         agent.isStopped = false;
     }
-
-    //-----for recieving commands-----//
-    void RecieveCommand(Vector3 position, bool followPlayer)
-    {
-        destination = position + Random.onUnitSphere * 2.0f;
-    }
-    private void OnEnable()
-    {
-        PlayerCommand.Click += RecieveCommand;
-    }
-
-    private void OnDisable()
-    {
-        PlayerCommand.Click -= RecieveCommand;
-    }
-    //--------------------------------//
 }

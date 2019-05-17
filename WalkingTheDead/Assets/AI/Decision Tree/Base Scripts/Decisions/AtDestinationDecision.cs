@@ -14,8 +14,9 @@ public class AtDestinationDecision : Decision
     {
         // Check whether the object has arrived to it's original location
         if (Vector3.Distance(controller.transform.position, controller.MoveBackBehaviour.NavigationCenter)
-            < controller.Settings.WalkingSpeed)
+            < controller.Settings.NavigationRadius)
         {
+            controller.HasCommand = false;
             return true;
         }
         return false;

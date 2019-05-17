@@ -45,8 +45,6 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        controller.MoveBackBehaviour.NavigationCenter = player.transform.position;
-
         // Running
         if (agent.speed == settings.RunSpeed)
         {

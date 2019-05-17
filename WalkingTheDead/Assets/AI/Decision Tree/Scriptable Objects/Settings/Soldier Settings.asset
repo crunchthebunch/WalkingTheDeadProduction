@@ -15,6 +15,6 @@ MonoBehaviour:
   visionRange: 5
   walkSpeed: 3
   runSpeed: 8
-  meleeAttackRange: 1
+  meleeAttackRange: 2
   attackDamage: 2
   navigationRadius: 5

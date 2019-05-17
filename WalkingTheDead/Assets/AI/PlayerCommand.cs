@@ -11,7 +11,7 @@ public class PlayerCommand : MonoBehaviour
     Vector3 lastPositionGiven = Vector3.zero;
 
     //For Command Event
-    public delegate void ClickAction(Vector3 position, bool followPlayer);
+    public delegate void ClickAction(Vector3 position);
     public static event ClickAction Click;
 
     private void Awake()
@@ -25,11 +25,11 @@ public class PlayerCommand : MonoBehaviour
     {
         if (Click != null && Input.GetMouseButtonDown(0))
         {
-            Click(GetCommandPosition(), false);
+            Click(GetCommandPosition());
         }
         else if (Click != null && Input.GetMouseButtonDown(1))
         {
-            Click(transform.position, true);
+            Click(transform.position);
         }
     }
 

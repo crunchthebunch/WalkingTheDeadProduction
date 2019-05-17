@@ -8,6 +8,7 @@ public class StateController : MonoBehaviour
     // [SerializeField] HumanStats stats;
     [SerializeField] protected State currentState = null;
     [SerializeField] protected State remainState = null;
+    [SerializeField] protected bool recieveCommands = false;
 
     ChaseBehaviour       chaseBehaviour;
     WanderBehaviour      wanderBehaviour;
@@ -20,6 +21,7 @@ public class StateController : MonoBehaviour
     AISettings settings;
     Scanner scanner;
 
+    bool hasCommand;
     bool isSetup = false;
 
     public ChaseBehaviour       ChaseBehaviour  { get => chaseBehaviour; }
@@ -31,6 +33,7 @@ public class StateController : MonoBehaviour
     public AISettings           Settings        { get => settings; }
     public Scanner Scanner { get => scanner; }
     public MoveBackBehaviour MoveBackBehaviour { get => moveBackBehaviour; }
+    public bool HasCommand { get => hasCommand; set => hasCommand = value; }
 
 
 
@@ -40,6 +43,7 @@ public class StateController : MonoBehaviour
         this.settings = settings;
         scanner = GetComponentInChildren<Scanner>();
         SetupBehaviours();
+        hasCommand = false;
         isSetup = true;
     }
 
@@ -87,13 +91,29 @@ public class StateController : MonoBehaviour
         moveBackBehaviour = gameObject.AddComponent<MoveBackBehaviour>();
         moveBackBehaviour.SetupBehaviour(this.settings);
 
-        moveToBehaviour = gameObject.AddComponent<MoveToBehaviour>();
-        moveToBehaviour.SetupBehaviour(this.settings);
-
         patrolBehaviour = gameObject.AddComponent<PatrolBehaviour>();
         patrolBehaviour.SetupBehaviour(this.settings);
 
         wanderBehaviour = gameObject.AddComponent<WanderBehaviour>();
         wanderBehaviour.SetupBehaviour(this.settings);
     }
+
+    //-----for recieving commands-----//
+    void RecieveCommand(Vector3 position)
+    {
+        hasCommand = true;
+        Vector3 newCenter = position + Random.onUnitSphere * 2.0f;
+        moveBackBehaviour.NavigationCenter = newCenter;
+        wanderBehaviour.NavigationCenter = newCenter;
+    }
+    private void OnEnable()
+    {
+        if(recieveCommands) PlayerCommand.Click += RecieveCommand;
+    }
+
+    private void OnDisable()
+    {
+        if(recieveCommands) PlayerCommand.Click -= RecieveCommand;
+    }
+    //--------------------------------//
 }
