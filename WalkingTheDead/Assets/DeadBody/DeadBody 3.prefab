@@ -59,8 +59,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.28, y: 1, z: 0.45}
-  m_Center: {x: 0.03, y: 0, z: 0.06}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8121608807388513708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,10 +148,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1083674042057969193}
     m_Modifications:
-    - target: {fileID: 100000, guid: cbad4855acb08344787fca0952b6c299, type: 3}
-      propertyPath: m_Name
-      value: Dead human03
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cbad4855acb08344787fca0952b6c299, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00033392
@@ -207,6 +203,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: cbad4855acb08344787fca0952b6c299, type: 3}
       propertyPath: m_LocalScale.z
       value: 2.0110261
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cbad4855acb08344787fca0952b6c299, type: 3}
+      propertyPath: m_Name
+      value: Dead human03
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: cbad4855acb08344787fca0952b6c299, type: 3}
       propertyPath: m_Materials.Array.data[0]
