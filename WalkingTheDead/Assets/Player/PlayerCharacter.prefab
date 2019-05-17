@@ -520,7 +520,6 @@ GameObject:
   - component: {fileID: 4975565982040587211}
   - component: {fileID: 1450907657992680204}
   - component: {fileID: 1578746872988374903}
-  - component: {fileID: 2738593820918051926}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Necromancer
@@ -588,6 +587,9 @@ MonoBehaviour:
   pentagram: {fileID: 3136303134553595969}
   resurrectParticle: {fileID: 6478120977988731568}
   soulRingParticle: {fileID: 1893919692803329124}
+  FearUI: {fileID: 0}
+  DisguiseUI: {fileID: 0}
+  BigBoiUI: {fileID: 0}
   cam: {fileID: 4172635563701925910}
   turnSpeed: 4
 --- !u!54 &1450907657992680204
@@ -618,14 +620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c421ea4009c714492839875f511c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &2738593820918051926
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9166500947553831116}
-  m_Enabled: 1
 --- !u!1001 &3571382358323510145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -693,25 +687,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1693855524203509889, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693855524203509889, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1879824312924036032, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
         type: 3}
       propertyPath: looping
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879824312924036032, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1879824312924036032, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
         type: 3}
@@ -743,6 +722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Soul Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598494893678786280, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2598494893678786281, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
         type: 3}
@@ -807,11 +791,6 @@ PrefabInstance:
     - target: {fileID: 2598494893678786281, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2598494893678786280, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -919,11 +898,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shadow
-      objectReference: {fileID: 0}
-    - target: {fileID: 8858413265445037032, guid: 2651f0c89be277b4ba9bdd3375517e8b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7205301148941145441, guid: 2651f0c89be277b4ba9bdd3375517e8b,
         type: 3}
@@ -1089,11 +1063,6 @@ PrefabInstance:
     - target: {fileID: 2598494893678786281, guid: d710dc7d70b2cbb4f86bb7e66bd8b181,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2598494893678786280, guid: d710dc7d70b2cbb4f86bb7e66bd8b181,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

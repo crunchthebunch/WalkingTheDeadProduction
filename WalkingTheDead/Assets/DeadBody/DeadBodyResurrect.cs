@@ -60,6 +60,7 @@ public class DeadBodyResurrect : MonoBehaviour
 
     private void SoulCollected()
     {
+        gameManager.manaValue += 20.0f;
         Destroy(this.gameObject);
     }
 }

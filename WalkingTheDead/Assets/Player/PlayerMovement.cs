@@ -20,6 +20,13 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem resurrectParticle;
     public ParticleSystem soulRingParticle;
 
+    public SpellUI FearUI;
+    public SpellUI DisguiseUI;
+    public SpellUI BigBoiUI;
+
+    public float FearCooldown = 5.0f;
+    public float DisguiseCooldown = 3.0f;
+    public float BigBoiCooldown = 3.0f;
 
     bool soulCollectionActive;
     bool resurrectionActive;
@@ -29,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     bool zombieSpellActive;
     bool mendFleshSpellActive;
     bool pentagramPlaying;
+
     private Vector2 horizontalInput;
 
     public Camera cam;
@@ -53,12 +61,15 @@ public class PlayerMovement : MonoBehaviour
         zombieSpellActive = false;
         mendFleshSpellActive = false;
 
-        pentagram.Stop();
-        pentagramPlaying = false;
 
+        FearUI.MaxCoolDown = FearCooldown;
+        DisguiseUI.MaxCoolDown = DisguiseCooldown;
+        BigBoiUI.MaxCoolDown = BigBoiCooldown;
+
+        // Particle System Initializers
+        pentagram.Stop();
         resurrectParticle.Stop();
         soulRingParticle.Stop();
-
         smoke.Stop();
     }
 
@@ -123,35 +134,42 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Disguise Spell
-        if (Input.GetKeyUp("1") && disguiseSpellActive == false && gameManager.manaValue > 0.0f)
+        if (Input.GetKeyUp("2") && disguiseSpellActive == false && gameManager.manaValue > 0.0f && !DisguiseUI.IsOnCoolDown)
         {
             this.tag = "Disguise";
             gameManager.disguiseManaCostActive = true;
+            DisguiseUI.HoverSpell();
             Debug.Log("DISGUISE");
             smoke.Play();
             disguiseSpellActive = true;
 
         }
-        else if (Input.GetKeyUp("1") && disguiseSpellActive == true || gameManager.manaValue <= 0.0f)
+
+        else if ((Input.GetKeyUp("2") && disguiseSpellActive == true) || (gameManager.manaValue <= 0.0f && disguiseSpellActive == true))
         {
+            disguiseSpellActive = false;
             this.tag = "Necromancer";
+            DisguiseUI.PutSpellOnCoolDown();
+            DisguiseUI.StopHoveringSpell();
             gameManager.disguiseManaCostActive = false;
             smoke.Stop();
-            disguiseSpellActive = false;
         }
 
-        else if (Input.GetKeyUp("2") && gameManager.manaValue > 20.0f)
+        // Fear Spell
+        if (Input.GetKeyUp("1") && gameManager.manaValue > 20.0f && !FearUI.IsOnCoolDown && !fearSpellActive)
         {
             fearSpellActive = true;
+            FearUI.PutSpellOnCoolDown();
+            FearUI.HoverSpell();
             pentagram.Play();
             Debug.Log("FEAR");
         }
-
         else
         {
-            pentagram.Stop();
+            //pentagram.Stop();
+            FearUI.StopHoveringSpell();
+            fearSpellActive = false;
         }
-
 
         GetInput();
 

@@ -9,6 +9,8 @@ public class StatUI : MonoBehaviour
 
     Slider slider;
     StatTextUI textUI;
+
+    
     
 
     // Start is called before the first frame update
