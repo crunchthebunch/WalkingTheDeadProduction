@@ -19,6 +19,7 @@ public class StatUI : MonoBehaviour
     {
         slider = GetComponent<Slider>();
         textUI = GetComponentInChildren<StatTextUI>(true);
+        textUI.gameObject.SetActive(false);
         isLerping = false;
         glowParticle = GetComponentInChildren<ParticleSystem>();
         glowEmission = glowParticle.emission;
@@ -49,6 +50,14 @@ public class StatUI : MonoBehaviour
         else
         {
             glowEmission.enabled = false;
+        }
+    }
+
+    public void AdjustDisplayedValue()
+    {
+        if (textUI.enabled)
+        {
+            textUI.AdjustValue();
         }
     }
 
