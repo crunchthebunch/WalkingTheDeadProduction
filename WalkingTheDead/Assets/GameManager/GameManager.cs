@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         disguiseSpellActive();
 
         healthUI.SetCurrentValue(playerHealth);
-        manaUI.SetCurrentValue(manaValue);
+        manaUI.SetTargetValue(manaValue);
     }
 
 
