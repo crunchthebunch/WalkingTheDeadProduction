@@ -590,6 +590,9 @@ MonoBehaviour:
   FearUI: {fileID: 0}
   DisguiseUI: {fileID: 0}
   BigBoiUI: {fileID: 0}
+  FearCooldown: 5
+  DisguiseCooldown: 3
+  BigBoiCooldown: 3
   cam: {fileID: 4172635563701925910}
   turnSpeed: 4
 --- !u!54 &1450907657992680204
@@ -640,7 +643,7 @@ PrefabInstance:
     - target: {fileID: 1693855524203509889, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1693855524203509889, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
         type: 3}
@@ -690,12 +693,17 @@ PrefabInstance:
     - target: {fileID: 1879824312924036032, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
         type: 3}
       propertyPath: looping
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1879824312924036032, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879824312924036032, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
+        type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17, type: 3}
