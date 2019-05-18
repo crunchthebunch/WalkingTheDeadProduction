@@ -5,22 +5,17 @@ using UnityEngine;
 public class PlayerCommand : MonoBehaviour
 {
     Camera mainCamera;
-    Scanner zombieScanner;
 
     LayerMask groundLayer;
 
-    //For Command Event
-    public delegate void ClickAction(Vector3 position, bool followPlayer);
-    public static event ClickAction Click;
+    Vector3 lastPositionGiven = Vector3.zero;
 
-    void Start()
-    {
-        zombieScanner.SetupScanner("Zombie", 20f);
-    }
+    //For Command Event
+    public delegate void ClickAction(Vector3 position);
+    public static event ClickAction Click;
 
     private void Awake()
     {
-        zombieScanner = GetComponentInChildren<Scanner>();
         groundLayer = LayerMask.GetMask("Ground");
         mainCamera = GetComponentInChildren<Camera>();
     }
@@ -30,23 +25,31 @@ public class PlayerCommand : MonoBehaviour
     {
         if (Click != null && Input.GetMouseButtonDown(0))
         {
-            Click(GetCommandPosition(), false);
+            Click(GetCommandPosition());
         }
         else if (Click != null && Input.GetMouseButtonDown(1))
         {
-            Click(transform.position, true);
+            Click(transform.position);
         }
     }
 
     Vector3 GetCommandPosition()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
         RaycastHit hitInfo;
 
         if (Physics.Raycast(ray, out hitInfo, 1000f, groundLayer))
         {
+            lastPositionGiven = hitInfo.point;
             return hitInfo.point;
         }
         else return Vector3.negativeInfinity;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(lastPositionGiven, 0.5f);
     }
 }

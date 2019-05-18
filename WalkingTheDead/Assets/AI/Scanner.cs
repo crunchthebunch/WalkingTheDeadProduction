@@ -38,7 +38,6 @@ public class Scanner : MonoBehaviour
         scanArea.isTrigger = true;
 
         tagsToScanFor = new List<string>();
-
     }
 
     public GameObject GetClosestTargetInRange()

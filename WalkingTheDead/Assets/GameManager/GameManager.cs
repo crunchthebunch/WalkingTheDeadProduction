@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         healthUI.SetupStatUI(30.0f, playerHealth, maxHealth);
-        manaUI.SetupStatUI(30.0f, manaValue, maxMana);
+        manaUI.SetupStatUI(30f, manaValue, maxMana);
     }
 
     // Update is called once per frame
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         disguiseSpellActive();
 
         healthUI.SetCurrentValue(playerHealth);
-        manaUI.SetCurrentValue(manaValue);
+        manaUI.SetTargetValue(manaValue);
     }
 
 
