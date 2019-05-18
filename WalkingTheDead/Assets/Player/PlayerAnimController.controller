@@ -267,7 +267,7 @@ AnimatorStateMachine:
     m_Position: {x: 612, y: -24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102815990891771576}
-    m_Position: {x: 448.19974, y: -113.898834, z: 0}
+    m_Position: {x: 450, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4149709607713569844}
     m_Position: {x: 490, y: 140, z: 0}
@@ -289,7 +289,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Casting
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7057360218672572602}

@@ -581,7 +581,7 @@ MonoBehaviour:
   walkSpeed: 3
   soulCollectionScanner: {fileID: 7657091367230827421}
   resurrectionScanner: {fileID: 4738058146021786283}
-  fearScanner: {fileID: 0}
+  fearScanner: {fileID: 1977957014256300540}
   radiusIncrease: 0.02
   smoke: {fileID: 6161883093217871419}
   pentagram: {fileID: 3136303134553595969}
