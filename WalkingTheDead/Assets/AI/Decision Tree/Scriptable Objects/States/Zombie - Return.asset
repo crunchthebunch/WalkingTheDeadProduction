@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac67b056161eec40b3a03fa4b29315e, type: 3}
+  m_Name: Zombie - Return
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: d7b778247b0e13c4a9b4b99cd7ae9a95, type: 2}
+  transitions:
+  - decisionToMake: {fileID: 11400000, guid: cfb8029e662d66141a3918fa486c0d47, type: 2}
+    stateIfTrue: {fileID: 11400000, guid: 3738ab47590926b4081ec3ef8b5ba57b, type: 2}
+    stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
+  - decisionToMake: {fileID: 11400000, guid: 526b517ca314fed44924719d28d6b6b8, type: 2}
+    stateIfTrue: {fileID: 11400000, guid: 56bc0f367f6bf974faa73cc14d2268f6, type: 2}
+    stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
+  sceneGizmoColor: {r: 0.08503916, g: 0.7772074, b: 0.8584906, a: 1}
