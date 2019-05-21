@@ -6,9 +6,11 @@ using UnityEngine.AI;
 public class StateController : MonoBehaviour
 {
     // [SerializeField] HumanStats stats;
-    [SerializeField] protected State currentState = null;
+    [SerializeField] private State defaultState = null;
+    protected State currentState = null;
     [SerializeField] protected State remainState = null;
     [SerializeField] protected bool recieveCommands = false;
+    [SerializeField] protected State fearState = null;
 
     ChaseBehaviour       chaseBehaviour;
     WanderBehaviour      wanderBehaviour;
@@ -34,12 +36,14 @@ public class StateController : MonoBehaviour
     public Scanner Scanner { get => scanner; }
     public MoveBackBehaviour MoveBackBehaviour { get => moveBackBehaviour; }
     public bool HasCommand { get => hasCommand; set => hasCommand = value; }
+    protected State DefaultState { get => defaultState; }
 
 
 
     // Mandatory to setup
     public void SetupController(AISettings settings)
     {
+        currentState = defaultState;
         this.settings = settings;
         scanner = GetComponentInChildren<Scanner>();
         SetupBehaviours();
