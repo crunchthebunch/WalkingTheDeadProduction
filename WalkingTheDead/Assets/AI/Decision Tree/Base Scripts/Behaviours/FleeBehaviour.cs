@@ -16,7 +16,7 @@ public class FleeBehaviour : Behaviour
     {
         agent = GetComponent<NavMeshAgent>();
         scanner = GetComponentInChildren<Scanner>();
-        fleeDistance = 20.0f;
+        fleeDistance = 15.0f;
     }
 
     public override void DoBehaviour()

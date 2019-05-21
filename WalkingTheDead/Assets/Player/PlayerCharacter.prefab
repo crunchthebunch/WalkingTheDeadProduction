@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 1977957014256300540}
   m_Layer: 0
   m_Name: FearRadius
-  m_TagString: Untagged
+  m_TagString: TEST
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2587552165052158042
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1429335610964350635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 14.670041, y: 14.670041, z: 14.670041}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8171068610250063899}
   m_RootOrder: 5
@@ -89,7 +89,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.00001
+  m_Radius: 4.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1820391442175996084
 GameObject:
@@ -595,6 +595,7 @@ MonoBehaviour:
   DisguiseCooldown: 3
   BigBoiCooldown: 3
   fearSpellCost: 20
+  bigboiSpellCost: 40
   cam: {fileID: 4172635563701925910}
   turnSpeed: 4
 --- !u!54 &1450907657992680204
@@ -718,11 +719,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soul Ring
       objectReference: {fileID: 0}
-    - target: {fileID: 2598494893678786280, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2598494893678786281, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -786,6 +782,11 @@ PrefabInstance:
     - target: {fileID: 2598494893678786281, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598494893678786280, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

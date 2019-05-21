@@ -9,7 +9,6 @@ public class StateController : MonoBehaviour
     [SerializeField] private State currentState = null;
     [SerializeField] protected State remainState = null;
     [SerializeField] protected bool recieveCommands = false;
-    [SerializeField] protected State fearState = null;
     private bool feared = false;
     public bool test = false;
 
@@ -151,9 +150,9 @@ public class StateController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "FearRadius" && feared == false)
+        if (other.CompareTag("TEST"))
         {
-            BecomeScared(5);
+            BecomeFeared(5);
         }
     }
 }
