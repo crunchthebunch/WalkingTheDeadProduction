@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     PlayerMovement necromancer;
 
     public bool disguiseManaCostActive;
+    public bool bigBoiManaCostActive;
 
     public ParticleSystem clickSystemEffect;
     Camera mainCamera;
