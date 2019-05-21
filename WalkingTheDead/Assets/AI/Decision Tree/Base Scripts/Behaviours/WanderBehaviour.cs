@@ -39,6 +39,7 @@ public class WanderBehaviour : Behaviour
 
     IEnumerator WanderAround()
     {
+        agent.speed = settings.WalkingSpeed;
         // Set a random destination for wandering
         agent.SetDestination(GetRandomLocationInRadius());
 

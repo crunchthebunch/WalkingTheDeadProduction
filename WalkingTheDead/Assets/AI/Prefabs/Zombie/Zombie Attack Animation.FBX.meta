@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 33595afe9953a224c9116483466139ea
+guid: e49689290812271448f9c18fcc3c08e4
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Tank Attack Animation
+    second: Zombie Attack Clip
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Tank Attack Animation
+      name: Zombie Attack Clip
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
@@ -46,7 +46,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -59,7 +59,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.50130206
+      - time: 0.4231771
         functionName: AttackComplete
         data: 
         objectReferenceParameter: {instanceID: 0}

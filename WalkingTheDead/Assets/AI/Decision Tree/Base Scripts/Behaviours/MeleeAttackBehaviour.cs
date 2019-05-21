@@ -7,20 +7,44 @@ public class MeleeAttackBehaviour : Behaviour
 {
     AISettings settings;
     Scanner scanner;
-    bool isReadyToAttack;
-    float attackDelay = 1.0f;
+    bool readyToAttack;
+    float attackTimer;
     GameManager gameManager;
+    Animator animator;
 
     NavMeshAgent agent;
 
-    public float AttackDelay { get => attackDelay; set => attackDelay = value; }
+    GameObject toKill;
 
     public override void DoBehaviour()
     {
-        if (scanner.ObjectsInRange.Count > 0)
+        if (readyToAttack)
         {
-            StopCoroutine(AttackClosestEnemy());
-            StartCoroutine(AttackClosestEnemy());
+            toKill = scanner.GetClosestTargetInRange();
+            // If it exists
+            if (toKill)
+            {
+                Vector3 enemyPosition = toKill.transform.position;
+
+                // If the closest Enemy is in range
+                if (Vector3.Distance(enemyPosition, transform.position) < settings.MeleeAttackRange)
+                {
+                    animator.SetTrigger("Attack");
+                    readyToAttack = false;
+                    attackTimer = settings.AttackDelay;
+                }
+            }
+        }
+        else
+        {
+            if (attackTimer <= 0)
+            {
+                readyToAttack = true;
+            }
+            else
+            {
+                attackTimer -= Time.deltaTime;
+            }
         }
     }
 
@@ -28,89 +52,13 @@ public class MeleeAttackBehaviour : Behaviour
     {
         agent = GetComponent<NavMeshAgent>();
         scanner = GetComponentInChildren<Scanner>();
-        isReadyToAttack = true;
+        readyToAttack = true;
         gameManager = GameObject.FindObjectOfType<GameManager>();
-    }
-
-    IEnumerator AttackClosestEnemy()
-    {
-        GameObject toKill = scanner.GetClosestTargetInRange();
-
-        // If it exists
-        if (toKill)
-        {
-            Vector3 enemyPosition = toKill.transform.position;
-
-            // If the closest Enemy is in range
-            while (Vector3.Distance(enemyPosition, transform.position) > settings.MeleeAttackRange)
-            {
-                yield return null;
-            }
-
-            // Attack if ready
-            if (isReadyToAttack)
-            {
-                // Kill the enemy
-                isReadyToAttack = false;
-                yield return new WaitForSeconds(attackDelay);
-
-                toKill = scanner.GetClosestTargetInRange();
-                if (toKill)
-                {
-                    KillEnemy(toKill);
-                }
-            }
-
-            yield return null;
-        }
-
-        
-
-        yield return null;
-    }
-
-    // To call from event script
-    public void AttackCoolDown()
-    {
-        isReadyToAttack = true;
+        animator = GetComponentInChildren<Animator>();
     }
 
     public override void SetupBehaviour(AISettings settings)
     {
         this.settings = settings;
-    }
-
-    void KillEnemy(GameObject toKill)
-    {
-        Villager villager = toKill.GetComponent<Villager>();
-        if(villager)
-        {
-            villager.Die();
-            AttackCoolDown();
-            return;
-        }
-
-        Zombie zombie = toKill.GetComponent<Zombie>();
-        if (zombie)
-        {
-            zombie.Die();
-            AttackCoolDown();
-            return;
-        }
-
-        MeleeSoldier soldier = toKill.GetComponent<MeleeSoldier>();
-        if(soldier)
-        {
-            soldier.Die();
-            AttackCoolDown();
-            return;
-        }
-
-        if (toKill.CompareTag("Necromancer"))
-        {
-            gameManager.DecreaseHealth();
-            AttackCoolDown();
-        }
-        return;
     }
 }
