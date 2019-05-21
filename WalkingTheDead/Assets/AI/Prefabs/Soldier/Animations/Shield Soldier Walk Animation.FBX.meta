@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 33595afe9953a224c9116483466139ea
+guid: 1e059ad6a08d8214594eb344c81686e6
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Tank Attack Animation
+    second: Shield Soldier Walk Clip
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Tank Attack Animation
+      name: Shield Soldier Walk Clip
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
@@ -58,14 +58,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.50130206
-        functionName: AttackComplete
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

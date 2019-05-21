@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371e9cc50ec05e9408f997d670c53f29, type: 3}
   m_Name: Tank Settings
   m_EditorClassIdentifier: 
-  visionRange: 5
+  visionRange: 10
   walkSpeed: 1
-  runSpeed: 10
-  meleeAttackRange: 2
-  attackDamage: 3
+  runSpeed: 6
   navigationRadius: 7.5
-  attackDelay: 1
+  healthMax: 25
+  meleeAttackRange: 2
+  attackDamage: 5
+  attackDelay: 2

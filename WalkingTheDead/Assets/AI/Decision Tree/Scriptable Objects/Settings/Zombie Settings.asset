@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371e9cc50ec05e9408f997d670c53f29, type: 3}
   m_Name: Zombie Settings
   m_EditorClassIdentifier: 
-  visionRange: 5
+  visionRange: 10
   walkSpeed: 2
   runSpeed: 8
-  meleeAttackRange: 0.5
-  attackDamage: 1
-  navigationRadius: 5
-  attackDelay: 1
+  navigationRadius: 7.5
+  healthMax: 5
+  meleeAttackRange: 1
+  attackDamage: 3
+  attackDelay: 2
