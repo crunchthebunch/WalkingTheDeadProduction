@@ -408,16 +408,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 508107406881918849, guid: 85a50078fafd5e346ad24589945bed70,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2288221828653859162}
     - target: {fileID: 7901117185648240414, guid: 85a50078fafd5e346ad24589945bed70,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 508107406881918849, guid: 85a50078fafd5e346ad24589945bed70,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2288221828653859162}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a50078fafd5e346ad24589945bed70, type: 3}
 --- !u!224 &4492533877881378447 stripped
@@ -575,6 +575,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6907920659599582350}
     m_Modifications:
+    - target: {fileID: 5588249843611259439, guid: bc81811f6468dc0468d30fda88d54cd8,
+        type: 3}
+      propertyPath: m_Name
+      value: Background Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 7133128260311593301, guid: bc81811f6468dc0468d30fda88d54cd8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -680,10 +685,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5588249843611259439, guid: bc81811f6468dc0468d30fda88d54cd8,
+    - target: {fileID: 7902910164872925837, guid: bc81811f6468dc0468d30fda88d54cd8,
         type: 3}
-      propertyPath: m_Name
-      value: Background Canvas
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7902910164872925837, guid: bc81811f6468dc0468d30fda88d54cd8,
         type: 3}
@@ -720,6 +725,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6907920659599582350}
     m_Modifications:
+    - target: {fileID: 8007182202177768218, guid: 7419ed78736c9e94bb182a46a47e5c08,
+        type: 3}
+      propertyPath: m_Name
+      value: Main Menu Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 6206324966371267054, guid: 7419ed78736c9e94bb182a46a47e5c08,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -829,11 +839,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8007182202177768218, guid: 7419ed78736c9e94bb182a46a47e5c08,
-        type: 3}
-      propertyPath: m_Name
-      value: Main Menu Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7218074404516722193, guid: 7419ed78736c9e94bb182a46a47e5c08,
         type: 3}

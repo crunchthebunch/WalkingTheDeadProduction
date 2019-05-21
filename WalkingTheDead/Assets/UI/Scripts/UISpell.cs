@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class SpellUI : MonoBehaviour
+public class UISpell : MonoBehaviour
 {
     [SerializeField] string spellDescription;
     [SerializeField] double maxCoolDown = 1.0f;

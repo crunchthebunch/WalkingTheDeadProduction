@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public int numberOFZombies;
     bool isPlayerTarget;
 
-    public StatUI healthUI, manaUI;
+    public UIStat healthUI, manaUI;
 
     bool particleEffectActive;
 

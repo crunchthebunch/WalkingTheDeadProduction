@@ -7,14 +7,17 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
 
-    [SerializeField] GameObject spellDescription;
+    [SerializeField] GameObject spellDescriptionpanel;
+    [SerializeField] Canvas winScreen = null;
+    [SerializeField] Canvas loseScreen = null;
+
     PauseMenu pauseMenu;
-
-
+    UIFader fader;
 
     private void Awake()
     {
         pauseMenu = GetComponentInChildren<PauseMenu>();
+        fader = GetComponentInChildren<UIFader>();
     }
 
     private void Update()
@@ -25,36 +28,36 @@ public class UIManager : MonoBehaviour
             TogglePauseMenu();
         }
         // M - Show Map
-        else if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             ShowMap();
         }
     }
 
-    public void ShowSpellDescription(SpellUI spell)
+    public void ShowSpellDescription(UISpell spell)
     {
-        spellDescription.SetActive(true);
+        spellDescriptionpanel.SetActive(true);
 
         spell.HoverSpell();
 
         // Update the spell Text
-        spellDescription.GetComponentInChildren<TextMeshProUGUI>().text = spell.SpellDescription;
+        spellDescriptionpanel.GetComponentInChildren<TextMeshProUGUI>().text = spell.SpellDescription;
     }
 
-    public void HideSpellDescription(SpellUI spell)
+    public void HideSpellDescription(UISpell spell)
     {
-        spellDescription.SetActive(false);
+        spellDescriptionpanel.SetActive(false);
 
         spell.StopHoveringSpell();
     }
 
-    public void ShowStatValue(StatUI stat)
+    public void ShowStatValue(UIStat stat)
     {
         // Make the value text visible
         stat.DisplayValues(true);
     }
 
-    public void HideStatValue(StatUI stat)
+    public void HideStatValue(UIStat stat)
     {
         // Make value invisible
         stat.DisplayValues(false);
@@ -76,6 +79,16 @@ public class UIManager : MonoBehaviour
             pauseMenu.ShowMain();
             Time.timeScale = 0.0f;
         }
+    }
+
+    public void FadeInWinScreen()
+    {
+        fader.LoadEndScreen(winScreen);
+    }
+
+    public void FadeInLoseScreen()
+    {
+        fader.LoadEndScreen(loseScreen);
     }
 
     public void ShowMap()

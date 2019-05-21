@@ -20,11 +20,11 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem resurrectParticle;
     public ParticleSystem soulRingParticle;
 
-    public SpellUI FearUI;
-    public SpellUI DisguiseUI;
-    public SpellUI BigBoiUI;
+    public UISpell FearUI;
+    public UISpell DisguiseUI;
+    public UISpell BigBoiUI;
 
-    public StatUI manaBar;
+    public UIStat manaBar;
 
     public float FearCooldown = 5.0f;
     public float DisguiseCooldown = 3.0f;

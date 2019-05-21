@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatUI : MonoBehaviour
+public class UIStat : MonoBehaviour
 {
     [SerializeField] float warningValue = 0.3f;
     ParticleSystem glowParticle;
     ParticleSystem.EmissionModule glowEmission;
 
     Slider slider;
-    StatTextUI textUI;
+    UIStatText textUI;
     float targetValue;
     bool isLerping;
 
@@ -18,7 +18,7 @@ public class StatUI : MonoBehaviour
     void Awake()
     {
         slider = GetComponent<Slider>();
-        textUI = GetComponentInChildren<StatTextUI>(true);
+        textUI = GetComponentInChildren<UIStatText>(true);
         textUI.gameObject.SetActive(false);
         isLerping = false;
         glowParticle = GetComponentInChildren<ParticleSystem>();

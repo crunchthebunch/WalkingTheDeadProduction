@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 8298478029948502887}
   - component: {fileID: 9034889896838181089}
   - component: {fileID: 2785900644106306473}
+  - component: {fileID: 5303988005069517022}
   m_Layer: 5
   m_Name: Fader
   m_TagString: Untagged
@@ -175,6 +176,18 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &5303988005069517022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5226247267547696056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c4dae9d55b8b04abe2012c2f4913b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4408764578405211857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -296,6 +309,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360453952129675291, guid: 87487e613f2ac9648b1dc7c47ef15998,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5303988005069517022}
+    - target: {fileID: 5360453952129675291, guid: 87487e613f2ac9648b1dc7c47ef15998,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87487e613f2ac9648b1dc7c47ef15998, type: 3}
@@ -426,6 +449,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 4283043402217355880, guid: 348516122d9dc4249b9f89d6c180e050,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5303988005069517022}
+    - target: {fileID: 4283043402217355880, guid: 348516122d9dc4249b9f89d6c180e050,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 348516122d9dc4249b9f89d6c180e050, type: 3}
