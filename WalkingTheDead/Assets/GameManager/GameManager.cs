@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         playerHealth = maxHealth;
-        manaValue = 0.0f;
+        manaValue = 50.0f;
         isPlayerTarget = false;
 
         click = Instantiate(clickSystemEffect, Vector3.zero, Quaternion.Euler(90.0f, 0.0f, 0.0f));
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         healthUI.SetupStatUI(30.0f, playerHealth, maxHealth);
-        manaUI.SetupStatUI(30f, manaValue, maxMana);
+        manaUI.SetupStatUI(30.0f, manaValue, maxMana);
     }
 
     // Update is called once per frame
@@ -65,6 +65,12 @@ public class GameManager : MonoBehaviour
         disguiseSpellActive();
 
         healthUI.SetCurrentValue(playerHealth);
+
+        if (healthUI.TargetValue < healthUI.WarningValue)
+        {
+            healthUI.GlowForSeconds(1.0f);
+        }
+
         manaUI.SetTargetValue(manaValue);
     }
 
@@ -77,7 +83,7 @@ public class GameManager : MonoBehaviour
         // If Dead Load Lose Screen
         if (playerHealth < 0.0f)
         {
-            sceneLoader.LoadLoseScreen();
+            //sceneLoader.LoadLoseScreen();
         }
     }
 

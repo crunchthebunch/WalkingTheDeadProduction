@@ -297,6 +297,8 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 5d4358afda132d84fb6f2ebf520453d4, type: 2}
   remainState: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
   recieveCommands: 0
+  fearState: {fileID: 11400000, guid: ce974ca633c25a94dbbd75b5bd7fa010, type: 2}
+  test: 0
 --- !u!1001 &5798832293188109593
 PrefabInstance:
   m_ObjectHideFlags: 0

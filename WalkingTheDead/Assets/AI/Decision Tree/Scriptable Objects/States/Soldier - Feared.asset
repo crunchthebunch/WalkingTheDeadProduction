@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cac67b056161eec40b3a03fa4b29315e, type: 3}
-  m_Name: Soldier - Flee
+  m_Name: Soldier - Feared
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 5177e9fda4c5fa84398f6e0d673bba9f, type: 2}
   transitions:
-  - decisionToMake: {fileID: 11400000, guid: 381f6d4b33e777e4aa5ac719d8a158c2, type: 2}
-    stateIfTrue: {fileID: 11400000, guid: ce974ca633c25a94dbbd75b5bd7fa010, type: 2}
-    stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
-  - decisionToMake: {fileID: 11400000, guid: cf3d7de09c23a1c4896a10d9cc8d9670, type: 2}
+  - decisionToMake: {fileID: 11400000, guid: 91c93f24f66f6cc469e3bfc7ffeae7cc, type: 2}
     stateIfTrue: {fileID: 11400000, guid: 5d4358afda132d84fb6f2ebf520453d4, type: 2}
     stateIfFalse: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
-  sceneGizmoColor: {r: 0.5896862, g: 0.090067655, b: 0.8301887, a: 1}
+  sceneGizmoColor: {r: 0.63474226, g: 0, b: 1, a: 1}
