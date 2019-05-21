@@ -64,13 +64,12 @@ public class DeadBodyResurrect : MonoBehaviour
     private void InstantiateZombie()
     {
         Instantiate(zombieSpawn, transform.position, transform.rotation);
-        gameManager.numberOFZombies += 1;
         Destroy(this.gameObject);
     }
 
     private void SoulCollected()
     {
-        gameManager.manaValue += 20.0f;
+        gameManager.CollectSoul();
         Destroy(this.gameObject);
     }
 }

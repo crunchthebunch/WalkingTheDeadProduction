@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
     public float maxMana = 100.0f;
 
     public float maxHealth = 100.0f;
-    public int numberOFZombies;
-    bool isPlayerTarget;
 
     public UIStat healthUI, manaUI;
 
@@ -34,7 +32,6 @@ public class GameManager : MonoBehaviour
     {
         playerHealth = maxHealth;
         manaValue = 50.0f;
-        isPlayerTarget = false;
 
         click = Instantiate(clickSystemEffect, Vector3.zero, Quaternion.Euler(90.0f, 0.0f, 0.0f));
 
@@ -62,7 +59,7 @@ public class GameManager : MonoBehaviour
             PlayParticleEffect();
         }
 
-        disguiseSpellActive();
+        DisguisSpellActive();
 
         healthUI.SetCurrentValue(playerHealth);
 
@@ -110,11 +107,22 @@ public class GameManager : MonoBehaviour
         return manaValue / maxMana;
     }
 
-    void disguiseSpellActive()
+    void DisguisSpellActive()
     {
-        if (disguiseManaCostActive)
+        if (disguiseManaCostActive && manaValue > 0f)
         {
-            manaValue -= 0.01f;
+            manaValue -= 1f * Time.deltaTime;
+        }
+    }
+
+    public void CollectSoul()
+    {
+        manaValue += 20.0f;
+
+        // Clamp values
+        if (manaValue > maxMana)
+        {
+            manaValue = maxMana;
         }
     }
 }

@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     public UISpell FearUI;
     public UISpell DisguiseUI;
     public UISpell BigBoiUI;
-
     public UIStat manaBar;
 
     public float FearCooldown = 5.0f;
@@ -93,81 +92,52 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Soul Collection Sphere
-        if (Input.GetKey("e") && !resurrectionActive && soulCollectionScanner.radius <= 10.0f)
-        {
-            soulCollectionScanner.radius += radiusIncrease;
-            soulRingParticle.Play();
-            soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
-            soulCollectionActive = true;
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isCasting", true);
-            walkSpeed = 0.0f;
-        }
-        else if (!Input.GetKey("e") && soulCollectionScanner.radius > 0.0f)
-        {
-            soulCollectionScanner.radius -= (radiusIncrease * 2);
-            soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
-            anim.SetBool("isCasting", false);
-            walkSpeed = 3.0f;
-        }
-        else if (soulCollectionScanner.radius <= 0.0f)
-        {
-            soulCollectionActive = false;
-            soulRingParticle.Stop();
-        }
+        CheckForSoulCollection();
 
         // Resurrection Sphere
-        if (Input.GetKey("r") && !soulCollectionActive && resurrectionScanner.radius <= 10.0f)
-        {
-            resurrectionScanner.radius += radiusIncrease;
-            resurrectParticle.Play();
-            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius / 6, 1.0f, resurrectionScanner.radius / 6);
-            resurrectionActive = true;
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isResurrecting", true);
-            walkSpeed = 0.0f;
-        }
-        else if (!Input.GetKey("r") && resurrectionScanner.radius > 0.0f)
-        {
-            resurrectionScanner.radius -= (radiusIncrease * 2);
-            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius / 6, 1.0f, resurrectionScanner.radius / 6);
-            anim.SetBool("isResurrecting", false);
-            walkSpeed = 3.0f;
-        }
-        else if (resurrectionScanner.radius <= 0.0f)
-        {
-            resurrectionActive = false;
-            resurrectParticle.Stop();
-        }
+        CheckForResurrection();
 
         // Disguise Spell
-        if (Input.GetKeyDown("2") && disguiseSpellActive == false && gameManager.manaValue > 0.0f && !DisguiseUI.IsOnCoolDown)
-        {
-            this.tag = "Disguise";
-            gameManager.disguiseManaCostActive = true;
-            DisguiseUI.HoverSpell();
-            Debug.Log("DISGUISE");
-            smoke.Play();
-            disguiseSpellActive = true;
-        }
-
-        else if ((Input.GetKeyDown("2") && disguiseSpellActive == true) || (gameManager.manaValue <= 0.0f && disguiseSpellActive == true))
-        {
-            // If you run out of mana, glow bar
-            if (gameManager.manaValue <= 0.0f && disguiseSpellActive == true)
-            {
-                manaBar.GlowForSeconds(0.5f);
-            }
-
-            disguiseSpellActive = false;
-            this.tag = "Necromancer";
-            DisguiseUI.PutSpellOnCoolDown();
-            DisguiseUI.StopHoveringSpell();
-            gameManager.disguiseManaCostActive = false;
-            smoke.Stop();
-        }
+        CheckForDisguiseInput();
 
         // Fear Spell
+        CheckForFearInput();
+
+        // Big Zombie Spell
+        CheckForBigSummonInput();
+
+        // Movement
+        Movement();
+
+    }
+
+    private void CheckForBigSummonInput()
+    {
+        if (Input.GetKeyDown("3") && !BigBoiUI.IsOnCoolDown && !bigboiSpellActive)
+        {
+            if (gameManager.manaValue < bigboiSpellCost)
+            {
+                manaBar.GlowForSeconds(1.0f);
+            }
+            else
+            {
+                bigboiSpellActive = true;
+                BigBoiUI.PutSpellOnCoolDown();
+                BigBoiUI.HoverSpell();
+                Debug.Log("BigBoiUI");
+                gameManager.manaValue -= 40.0f;
+            }
+        }
+        else
+        {
+
+            BigBoiUI.StopHoveringSpell();
+            bigboiSpellActive = false;
+        }
+    }
+
+    private void CheckForFearInput()
+    {
         if (Input.GetKeyDown("1") && !FearUI.IsOnCoolDown && !fearSpellActive)
         {
             // If not enough mana, then glow bar
@@ -196,33 +166,105 @@ public class PlayerMovement : MonoBehaviour
             FearUI.StopHoveringSpell();
             fearSpellActive = false;
         }
+    }
 
-        // Big Zombie Spell
-        if (Input.GetKeyDown("3") && !BigBoiUI.IsOnCoolDown && !bigboiSpellActive)
+    private void CheckForDisguiseInput()
+    {
+        // If the Key is pressed
+        if (Input.GetKeyDown("2"))
         {
-            if (gameManager.manaValue < bigboiSpellCost)
+            // If we have enough mana
+            if (gameManager.manaValue > 0.0f)
             {
-                manaBar.GlowForSeconds(1.0f);
+                // If the spell is already active
+                if (disguiseSpellActive)
+                {
+                    disguiseSpellActive = false;
+                    this.tag = "Necromancer";
+                    DisguiseUI.PutSpellOnCoolDown();
+                    DisguiseUI.StopHoveringSpell();
+                    gameManager.disguiseManaCostActive = false;
+                    smoke.Stop();
+                }
+                // if it's not on cooldown
+                else if (!DisguiseUI.IsOnCoolDown)
+                {
+                    this.tag = "Disguise";
+                    gameManager.disguiseManaCostActive = true;
+                    DisguiseUI.HoverSpell();
+                    Debug.Log("DISGUISE");
+                    smoke.Play();
+                    disguiseSpellActive = true;
+                }
             }
             else
             {
-                bigboiSpellActive = true;
-                BigBoiUI.PutSpellOnCoolDown();
-                BigBoiUI.HoverSpell();
-                Debug.Log("BigBoiUI");
-                gameManager.manaValue -= 40.0f;
+                manaBar.GlowForSeconds(0.5f);
             }
         }
-        else
+        // If the spell is active And we ran out of mana
+        else if (disguiseSpellActive && gameManager.manaValue < 0.0f)
         {
-
-            BigBoiUI.StopHoveringSpell();
-            bigboiSpellActive = false;
+            manaBar.GlowForSeconds(0.5f);
+            disguiseSpellActive = false;
+            this.tag = "Necromancer";
+            DisguiseUI.PutSpellOnCoolDown();
+            DisguiseUI.StopHoveringSpell();
+            gameManager.disguiseManaCostActive = false;
+            smoke.Stop();
         }
+    }
 
-        // Movement
-        Movement();
+    private void CheckForResurrection()
+    {
+        if (Input.GetKey("r") && !soulCollectionActive && resurrectionScanner.radius <= 10.0f)
+        {
+            resurrectionScanner.radius += radiusIncrease;
+            resurrectParticle.Play();
+            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius / 6, 1.0f, resurrectionScanner.radius / 6);
+            resurrectionActive = true;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isResurrecting", true);
+            walkSpeed = 0.0f;
+        }
+        else if (!Input.GetKey("r") && resurrectionScanner.radius > 0.0f)
+        {
+            resurrectionScanner.radius -= (radiusIncrease * 2);
+            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius / 6, 1.0f, resurrectionScanner.radius / 6);
+            anim.SetBool("isResurrecting", false);
+            walkSpeed = 3.0f;
+        }
+        else if (resurrectionScanner.radius <= 0.0f)
+        {
+            resurrectionActive = false;
+            resurrectParticle.Stop();
+        }
+    }
 
+    private void CheckForSoulCollection()
+    {
+        if (Input.GetKey("e") && !resurrectionActive && soulCollectionScanner.radius <= 10.0f)
+        {
+            soulCollectionScanner.radius += radiusIncrease;
+            soulRingParticle.Play();
+            soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
+            soulCollectionActive = true;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isCasting", true);
+            walkSpeed = 0.0f;
+        }
+        else if (!Input.GetKey("e") && soulCollectionScanner.radius > 0.0f)
+        {
+            soulCollectionScanner.radius -= (radiusIncrease * 2);
+            soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
+            anim.SetBool("isCasting", false);
+            walkSpeed = 3.0f;
+        }
+        else if (soulCollectionScanner.radius <= 0.0f)
+        {
+            soulCollectionActive = false;
+            soulRingParticle.Stop();
+        }
     }
 
     private void Movement()

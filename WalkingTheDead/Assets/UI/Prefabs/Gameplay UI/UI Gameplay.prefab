@@ -328,6 +328,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: End Screen Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6211576735794627648, guid: 45fd465f99cb46b4cb1e59fa0999cd05,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8025692192793136704, guid: 45fd465f99cb46b4cb1e59fa0999cd05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -432,11 +437,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6211576735794627648, guid: 45fd465f99cb46b4cb1e59fa0999cd05,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7601325132651093064, guid: 45fd465f99cb46b4cb1e59fa0999cd05,
         type: 3}
@@ -1061,10 +1061,30 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UIStat, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 2758957178251445318, guid: 6704c3423620337459a11616c57540ee,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758957178251445318, guid: 6704c3423620337459a11616c57540ee,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2758957177839993106, guid: 6704c3423620337459a11616c57540ee,
         type: 3}
       propertyPath: m_Value
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611439417052166325, guid: 6704c3423620337459a11616c57540ee,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611439417052166325, guid: 6704c3423620337459a11616c57540ee,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2926739860450542700, guid: 6704c3423620337459a11616c57540ee,
         type: 3}

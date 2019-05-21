@@ -45,16 +45,6 @@ public class UIStat : MonoBehaviour
             StopCoroutine(LerpToTargetValue());
             StartCoroutine(LerpToTargetValue());
         }
-
-        //// Check for critical value
-        //if (slider.value < warningValue)
-        //{
-        //    glowEmission.enabled = true;
-        //}
-        //else
-        //{
-        //    glowEmission.enabled = false;
-        //}
     }
 
     public void AdjustDisplayedValue()
