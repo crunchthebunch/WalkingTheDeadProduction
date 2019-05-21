@@ -17,7 +17,8 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         pauseMenu = GetComponentInChildren<PauseMenu>();
-        fader = GetComponentInChildren<UIFader>();
+        fader = FindObjectOfType<UIFader>();
+        FadeInWinScreen();
     }
 
     private void Update()
@@ -83,12 +84,12 @@ public class UIManager : MonoBehaviour
 
     public void FadeInWinScreen()
     {
-        fader.LoadEndScreen(winScreen);
+        fader.SwitchToCanvas(winScreen);
     }
 
     public void FadeInLoseScreen()
     {
-        fader.LoadEndScreen(loseScreen);
+        fader.SwitchToCanvas(loseScreen);
     }
 
     public void ShowMap()
@@ -100,5 +101,18 @@ public class UIManager : MonoBehaviour
             pauseMenu.ShowMap();
             Time.timeScale = 0.0f;
         }
+    }
+
+    public void LoadMainMenu()
+    {
+        fader.FadeOut();
+        Time.timeScale = 1.0f;
+
+        Invoke("LoadMenuScene", 1f);
+    }
+
+    void LoadMenuScene()
+    {
+        SceneLoader.LoadMainMenu();
     }
 }

@@ -11,7 +11,7 @@ public class NecromancerMainMenu : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    public void StandUp(float seconds)
+    public void StandUp()
     {
         animator.SetTrigger("StartPressed");
     }

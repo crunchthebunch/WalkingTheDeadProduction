@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] AudioClip pageTurnSound;
 
     AudioSource audioSource;
+    UIFader fader;
     
 
     public Canvas ParentCanvas { get => parentCanvas; }
@@ -25,6 +26,7 @@ public class PauseMenu : MonoBehaviour
     {
         parentCanvas = GetComponent<Canvas>();
         audioSource = GetComponent<AudioSource>();
+        fader = FindObjectOfType<UIFader>();
     }
 
     public void ShowMain()
@@ -52,6 +54,14 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadMainMenu()
+    {
+        fader.FadeOut();
+        Time.timeScale = 1.0f;
+
+        Invoke("LoadMenuScene", 1f);
+    }
+
+    void LoadMenuScene()
     {
         SceneLoader.LoadMainMenu();
     }
