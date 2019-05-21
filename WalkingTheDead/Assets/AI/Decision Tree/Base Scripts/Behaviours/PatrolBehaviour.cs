@@ -46,6 +46,7 @@ public class PatrolBehaviour : Behaviour
 
     IEnumerator Patrol()
     {
+        agent.speed = settings.WalkingSpeed;
         // Set a patrol destination
         agent.SetDestination(GetNextPatrolPosition());
         agent.speed = settings.WalkingSpeed;

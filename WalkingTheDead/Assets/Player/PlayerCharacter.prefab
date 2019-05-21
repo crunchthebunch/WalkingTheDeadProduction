@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1977957014256300540}
   m_Layer: 0
   m_Name: FearRadius
-  m_TagString: TEST
+  m_TagString: Fear Radius
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -719,6 +719,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soul Ring
       objectReference: {fileID: 0}
+    - target: {fileID: 2598494893678786280, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2598494893678786281, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -782,11 +787,6 @@ PrefabInstance:
     - target: {fileID: 2598494893678786281, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2598494893678786280, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
