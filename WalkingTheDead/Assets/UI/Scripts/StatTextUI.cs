@@ -17,9 +17,11 @@ public class StatTextUI : MonoBehaviour
 
     private void OnEnable()
     {
-        text.text = (int)slider.value + "/" + (int)slider.maxValue;
+        AdjustValue();
     }
 
-    
-
+    public void AdjustValue()
+    {
+        text.text = (int)slider.value + "/" + (int)slider.maxValue;
+    }
 }

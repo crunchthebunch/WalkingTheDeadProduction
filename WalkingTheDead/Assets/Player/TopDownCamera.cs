@@ -37,8 +37,6 @@ public class TopDownCamera : MonoBehaviour
         HandleCamera();
     }
 
-    
-
     protected virtual void HandleCamera()
     {
         if (!target)
@@ -55,6 +53,10 @@ public class TopDownCamera : MonoBehaviour
 
         height -= scroll * scrollspeed * 20.0f * Time.deltaTime;
 
+        distance = Mathf.Clamp(height, minScroll, maxScroll);
+
+        distance -= scroll * scrollspeed * 20.0f * Time.deltaTime;
+
         offset.y = target.position.y + height;
 
         if (Input.GetMouseButton(2))
@@ -62,28 +64,5 @@ public class TopDownCamera : MonoBehaviour
             offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeed, Vector3.up) * offset;
         }
 
-        
-        /*else
-        {
-            // World Position Vector
-            Vector3 worldPosition = (Vector3.forward * -distance) + (Vector3.up * height);
-
-            // Movement of camera
-            Vector3 flatTargetPosition = target.position;
-            flatTargetPosition.y = 0.0f;
-            Vector3 finalposition = flatTargetPosition + worldPosition;
-
-            transform.position = finalposition;
-
-            transform.LookAt(target.position);
-
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
-
-            height = Mathf.Clamp(height, minScroll, maxScroll);
-
-            height -= scroll * scrollspeed * 20.0f * Time.deltaTime;
-
-            offset = finalposition;
-        }*/
     }
 }
