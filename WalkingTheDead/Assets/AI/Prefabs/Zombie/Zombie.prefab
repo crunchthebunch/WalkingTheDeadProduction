@@ -216,6 +216,8 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 56bc0f367f6bf974faa73cc14d2268f6, type: 2}
   remainState: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
   recieveCommands: 1
+  fearState: {fileID: 0}
+  test: 0
 --- !u!1001 &3460856484746353997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
       propertyPath: m_Materials.Array.data[6]
       value: 
-      objectReference: {fileID: 2100000, guid: 30bf44df7fdbe8041af9f3d29638570a, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c22209bbfa3d6b409fbb009a23d834f, type: 3}
 --- !u!4 &3460856484746741757 stripped
@@ -294,11 +296,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1665908546146190988}
     m_Modifications:
-    - target: {fileID: 7253371942412690115, guid: 473244b2af67d7742bead05ae9ae98e1,
-        type: 3}
-      propertyPath: m_Name
-      value: HumanScanner
-      objectReference: {fileID: 0}
     - target: {fileID: 3257683339434440070, guid: 473244b2af67d7742bead05ae9ae98e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -353,6 +350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253371942412690115, guid: 473244b2af67d7742bead05ae9ae98e1,
+        type: 3}
+      propertyPath: m_Name
+      value: HumanScanner
       objectReference: {fileID: 0}
     - target: {fileID: 1582812863123882716, guid: 473244b2af67d7742bead05ae9ae98e1,
         type: 3}
