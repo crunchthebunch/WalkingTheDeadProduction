@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     {
         pauseMenu = GetComponentInChildren<PauseMenu>();
         fader = FindObjectOfType<UIFader>();
-        FadeInWinScreen();
     }
 
     private void Update()
