@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public UIStat healthUI, manaUI;
 
     bool particleEffectActive;
+    public bool bigBoiManaCostActive;
 
     LayerMask groundLayerMask;
     ParticleSystem click;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
 
         particleEffectActive = false;
         mainCamera = GameObject.Find("PlayerCharacter/Camera").GetComponent<Camera>();
+        bigBoiManaCostActive = false;
 
     }
 
@@ -123,6 +125,17 @@ public class GameManager : MonoBehaviour
         if (manaValue > maxMana)
         {
             manaValue = maxMana;
+        }
+    }
+
+    public void DecreaseManaBy(float manaCost)
+    {
+        manaValue -= manaCost;
+        
+        // Clamp
+        if (manaValue <= 0f)
+        {
+            manaValue = 0f;
         }
     }
 }

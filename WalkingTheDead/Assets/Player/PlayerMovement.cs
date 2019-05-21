@@ -124,8 +124,6 @@ public class PlayerMovement : MonoBehaviour
                 bigboiSpellActive = true;
                 BigBoiUI.PutSpellOnCoolDown();
                 BigBoiUI.HoverSpell();
-                Debug.Log("BigBoiUI");
-                gameManager.manaValue -= 40.0f;
             }
         }
         else
@@ -133,6 +131,12 @@ public class PlayerMovement : MonoBehaviour
 
             BigBoiUI.StopHoveringSpell();
             bigboiSpellActive = false;
+        }
+
+        if (gameManager.bigBoiManaCostActive == true)
+        {
+            gameManager.DecreaseManaBy(40f);
+            gameManager.bigBoiManaCostActive = false;
         }
     }
 
