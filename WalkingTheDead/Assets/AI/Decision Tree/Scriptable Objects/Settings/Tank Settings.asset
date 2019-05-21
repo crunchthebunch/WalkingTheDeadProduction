@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tank Settings
   m_EditorClassIdentifier: 
   visionRange: 10
-  walkSpeed: 2
+  walkSpeed: 4
   runSpeed: 6
   navigationRadius: 7.5
   healthMax: 25
