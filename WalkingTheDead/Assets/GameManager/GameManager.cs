@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     PlayerMovement necromancer;
 
     public bool disguiseManaCostActive;
+    public bool bigBoiManaCostActive;
 
     public ParticleSystem clickSystemEffect;
     Camera mainCamera;
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         particleEffectActive = false;
         mainCamera = GameObject.Find("PlayerCharacter/Camera").GetComponent<Camera>();
-
+        bigBoiManaCostActive = false;
     }
 
     private void Start()
