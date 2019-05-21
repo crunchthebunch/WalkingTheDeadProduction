@@ -606,6 +606,11 @@ PrefabInstance:
       propertyPath: necromancer
       value: 
       objectReference: {fileID: 2900076237062334970}
+    - target: {fileID: 4795238348467602620, guid: 0d07b4ad5ad5e1249986dc59f149b9dd,
+        type: 3}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6092071023018554110, guid: 0d07b4ad5ad5e1249986dc59f149b9dd,
         type: 3}
       propertyPath: m_MatchWidthOrHeight
@@ -628,17 +633,17 @@ PrefabInstance:
     - target: {fileID: 2448031386598163246, guid: ca729fa100204d34b8996c1c623cf92b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4492496
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 2448031386598163246, guid: ca729fa100204d34b8996c1c623cf92b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.81
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2448031386598163246, guid: ca729fa100204d34b8996c1c623cf92b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.1252854
+      value: 1.018
       objectReference: {fileID: 0}
     - target: {fileID: 2448031386598163246, guid: ca729fa100204d34b8996c1c623cf92b,
         type: 3}
