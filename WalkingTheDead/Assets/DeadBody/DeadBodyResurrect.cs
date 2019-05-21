@@ -98,7 +98,7 @@ public class DeadBodyResurrect : MonoBehaviour
 
     private void BigBoiSpawned()
     {
-        Instantiate(zombieSpawn, transform.position, transform.rotation);
+        Instantiate(bigboiZombieSpawn, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
 }
