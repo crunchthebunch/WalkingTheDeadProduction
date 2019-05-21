@@ -95,12 +95,14 @@ public class PlayerMovement : MonoBehaviour
             soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
             soulCollectionActive = true;
             anim.SetBool("isWalking", false);
+            anim.SetBool("isCasting", true);
             walkSpeed = 0.0f;
         }
         else if (!Input.GetKey("e") && soulCollectionScanner.radius > 0.0f)
         {
             soulCollectionScanner.radius -= (radiusIncrease * 2);
             soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
+            anim.SetBool("isCasting", false);
             walkSpeed = 3.0f;
         }
         else if (soulCollectionScanner.radius <= 0.0f)
@@ -163,12 +165,14 @@ public class PlayerMovement : MonoBehaviour
             FearUI.HoverSpell();
             pentagram.Play();
             Debug.Log("FEAR");
+            fearScanner.radius = 3.5f;
             gameManager.manaValue -= 20.0f;
 
         }
         else
         {
             //pentagram.Stop();
+            fearScanner.radius = 0.0f;
             FearUI.StopHoveringSpell();
             fearSpellActive = false;
         }
