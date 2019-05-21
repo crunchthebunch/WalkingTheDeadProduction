@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public UIStat healthUI, manaUI;
 
     bool particleEffectActive;
-    public bool bigBoiManaCostActive;
 
     LayerMask groundLayerMask;
     ParticleSystem click;
