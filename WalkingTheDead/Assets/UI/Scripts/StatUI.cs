@@ -14,6 +14,9 @@ public class StatUI : MonoBehaviour
     float targetValue;
     bool isLerping;
 
+    public float WarningValue { get => warningValue;  }
+    public float TargetValue { get => targetValue;  }
+
     // Start is called before the first frame update
     void Awake()
     {
