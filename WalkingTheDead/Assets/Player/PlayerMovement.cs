@@ -24,9 +24,13 @@ public class PlayerMovement : MonoBehaviour
     public SpellUI DisguiseUI;
     public SpellUI BigBoiUI;
 
+    public StatUI manaBar;
+
     public float FearCooldown = 5.0f;
     public float DisguiseCooldown = 3.0f;
     public float BigBoiCooldown = 3.0f;
+
+    public float fearSpellCost = 20.0f;
 
     bool soulCollectionActive;
     bool resurrectionActive;
@@ -95,12 +99,14 @@ public class PlayerMovement : MonoBehaviour
             soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
             soulCollectionActive = true;
             anim.SetBool("isWalking", false);
+            anim.SetBool("isCasting", true);
             walkSpeed = 0.0f;
         }
         else if (!Input.GetKey("e") && soulCollectionScanner.radius > 0.0f)
         {
             soulCollectionScanner.radius -= (radiusIncrease * 2);
             soulRingParticle.transform.localScale = new Vector3(soulCollectionScanner.radius / 6, 1.0f, soulCollectionScanner.radius / 6);
+            anim.SetBool("isCasting", false);
             walkSpeed = 3.0f;
         }
         else if (soulCollectionScanner.radius <= 0.0f)
@@ -114,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         {
             resurrectionScanner.radius += radiusIncrease;
             resurrectParticle.Play();
-            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius/6, 1.0f, resurrectionScanner.radius/6);
+            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius / 6, 1.0f, resurrectionScanner.radius / 6);
             resurrectionActive = true;
             anim.SetBool("isWalking", false);
             anim.SetBool("isResurrecting", true);
@@ -123,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
         else if (!Input.GetKey("r") && resurrectionScanner.radius > 0.0f)
         {
             resurrectionScanner.radius -= (radiusIncrease * 2);
-            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius/6, 1.0f, resurrectionScanner.radius/6);
+            resurrectParticle.transform.localScale = new Vector3(resurrectionScanner.radius / 6, 1.0f, resurrectionScanner.radius / 6);
             anim.SetBool("isResurrecting", false);
             walkSpeed = 3.0f;
         }
@@ -136,17 +142,22 @@ public class PlayerMovement : MonoBehaviour
         // Disguise Spell
         if (Input.GetKeyDown("2") && disguiseSpellActive == false && gameManager.manaValue > 0.0f && !DisguiseUI.IsOnCoolDown)
         {
-            this.tag = "Disguise";
-            gameManager.disguiseManaCostActive = true;
-            DisguiseUI.HoverSpell();
-            Debug.Log("DISGUISE");
-            smoke.Play();
-            disguiseSpellActive = true;
-
+                this.tag = "Disguise";
+                gameManager.disguiseManaCostActive = true;
+                DisguiseUI.HoverSpell();
+                Debug.Log("DISGUISE");
+                smoke.Play();
+                disguiseSpellActive = true;
         }
 
         else if ((Input.GetKeyDown("2") && disguiseSpellActive == true) || (gameManager.manaValue <= 0.0f && disguiseSpellActive == true))
         {
+            // If you run out of mana, glow bar
+            if (gameManager.manaValue <= 0.0f && disguiseSpellActive == true)
+            {
+                manaBar.GlowForSeconds(0.5f);
+            }
+
             disguiseSpellActive = false;
             this.tag = "Necromancer";
             DisguiseUI.PutSpellOnCoolDown();
@@ -156,27 +167,43 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Fear Spell
-        if (Input.GetKeyDown("1") && gameManager.manaValue >= 20.0f && !FearUI.IsOnCoolDown && !fearSpellActive)
+        if (Input.GetKeyDown("1") && !FearUI.IsOnCoolDown && !fearSpellActive)
         {
-            fearSpellActive = true;
-            FearUI.PutSpellOnCoolDown();
-            FearUI.HoverSpell();
-            pentagram.Play();
-            Debug.Log("FEAR");
-            gameManager.manaValue -= 20.0f;
-
+            // If not enough mana, then glow bar
+            if (gameManager.manaValue < fearSpellCost)
+            {
+                manaBar.GlowForSeconds(1.0f);
+            }
+            else
+            {
+                fearSpellActive = true;
+                FearUI.PutSpellOnCoolDown();
+                FearUI.HoverSpell();
+                pentagram.Play();
+                Debug.Log("FEAR");
+                fearScanner.radius = 3.5f;
+                gameManager.manaValue -= 20.0f;
+            }
         }
         else
         {
             //pentagram.Stop();
+            fearScanner.radius = 0.0f;
             FearUI.StopHoveringSpell();
             fearSpellActive = false;
         }
 
-        horizontalInput.x = Input.GetAxis("Horizontal");
-        horizontalInput.y = Input.GetAxis("Vertical");
+        // Movement
+        Movement();
 
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) < 1 && Mathf.Abs(Input.GetAxis("Vertical")) < 1)
+    }
+
+    private void Movement()
+    {
+        horizontalInput.x = Input.GetAxisRaw("Horizontal");
+        horizontalInput.y = Input.GetAxisRaw("Vertical");
+
+        if (Mathf.Abs(horizontalInput.x) < 1 && Mathf.Abs(horizontalInput.y) < 1)
         {
             return;
         }
@@ -189,7 +216,6 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
 
         transform.position += transform.forward * walkSpeed * Time.deltaTime;
-
     }
 
     void GetInput()

@@ -82,11 +82,11 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25000018
-  m_TransitionOffset: 0.0052145277
-  m_ExitTime: 0.57380354
+  m_TransitionDuration: 0.0886619
+  m_TransitionOffset: 0
+  m_ExitTime: 6.4560063e-10
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -173,7 +173,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walking
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101246127217772394}
@@ -267,7 +267,7 @@ AnimatorStateMachine:
     m_Position: {x: 612, y: -24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102815990891771576}
-    m_Position: {x: 448.19974, y: -113.898834, z: 0}
+    m_Position: {x: 450, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4149709607713569844}
     m_Position: {x: 490, y: 140, z: 0}
@@ -289,7 +289,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Casting
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7057360218672572602}

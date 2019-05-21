@@ -23,6 +23,7 @@ public class StatUI : MonoBehaviour
         isLerping = false;
         glowParticle = GetComponentInChildren<ParticleSystem>();
         glowEmission = glowParticle.emission;
+        glowEmission.enabled = false;
     }
 
     public void SetupStatUI(float warningValue, float startingValue, float maximumValue)
@@ -42,15 +43,15 @@ public class StatUI : MonoBehaviour
             StartCoroutine(LerpToTargetValue());
         }
 
-        // Check for critical value
-        if (slider.value < warningValue)
-        {
-            glowEmission.enabled = true;
-        }
-        else
-        {
-            glowEmission.enabled = false;
-        }
+        //// Check for critical value
+        //if (slider.value < warningValue)
+        //{
+        //    glowEmission.enabled = true;
+        //}
+        //else
+        //{
+        //    glowEmission.enabled = false;
+        //}
     }
 
     public void AdjustDisplayedValue()
@@ -91,5 +92,20 @@ public class StatUI : MonoBehaviour
     public void DisplayValues(bool isDisplaying)
     {
         textUI.gameObject.SetActive(isDisplaying);
+    }
+
+    public void GlowForSeconds(float seconds)
+    {
+        StopCoroutine(Glow(seconds));
+        StartCoroutine(Glow(seconds));
+    }
+
+    IEnumerator Glow(float seconds)
+    {
+        glowEmission.enabled = true;
+
+        yield return new WaitForSeconds(seconds);
+
+        glowEmission.enabled = false;
     }
 }

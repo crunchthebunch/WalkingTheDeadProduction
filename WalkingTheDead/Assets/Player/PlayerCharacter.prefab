@@ -581,7 +581,7 @@ MonoBehaviour:
   walkSpeed: 3
   soulCollectionScanner: {fileID: 7657091367230827421}
   resurrectionScanner: {fileID: 4738058146021786283}
-  fearScanner: {fileID: 0}
+  fearScanner: {fileID: 1977957014256300540}
   radiusIncrease: 0.02
   smoke: {fileID: 6161883093217871419}
   pentagram: {fileID: 3136303134553595969}
@@ -590,9 +590,11 @@ MonoBehaviour:
   FearUI: {fileID: 0}
   DisguiseUI: {fileID: 0}
   BigBoiUI: {fileID: 0}
+  manaBar: {fileID: 0}
   FearCooldown: 5
   DisguiseCooldown: 3
   BigBoiCooldown: 3
+  fearSpellCost: 20
   cam: {fileID: 4172635563701925910}
   turnSpeed: 4
 --- !u!54 &1450907657992680204
