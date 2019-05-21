@@ -168,6 +168,8 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 0152eef5a8c07af4b94918f85156678b, type: 2}
   remainState: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
   recieveCommands: 0
+  fearState: {fileID: 11400000, guid: 87d2889e5240ced4d8270a5611ad9cc9, type: 2}
+  test: 0
 --- !u!1001 &2805242004132291108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 0730aa664ee887a46af94fcda74e1768, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 722f88448d0e5924e8e2faeb5cfab65b, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0730aa664ee887a46af94fcda74e1768, type: 3}
 --- !u!4 &2805242004131903626 stripped

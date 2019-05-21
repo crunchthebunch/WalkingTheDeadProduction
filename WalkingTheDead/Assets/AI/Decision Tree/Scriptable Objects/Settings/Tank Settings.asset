@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 371e9cc50ec05e9408f997d670c53f29, type: 3}
-  m_Name: Zombie Settings
+  m_Name: Tank Settings
   m_EditorClassIdentifier: 
   visionRange: 5
-  walkSpeed: 2
-  runSpeed: 8
-  meleeAttackRange: 0.5
-  attackDamage: 1
-  navigationRadius: 5
+  walkSpeed: 1
+  runSpeed: 10
+  meleeAttackRange: 2
+  attackDamage: 3
+  navigationRadius: 7.5
   attackDelay: 1

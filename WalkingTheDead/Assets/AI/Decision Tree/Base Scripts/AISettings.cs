@@ -6,9 +6,14 @@ public class AISettings : ScriptableObject
     [SerializeField] protected float visionRange      = 5.0f;
     [SerializeField] protected float walkSpeed        = 2.0f;
     [SerializeField] protected float runSpeed         = 8.0f;
+    [SerializeField] protected float navigationRadius = 5.0f;
+
+    [SerializeField] private float healthMax = 10.0f;
+
     [SerializeField] protected float meleeAttackRange = 1.0f;
-    [SerializeField] protected float attackDamage     = 1.0f;
-    [SerializeField] protected float navigationRadius   = 5.0f;
+    [SerializeField] protected float attackDamage = 1.0f;
+    [SerializeField] protected float attackDelay      = 2.0f;
+
 
     public float WalkingSpeed     { get => walkSpeed; }
     public float VisionRange      { get => visionRange; }
@@ -16,4 +21,6 @@ public class AISettings : ScriptableObject
     public float MeleeAttackRange { get => meleeAttackRange; }
     public float AttackDamage     { get => attackDamage; }
     public float NavigationRadius { get => navigationRadius; }
+    public float AttackDelay      { get => attackDelay; }
+    protected float HealthMax     { get => healthMax; }
 }
