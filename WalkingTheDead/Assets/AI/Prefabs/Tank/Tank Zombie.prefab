@@ -311,11 +311,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1951137024437338140}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 72adab676b6d57042a841c3a45797869,
-        type: 3}
-      propertyPath: m_Name
-      value: TankWalking_Animation
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 72adab676b6d57042a841c3a45797869,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,7 +319,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 72adab676b6d57042a841c3a45797869,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 72adab676b6d57042a841c3a45797869,
         type: 3}
@@ -370,6 +365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 72adab676b6d57042a841c3a45797869,
+        type: 3}
+      propertyPath: m_Name
+      value: TankWalking_Animation
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 72adab676b6d57042a841c3a45797869,
         type: 3}
