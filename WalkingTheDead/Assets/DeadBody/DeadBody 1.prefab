@@ -53,6 +53,7 @@ MonoBehaviour:
   bigboiParticle: {fileID: 5378174507967384729}
   zombieSpawn: {fileID: 2840382505304573919, guid: 60522acc749b2e24f95e8bf3b383a3ea,
     type: 3}
+  bigboiZombieSpawn: {fileID: 0}
 --- !u!65 &1676685493893947034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,16 +132,6 @@ PrefabInstance:
     - target: {fileID: 6890079948346313556, guid: 7c384c9f83d4c9648b215aed57cd825c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6890079948346313555, guid: 7c384c9f83d4c9648b215aed57cd825c,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6890079949456503820, guid: 7c384c9f83d4c9648b215aed57cd825c,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

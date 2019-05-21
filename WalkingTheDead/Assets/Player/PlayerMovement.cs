@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
                 FearUI.HoverSpell();
                 pentagram.Play();
                 Debug.Log("FEAR");
-                fearScanner.radius = 3.5f;
+                fearScanner.radius = 4.5f;
                 gameManager.manaValue -= 20.0f;
             }
         }
@@ -209,8 +209,10 @@ public class PlayerMovement : MonoBehaviour
                 bigboiSpellActive = true;
                 BigBoiUI.PutSpellOnCoolDown();
                 BigBoiUI.HoverSpell();
-                Debug.Log("BigBoiUI");
-                gameManager.manaValue -= 40.0f;
+
+                //Debug.Log("BigBoiUI");
+                
+                
             }
         }
         else
@@ -220,6 +222,11 @@ public class PlayerMovement : MonoBehaviour
             bigboiSpellActive = false;
         }
 
+        if (gameManager.bigBoiManaCostActive == true)
+        {
+            gameManager.manaValue -= 40.0f;
+            gameManager.bigBoiManaCostActive = false;
+        }
         // Movement
         Movement();
 

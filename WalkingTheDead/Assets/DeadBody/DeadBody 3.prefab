@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c268f0c973f8f64d8f2fe737b25d706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObject: {fileID: 0}
   soulParticle: {fileID: 1387818907195887312}
   resurrectParticle: {fileID: 1205150585194577026}
   bigboiParticle: {fileID: 5410278384453079495}
@@ -184,6 +185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Raise big dead 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6890079948346313555, guid: 7c384c9f83d4c9648b215aed57cd825c,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6890079948346313556, guid: 7c384c9f83d4c9648b215aed57cd825c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -237,11 +243,6 @@ PrefabInstance:
     - target: {fileID: 6890079948346313556, guid: 7c384c9f83d4c9648b215aed57cd825c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6890079948346313555, guid: 7c384c9f83d4c9648b215aed57cd825c,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6890079949456503820, guid: 7c384c9f83d4c9648b215aed57cd825c,
