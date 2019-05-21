@@ -336,7 +336,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7292458910092915449}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -424,7 +424,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 340, y: 10.894781}
-  m_SizeDelta: {x: 469.3, y: 799.7}
+  m_SizeDelta: {x: 553.8, y: 793.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3639680553905656102
 CanvasRenderer:
@@ -454,7 +454,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5ab90e422482a9c4fac32458e92fd8af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e8b65d56683cd6429dc08b334857589, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
