@@ -12,6 +12,7 @@ public class DeadBodyResurrect : MonoBehaviour
 
     public ParticleSystem soulParticle;
     public ParticleSystem resurrectParticle;
+    public ParticleSystem bigboiParticle;
 
     [SerializeField] GameObject zombieSpawn = null;
 
@@ -43,6 +44,15 @@ public class DeadBodyResurrect : MonoBehaviour
             soulParticle.Play();
             
             Invoke("SoulCollected", 2.5f);
+        }
+
+        else if (other.gameObject.name == "PlayerCharacter")
+        {
+            if (Input.GetKeyDown("3") && gameManager.manaValue >= 50.0f)
+            {
+                anim.SetBool("isBigBoiCasting", true);
+                
+            }
         }
     }
 
