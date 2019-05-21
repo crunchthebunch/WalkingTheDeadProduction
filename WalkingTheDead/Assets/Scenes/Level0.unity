@@ -23003,6 +23003,11 @@ PrefabInstance:
       propertyPath: BigBoiUI
       value: 
       objectReference: {fileID: 1035102718}
+    - target: {fileID: 4975565982040587211, guid: 288af7263af40b44da254bd4a621b532,
+        type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 1824130347}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288af7263af40b44da254bd4a621b532, type: 3}
 --- !u!4 &786616181 stripped

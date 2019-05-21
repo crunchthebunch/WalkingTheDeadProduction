@@ -590,9 +590,11 @@ MonoBehaviour:
   FearUI: {fileID: 0}
   DisguiseUI: {fileID: 0}
   BigBoiUI: {fileID: 0}
+  manaBar: {fileID: 0}
   FearCooldown: 5
   DisguiseCooldown: 3
   BigBoiCooldown: 3
+  fearSpellCost: 20
   cam: {fileID: 4172635563701925910}
   turnSpeed: 4
 --- !u!54 &1450907657992680204
