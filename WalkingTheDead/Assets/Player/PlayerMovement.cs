@@ -31,13 +31,14 @@ public class PlayerMovement : MonoBehaviour
     public float BigBoiCooldown = 3.0f;
 
     public float fearSpellCost = 20.0f;
+    public float bigboiSpellCost = 40.0f;
 
     bool soulCollectionActive;
     bool resurrectionActive;
 
     bool disguiseSpellActive;
     bool fearSpellActive;
-    bool zombieSpellActive;
+    bool bigboiSpellActive;
     bool mendFleshSpellActive;
     bool pentagramPlaying;
 
@@ -62,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         resurrectionActive = false;
         disguiseSpellActive = false;
         fearSpellActive = false;
-        zombieSpellActive = false;
+        bigboiSpellActive = false;
         mendFleshSpellActive = false;
 
 
@@ -142,12 +143,12 @@ public class PlayerMovement : MonoBehaviour
         // Disguise Spell
         if (Input.GetKeyDown("2") && disguiseSpellActive == false && gameManager.manaValue > 0.0f && !DisguiseUI.IsOnCoolDown)
         {
-                this.tag = "Disguise";
-                gameManager.disguiseManaCostActive = true;
-                DisguiseUI.HoverSpell();
-                Debug.Log("DISGUISE");
-                smoke.Play();
-                disguiseSpellActive = true;
+            this.tag = "Disguise";
+            gameManager.disguiseManaCostActive = true;
+            DisguiseUI.HoverSpell();
+            Debug.Log("DISGUISE");
+            smoke.Play();
+            disguiseSpellActive = true;
         }
 
         else if ((Input.GetKeyDown("2") && disguiseSpellActive == true) || (gameManager.manaValue <= 0.0f && disguiseSpellActive == true))
@@ -187,10 +188,36 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            //pentagram.Stop();
-            fearScanner.radius = 0.0f;
+            if (!pentagram.isPlaying)
+            {
+                fearScanner.radius = 0.0f;
+            }
+            //fearScanner.radius = 0.0f;
             FearUI.StopHoveringSpell();
             fearSpellActive = false;
+        }
+
+        // Big Zombie Spell
+        if (Input.GetKeyDown("3") && !BigBoiUI.IsOnCoolDown && !bigboiSpellActive)
+        {
+            if (gameManager.manaValue < bigboiSpellCost)
+            {
+                manaBar.GlowForSeconds(1.0f);
+            }
+            else
+            {
+                bigboiSpellActive = true;
+                BigBoiUI.PutSpellOnCoolDown();
+                BigBoiUI.HoverSpell();
+                Debug.Log("BigBoiUI");
+                gameManager.manaValue -= 40.0f;
+            }
+        }
+        else
+        {
+
+            BigBoiUI.StopHoveringSpell();
+            bigboiSpellActive = false;
         }
 
         // Movement
@@ -216,12 +243,6 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
 
         transform.position += transform.forward * walkSpeed * Time.deltaTime;
-    }
-
-    void GetInput()
-    {
-        horizontalInput.x = Input.GetAxis("Horizontal");
-        horizontalInput.y = Input.GetAxis("Vertical");
     }
 
     void CalculateDirection()
