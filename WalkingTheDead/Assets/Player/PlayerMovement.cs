@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
                 FearUI.HoverSpell();
                 pentagram.Play();
                 Debug.Log("FEAR");
-                fearScanner.radius = 3.5f;
+                fearScanner.gameObject.SetActive(true);
                 gameManager.manaValue -= 20.0f;
             }
         }
@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!pentagram.isPlaying)
             {
-                fearScanner.radius = 0.0f;
+                fearScanner.gameObject.SetActive(false);
             }
             //fearScanner.radius = 0.0f;
             FearUI.StopHoveringSpell();

@@ -16,17 +16,16 @@ public class FleeBehaviour : Behaviour
     {
         agent = GetComponent<NavMeshAgent>();
         scanner = GetComponentInChildren<Scanner>();
-        fleeDistance = 10.0f;
+        fleeDistance = 15.0f;
     }
 
     public override void DoBehaviour()
     {
         // Keep Calculating New Flee routes until there are enemies around
-        if (scanner.ObjectsInRange.Count > 0)
-        {
-            StopCoroutine(FleeFromClosestEnemy());
-            StartCoroutine(FleeFromClosestEnemy());
-        }
+
+        StopCoroutine(FleeFromClosestEnemy());
+        StartCoroutine(FleeFromClosestEnemy());
+
     }
 
     public override void SetupBehaviour(AISettings settings)

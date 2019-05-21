@@ -6,9 +6,11 @@ using UnityEngine.AI;
 public class StateController : MonoBehaviour
 {
     // [SerializeField] HumanStats stats;
-    [SerializeField] protected State currentState = null;
+    [SerializeField] private State currentState = null;
     [SerializeField] protected State remainState = null;
     [SerializeField] protected bool recieveCommands = false;
+    private bool feared = false;
+    public bool test = false;
 
     ChaseBehaviour       chaseBehaviour;
     WanderBehaviour      wanderBehaviour;
@@ -23,6 +25,7 @@ public class StateController : MonoBehaviour
 
     bool hasCommand;
     bool isSetup = false;
+    float fearTimer = 0;
 
     public ChaseBehaviour       ChaseBehaviour  { get => chaseBehaviour; }
     public WanderBehaviour      WanderBehaviour { get => wanderBehaviour; }
@@ -34,6 +37,9 @@ public class StateController : MonoBehaviour
     public Scanner Scanner { get => scanner; }
     public MoveBackBehaviour MoveBackBehaviour { get => moveBackBehaviour; }
     public bool HasCommand { get => hasCommand; set => hasCommand = value; }
+    protected State DefaultState { get => currentState; }
+    public float FearTimer { get => fearTimer; set => fearTimer = value; }
+    public bool Feared { get => feared; }
 
 
 
@@ -67,11 +73,17 @@ public class StateController : MonoBehaviour
 
     private void Update()
     {
+
+        if (test)
+        {
+            BecomeFeared(5f);
+            test = false;
+        }
+
         if (isSetup)
         {
             currentState.UpdateState(this);
         }
-        
     }
 
     void SetupBehaviours()
@@ -116,4 +128,31 @@ public class StateController : MonoBehaviour
         if(recieveCommands) PlayerCommand.Click -= RecieveCommand;
     }
     //--------------------------------//
+
+    public void BecomeFeared(float time)
+    {
+        if (!feared)
+        {
+            StopCoroutine(BecomeScared(time));
+            StartCoroutine(BecomeScared(time));
+        }
+        
+    }
+
+    IEnumerator BecomeScared(float seconds)
+    {
+        feared = true;
+
+        yield return new WaitForSeconds(seconds);
+
+        feared = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("TEST"))
+        {
+            BecomeFeared(5);
+        }
+    }
 }
