@@ -8,13 +8,16 @@ public class DeadBodyResurrect : MonoBehaviour
 
     Animator anim;
 
-    GameObject playerObject = null;
+    GameObject playerObject;
 
     public ParticleSystem soulParticle;
     public ParticleSystem resurrectParticle;
     public ParticleSystem bigboiParticle;
 
     [SerializeField] GameObject zombieSpawn = null;
+    [SerializeField] GameObject bigboiZombieSpawn = null;
+
+    bool getInput = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,7 +30,16 @@ public class DeadBodyResurrect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("3") && getInput && gameManager.manaValue >= 40.0f)
+        {
+            Debug.Log("OHLAWDHECOMIN");
+            bigboiParticle.Play();
+            Invoke("BigBoiSpawned", 2.0f);
+            gameManager.bigBoiManaCostActive = true;
+
+            anim.SetBool("isBigBoiCasting", true);
+            Invoke("setbigAnimationFalse", 2.0f);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,13 +58,18 @@ public class DeadBodyResurrect : MonoBehaviour
             Invoke("SoulCollected", 2.5f);
         }
 
-        else if (other.gameObject.name == "PlayerCharacter")
+        if (other.gameObject.name == "PlayerCharacter")
         {
-            if (Input.GetKeyDown("3") && gameManager.manaValue >= 50.0f)
-            {
-                anim.SetBool("isBigBoiCasting", true);
-                
-            }
+            getInput = true;
+            Debug.Log("Player entered!");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "PlayerCharacter")
+        {
+            getInput = false;
         }
     }
 
@@ -61,16 +78,26 @@ public class DeadBodyResurrect : MonoBehaviour
         anim.SetBool("isResurrecting", false);
     }
 
+    private void setbigAnimationFalse()
+    {
+        anim.SetBool("isBigBoiCasting", false);
+    }
+
     private void InstantiateZombie()
     {
         Instantiate(zombieSpawn, transform.position, transform.rotation);
-        gameManager.numberOFZombies += 1;
         Destroy(this.gameObject);
     }
 
     private void SoulCollected()
     {
-        gameManager.manaValue += 20.0f;
+        gameManager.CollectSoul();
+        Destroy(this.gameObject);
+    }
+
+    private void BigBoiSpawned()
+    {
+        Instantiate(bigboiZombieSpawn, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
 }
