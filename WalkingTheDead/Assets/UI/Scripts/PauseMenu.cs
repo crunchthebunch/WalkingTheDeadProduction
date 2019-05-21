@@ -59,6 +59,7 @@ public class PauseMenu : MonoBehaviour
     public void DisplayPauseMenu(bool isDisplaying)
     {
         parentCanvas.enabled = isDisplaying;
+        print("TogglePause");
     }
 
     public void QuitGame()

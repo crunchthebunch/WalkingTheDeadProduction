@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371e9cc50ec05e9408f997d670c53f29, type: 3}
   m_Name: Soldier Settings
   m_EditorClassIdentifier: 
-  visionRange: 5
+  visionRange: 15
   walkSpeed: 3
   runSpeed: 8
+  navigationRadius: 5
+  healthMax: 10
   meleeAttackRange: 2
   attackDamage: 2
-  navigationRadius: 5
+  attackDelay: 2

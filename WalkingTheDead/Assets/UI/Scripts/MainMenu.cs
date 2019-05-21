@@ -36,6 +36,11 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(WaitSeconds(startDelay));
     }
 
+    public void LoadCredits()
+    {
+
+    }
+
     public void QuitGame()
     {
         // Play Sound

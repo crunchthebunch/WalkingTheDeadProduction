@@ -8,12 +8,12 @@ public class NecromancerMainMenu : MonoBehaviour
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void StandUp(float seconds)
     {
-        animator.SetTrigger(0);
+        animator.SetTrigger("StartPressed");
     }
 
     

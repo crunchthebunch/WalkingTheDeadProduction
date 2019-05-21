@@ -150,7 +150,7 @@ public class StateController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("TEST"))
+        if (other.CompareTag("Fear Radius"))
         {
             BecomeFeared(5);
         }
