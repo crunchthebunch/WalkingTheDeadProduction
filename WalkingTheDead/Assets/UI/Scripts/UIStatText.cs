@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class StatTextUI : MonoBehaviour
+public class UIStatText : MonoBehaviour
 {
     Slider slider;
     TextMeshProUGUI text;

@@ -18,20 +18,24 @@ public class MeleeSoldierChaseDecision : Decision
         {
             // Find the closest Enemy
             GameObject closestEnemy = controller.Scanner.GetClosestTargetInRange();
-            Vector3 closestEnemyLocation = closestEnemy.transform.position;
 
-            // Distance for how long the  soldier can chase for
-            float chaseDistance = controller.ChaseBehaviour.ChaseDistance;
-
-            // Check whether it's Distance is bigger than the distance between all of it's patrol goals
-            foreach (Vector3 patrolPoint in controller.PatrolBehaviour.PatrolPositions)
+            if (closestEnemy)
             {
-                
-                // If one of the areas is close enough to his patrol Point
-                if (Vector3.Distance(patrolPoint, closestEnemyLocation) < chaseDistance)
+                Vector3 closestEnemyLocation = closestEnemy.transform.position;
+
+                // Distance for how long the  soldier can chase for
+                float chaseDistance = controller.ChaseBehaviour.ChaseDistance;
+
+                // Check whether it's Distance is bigger than the distance between all of it's patrol goals
+                foreach (Vector3 patrolPoint in controller.PatrolBehaviour.PatrolPositions)
                 {
-                    // Keep chasing
-                    return true;
+
+                    // If one of the areas is close enough to his patrol Point
+                    if (Vector3.Distance(patrolPoint, closestEnemyLocation) < chaseDistance)
+                    {
+                        // Keep chasing
+                        return true;
+                    }
                 }
             }
         }

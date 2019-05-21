@@ -606,6 +606,11 @@ PrefabInstance:
       propertyPath: necromancer
       value: 
       objectReference: {fileID: 2900076237062334970}
+    - target: {fileID: 6092071023018554110, guid: 0d07b4ad5ad5e1249986dc59f149b9dd,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d07b4ad5ad5e1249986dc59f149b9dd, type: 3}
 --- !u!1001 &7314236079028331425
