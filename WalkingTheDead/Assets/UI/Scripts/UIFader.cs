@@ -1,57 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIFader : MonoBehaviour
 {
-    // Get the image component
-    Image background;
-    Color backgroundColor;
-    Canvas canvasToLoad;
+    [SerializeField] Canvas currentCanvas = null;
 
-    // Start is called before the first frame update
-    void Awake()
+    Animator animator;
+    Canvas canvasToLoad;
+    
+    private void Awake()
     {
-        background = GetComponent<Image>();
-        backgroundColor = background.color;
+        animator = GetComponent<Animator>();
     }
 
-    public void LoadEndScreen(Canvas canvasToLoad)
+    public void SwitchToCanvas(Canvas canvasToLoad)
     {
         this.canvasToLoad = canvasToLoad;
 
-        StopCoroutine(FadeOut());
-        StartCoroutine(FadeOut());
+        StopCoroutine(FadeToCanvas());
+        StartCoroutine(FadeToCanvas());
     }
 
-    public void LoadMainMenu()
+    IEnumerator FadeToCanvas()
     {
-        SceneLoader.LoadMainMenu();
-    }
+        FadeOut();
 
-    IEnumerator FadeOut()
-    {
-        while (background.color.a < 1f)
-        {
-            backgroundColor.a += Time.deltaTime;
-            background.color = backgroundColor;
-            yield return null;
-        }
+        yield return new WaitForSeconds(1f);
 
+        // Only display one canvas
+        currentCanvas.enabled = false;
         canvasToLoad.enabled = true;
+        currentCanvas = canvasToLoad;
 
-        StopCoroutine(FadeIn());
-        StartCoroutine(FadeIn());
+        FadeIn();
     }
 
-    IEnumerator FadeIn()
+    public void FadeOut()
     {
-        while (background.color.a > 0f)
-        {
-            backgroundColor.a -= Time.deltaTime;
-            background.color = backgroundColor;
-            yield return null;
-        }
+        animator.SetTrigger("FadeOut");
+    }
+
+    public void FadeIn()
+    {
+        animator.SetTrigger("FadeIn");
     }
 }
