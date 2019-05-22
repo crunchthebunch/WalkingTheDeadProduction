@@ -10,7 +10,7 @@ public class PatrolBehaviour : Behaviour
     NavMeshAgent agent;
     bool isReadyToPatrol;
     public int nextPatrolPositionIndex;
-    float patrolDistance = 5.0f;
+    float patrolDistance = 20.0f;
     float patrolDelay = 2.0f;
 
     List<Vector3> patrolPositions;
