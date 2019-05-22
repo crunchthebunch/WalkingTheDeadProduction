@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 5991754975519847540}
   - component: {fileID: 1891727696052837601}
   - component: {fileID: 4047561877737658213}
+  - component: {fileID: 2375513057403892141}
   m_Layer: 0
   m_Name: Human-Soldier
   m_TagString: Human
@@ -211,7 +212,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ac04a80b85980714f9540b41a646b7f8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -311,6 +312,45 @@ MonoBehaviour:
   remainState: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
   recieveCommands: 0
   test: 0
+--- !u!114 &2375513057403892141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245156306398399704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf252cf860af6f84b914700edebaf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathClips:
+  - {fileID: 8300000, guid: ae72271a602328e4b97e37576c99eef7, type: 3}
+  - {fileID: 8300000, guid: f14fb491a1107df41bdfffe68337eee0, type: 3}
+  - {fileID: 8300000, guid: ac04a80b85980714f9540b41a646b7f8, type: 3}
+  idleClips: []
+  takeDamageClips:
+  - {fileID: 8300000, guid: d7def10169c2c7c499a891accfbd1713, type: 3}
+  - {fileID: 8300000, guid: 8b087a6448493784db9ff167a5af1dee, type: 3}
+  - {fileID: 8300000, guid: 224be97e5404d324498d618f889a78b2, type: 3}
+  - {fileID: 8300000, guid: 0145d71b08e3b914b877f6fc194f92c1, type: 3}
+  - {fileID: 8300000, guid: f405d48b6b726b844b8804a7c0d3656d, type: 3}
+  screamClips:
+  - {fileID: 8300000, guid: 1cfd1b890a5e69f4f9eea112415def01, type: 3}
+  - {fileID: 8300000, guid: a1465daf792ad714aafb76051e79df11, type: 3}
+  - {fileID: 8300000, guid: 6a5575eb9a33a4c44a530d6fe43248c6, type: 3}
+  - {fileID: 8300000, guid: af8526a3a72b58946a4ad28eca7b9bb6, type: 3}
+  - {fileID: 8300000, guid: 3b0a69640a63e97479165ffba09124bf, type: 3}
+  - {fileID: 8300000, guid: 790a41bd4545cbd4d9fd4ff8ca98a30e, type: 3}
+  - {fileID: 8300000, guid: 1a4940a3d5ecbef4da6b5b02cbcbfbb8, type: 3}
+  - {fileID: 8300000, guid: 3af23a36888b3514cbbf231f5cc1d73b, type: 3}
+  - {fileID: 8300000, guid: 1f0aeb2b641e29c4498be36aa7402131, type: 3}
+  raiseClips: []
+  attackClips:
+  - {fileID: 8300000, guid: 20c73c4d1b6fe734ea53f2d3f846075d, type: 3}
+  - {fileID: 8300000, guid: c5a180243f0a1744b996b018b884f5d4, type: 3}
+  - {fileID: 8300000, guid: 04fc032d70a958c4f83043993206b40e, type: 3}
+  - {fileID: 8300000, guid: 0411d752b0757964f9cff22e55b6f199, type: 3}
 --- !u!1001 &3090544556237515805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -378,6 +418,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7081551470370831598, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551470370831598, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551470370831598, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469050822361, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469050822361, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469050822361, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469169549926, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469169549926, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469169549926, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469898661190, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469898661190, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081551469898661190, guid: 4c4169907d639f9418a94bbb3ae49364,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7081551470110732858, guid: 4c4169907d639f9418a94bbb3ae49364,
         type: 3}
       propertyPath: InitialModule.startSize.minScalar
@@ -393,51 +493,6 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7081551469169549926, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551469169549926, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551469169549926, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551469050822361, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551469050822361, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551469050822361, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551470370831598, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551470370831598, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551470370831598, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 7081551469636286116, guid: 4c4169907d639f9418a94bbb3ae49364,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -453,20 +508,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 7081551469898661190, guid: 4c4169907d639f9418a94bbb3ae49364,
+    - target: {fileID: 7081551470370831596, guid: 4c4169907d639f9418a94bbb3ae49364,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551469898661190, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551469898661190, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7081551469050822359, guid: 4c4169907d639f9418a94bbb3ae49364,
         type: 3}
@@ -478,17 +523,12 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7081551470370831596, guid: 4c4169907d639f9418a94bbb3ae49364,
+    - target: {fileID: 7081551469898661188, guid: 4c4169907d639f9418a94bbb3ae49364,
         type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7081551469636286114, guid: 4c4169907d639f9418a94bbb3ae49364,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081551469898661188, guid: 4c4169907d639f9418a94bbb3ae49364,
         type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -513,11 +553,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier Walk Animation
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: aa81a129372a6fd4e8f19cccfbb6aef3,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3e0a1a2a8883e1847863b0905b85b66b, type: 2}
     - target: {fileID: -4216859302048453862, guid: aa81a129372a6fd4e8f19cccfbb6aef3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -573,6 +608,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: aa81a129372a6fd4e8f19cccfbb6aef3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3e0a1a2a8883e1847863b0905b85b66b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa81a129372a6fd4e8f19cccfbb6aef3, type: 3}
 --- !u!1 &726445124089505535 stripped
