@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2913694789197307495}
   - component: {fileID: 6139676529636680785}
   - component: {fileID: 434608554377730216}
-  - component: {fileID: 7977948313698843052}
+  - component: {fileID: 3217290621847968959}
   m_Layer: 0
   m_Name: bush_3
   m_TagString: Untagged
@@ -78,8 +78,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7977948313698843052
-SphereCollider:
+--- !u!136 &3217290621847968959
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,6 +88,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.6392255
-  m_Center: {x: 0, y: 0.13170801, z: 0}
+  m_Radius: 1
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

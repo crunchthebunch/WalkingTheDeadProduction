@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public UIStat healthUI, manaUI;
 
     bool particleEffectActive;
+    bool isAlive;
 
     LayerMask groundLayerMask;
     ParticleSystem click;
@@ -28,9 +29,12 @@ public class GameManager : MonoBehaviour
     public ParticleSystem clickSystemEffect;
     Camera mainCamera;
 
+    UIManager uiManager;
+
     // Start is called before the first frame update
     void Awake()
     {
+        uiManager = FindObjectOfType<UIManager>();
         playerHealth = maxHealth;
         manaValue = 50.0f;
 
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
         particleEffectActive = false;
         mainCamera = GameObject.Find("PlayerCharacter/Camera").GetComponent<Camera>();
         bigBoiManaCostActive = false;
+        isAlive = true;
 
     }
 
@@ -71,6 +76,12 @@ public class GameManager : MonoBehaviour
         }
 
         manaUI.SetTargetValue(manaValue);
+
+        if (playerHealth <= 0.0f && isAlive)
+        {
+            isAlive = false;
+            uiManager.FadeInLoseScreen();
+        }
     }
 
 
