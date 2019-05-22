@@ -12,7 +12,7 @@ public class UIStatText : MonoBehaviour
     private void Awake()
     {
         slider = GetComponentInParent<Slider>();
-        text = GetComponent<TextMeshProUGUI>();
+        text = GetComponentInChildren<TextMeshProUGUI>(true);
     }
 
     private void OnEnable()

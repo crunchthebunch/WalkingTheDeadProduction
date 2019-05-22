@@ -47,10 +47,9 @@ MonoBehaviour:
   manaValue: 0
   maxMana: 100
   maxHealth: 100
-  numberOFZombies: 0
   healthUI: {fileID: 0}
   manaUI: {fileID: 0}
-  numberOfZombiesUI: {fileID: 0}
   disguiseManaCostActive: 0
+  bigBoiManaCostActive: 0
   clickSystemEffect: {fileID: 8442766173872107462, guid: 49f754db767780344bb622e670571389,
     type: 3}

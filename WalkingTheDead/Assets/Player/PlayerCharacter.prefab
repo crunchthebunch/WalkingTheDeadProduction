@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 8171068610250063899}
-  height: 5
-  distance: 5
+  height: 10
+  distance: 3
   angle: 60
   smoothing: 0
   scrollspeed: 15
