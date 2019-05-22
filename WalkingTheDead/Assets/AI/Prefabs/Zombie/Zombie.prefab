@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 830273784311554839}
   - component: {fileID: 2967651038768951326}
   - component: {fileID: 5594509271600901739}
+  - component: {fileID: -2773924256175105540}
   m_Layer: 11
   m_Name: Zombie
   m_TagString: Zombie
@@ -129,7 +130,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1766a306d8bd1e748ba4eb0571d8f4b7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -229,6 +230,42 @@ MonoBehaviour:
   remainState: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
   recieveCommands: 1
   test: 0
+--- !u!114 &-2773924256175105540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2840382505304573919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf252cf860af6f84b914700edebaf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathClips:
+  - {fileID: 8300000, guid: 4d2e475d72b061a4fb68100ebf4c1e3a, type: 3}
+  - {fileID: 8300000, guid: 087a3f89731ee0d4a86a242276fdad03, type: 3}
+  idleClips:
+  - {fileID: 8300000, guid: b1bd01651e22fca4cbbde2f809fbddbf, type: 3}
+  - {fileID: 8300000, guid: d15c3586b121919469930e16755d60ac, type: 3}
+  - {fileID: 8300000, guid: 88395263b8329484ba7bce88bed980d9, type: 3}
+  - {fileID: 8300000, guid: 4a0217d08fea2f744aa9956fa62cf460, type: 3}
+  - {fileID: 8300000, guid: 66c889baebec34649af665a8986bf508, type: 3}
+  - {fileID: 8300000, guid: 9bf01938c849efe4b8b07c405696e0f5, type: 3}
+  - {fileID: 8300000, guid: 04b8e4fd35be84045a8fc4b72da1b250, type: 3}
+  - {fileID: 8300000, guid: 32ff0acd9dd406d47a5c5b7bb62b0cc7, type: 3}
+  - {fileID: 8300000, guid: 1766a306d8bd1e748ba4eb0571d8f4b7, type: 3}
+  takeDamageClips:
+  - {fileID: 8300000, guid: e264b42943d3806479b0641f1ccf3209, type: 3}
+  screamClips: []
+  raiseClips:
+  - {fileID: 8300000, guid: ed94a60ac666afe40bd6ae3af522bb1c, type: 3}
+  attackClips:
+  - {fileID: 8300000, guid: 0c3519e7c7ca45641b19995f568b6fea, type: 3}
+  - {fileID: 8300000, guid: 2ae8fbf8b4414af4db48bcbce53baae6, type: 3}
+  - {fileID: 8300000, guid: 3226a209f7f88a0469172b6f72e7a690, type: 3}
+  - {fileID: 8300000, guid: 89fda0fbda5df4344a06810a35505380, type: 3}
+  - {fileID: 8300000, guid: 73b83f830ec46c64ebeb0146156fbcf1, type: 3}
 --- !u!1001 &6263060303146943145
 PrefabInstance:
   m_ObjectHideFlags: 0

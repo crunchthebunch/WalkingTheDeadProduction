@@ -14,6 +14,8 @@ public class MeleeAttackBehaviour : Behaviour
     NavMeshAgent agent;
     GameObject toKill;
 
+    SoundScript soundPlayer;
+
     bool attackComplete = true;
     float delayCurrent = 0f;
     float delayMax = 0f;
@@ -27,7 +29,6 @@ public class MeleeAttackBehaviour : Behaviour
     {
         if (delayCurrent <= 0)
         {
-            
             toKill = scanner.GetClosestTargetInRange();
             // If it exists
             if (toKill)
@@ -37,6 +38,7 @@ public class MeleeAttackBehaviour : Behaviour
                 // If the closest Enemy is in range
                 if (Vector3.Distance(enemyPosition, transform.position) < attackRange)
                 {
+                    soundPlayer.PlayAttackClip();
                     animator.SetTrigger("Attack");
                     delayCurrent = delayMax;
                 }
@@ -55,6 +57,7 @@ public class MeleeAttackBehaviour : Behaviour
         scanner = GetComponentInChildren<Scanner>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
         animator = GetComponentInChildren<Animator>();
+        soundPlayer = GetComponent<SoundScript>();
 
 
     }
