@@ -22,5 +22,5 @@ public class AISettings : ScriptableObject
     public float AttackDamage     { get => attackDamage; }
     public float NavigationRadius { get => navigationRadius; }
     public float AttackDelay      { get => attackDelay; }
-    protected float HealthMax     { get => healthMax; }
+    public float HealthMax     { get => healthMax; }
 }
