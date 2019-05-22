@@ -23,6 +23,7 @@ public class MeleeSoldier : MonoBehaviour
     Animator animator;
     AnimationHashIDs animationIDs;
     StateController controller;
+    ParticleSystem blood;
 
     float currentHealth = 0;
     float maxHealth = 0;
@@ -54,6 +55,9 @@ public class MeleeSoldier : MonoBehaviour
         animationIDs.attackID = Animator.StringToHash("attack");
 
         SetupHealth();
+
+        blood = GetComponentInChildren<ParticleSystem>();
+        blood.Stop();
     }
 
     private void Start()
@@ -64,6 +68,7 @@ public class MeleeSoldier : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        blood.Play();
         currentHealth -= amount;
         if (currentHealth < 0) Die();
     }
@@ -72,7 +77,7 @@ public class MeleeSoldier : MonoBehaviour
     {
         // Spawn a random dead body - Currently has 1
         int bodyIndex = Random.Range(0, deadBodies.Length);
-        Vector3 deadPosition = transform.position;
+        Vector3 deadPosition =new Vector3(transform.position.x, transform.position.y - 1.0f, transform.position.z);
 
         Vector3 rotation = transform.rotation.eulerAngles;
         rotation.y = Random.Range(0, 360);

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3309151971139950578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6020923, y: 5.6273737, z: 26.286121}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.6801836, y: 0.50292, z: 3.7787395}
   m_Children:
   - {fileID: 8671642171638318006}
@@ -75,10 +75,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1083674042057969193}
     m_Modifications:
-    - target: {fileID: 281900317780305438, guid: 504d378b8721f5d4095ebece094610de,
+    - target: {fileID: 281900317780305432, guid: 504d378b8721f5d4095ebece094610de,
         type: 3}
-      propertyPath: playOnAwake
-      value: 0
+      propertyPath: m_Name
+      value: Soul particle
       objectReference: {fileID: 0}
     - target: {fileID: 281900317780305437, guid: 504d378b8721f5d4095ebece094610de,
         type: 3}
@@ -150,10 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.50000024
       objectReference: {fileID: 0}
-    - target: {fileID: 281900317780305432, guid: 504d378b8721f5d4095ebece094610de,
+    - target: {fileID: 281900317780305438, guid: 504d378b8721f5d4095ebece094610de,
         type: 3}
-      propertyPath: m_Name
-      value: Soul particle
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 281900317391121337, guid: 504d378b8721f5d4095ebece094610de,
         type: 3}
@@ -181,6 +181,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1083674042057969193}
     m_Modifications:
+    - target: {fileID: 6890079948346313553, guid: 7c384c9f83d4c9648b215aed57cd825c,
+        type: 3}
+      propertyPath: m_Name
+      value: Raise big dead 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6890079948346313556, guid: 7c384c9f83d4c9648b215aed57cd825c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -241,11 +246,6 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6890079948346313553, guid: 7c384c9f83d4c9648b215aed57cd825c,
-        type: 3}
-      propertyPath: m_Name
-      value: Raise big dead 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6890079949456503820, guid: 7c384c9f83d4c9648b215aed57cd825c,
         type: 3}
       propertyPath: playOnAwake
@@ -272,10 +272,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1083674042057969193}
     m_Modifications:
-    - target: {fileID: 4305856556241333182, guid: 440c1bb2d6a02c246a68dbb69118d1d2,
+    - target: {fileID: 4305856556241333152, guid: 440c1bb2d6a02c246a68dbb69118d1d2,
         type: 3}
-      propertyPath: playOnAwake
-      value: 0
+      propertyPath: m_Name
+      value: Raise dead
       objectReference: {fileID: 0}
     - target: {fileID: 4305856556241333183, guid: 440c1bb2d6a02c246a68dbb69118d1d2,
         type: 3}
@@ -347,10 +347,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.50000024
       objectReference: {fileID: 0}
-    - target: {fileID: 4305856556241333152, guid: 440c1bb2d6a02c246a68dbb69118d1d2,
+    - target: {fileID: 4305856556241333182, guid: 440c1bb2d6a02c246a68dbb69118d1d2,
         type: 3}
-      propertyPath: m_Name
-      value: Raise dead
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 440c1bb2d6a02c246a68dbb69118d1d2, type: 3}
@@ -373,6 +373,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1083674042057969193}
     m_Modifications:
+    - target: {fileID: 100000, guid: a933011294d0e2e49a3850f7230d87f8, type: 3}
+      propertyPath: m_Name
+      value: Dead human01
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a933011294d0e2e49a3850f7230d87f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.072568
@@ -428,10 +432,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: a933011294d0e2e49a3850f7230d87f8, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.9397684
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a933011294d0e2e49a3850f7230d87f8, type: 3}
-      propertyPath: m_Name
-      value: Dead human01
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: a933011294d0e2e49a3850f7230d87f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
