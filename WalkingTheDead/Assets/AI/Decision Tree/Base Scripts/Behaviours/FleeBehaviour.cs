@@ -14,6 +14,7 @@ public class FleeBehaviour : Behaviour
     float maxRandom = 0.2f;
 
     public float FleeDistance { get => fleeDistance;}
+    public float FleeSpeed { get => fleeSpeed; }
 
     private void Awake()
     {

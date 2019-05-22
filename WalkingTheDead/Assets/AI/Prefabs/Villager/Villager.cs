@@ -95,12 +95,12 @@ public class Villager : MonoBehaviour
 
     private void Update()
     {
-        if (agent.speed == settings.RunSpeed)
+        if (agent.speed == controller.FleeBehaviour.FleeSpeed)
         {
             animator.SetBool("isRunning", true);
             animator.SetBool("isWalking", false);
         }
-        else if (agent.speed == settings.WalkingSpeed)
+        else if (agent.speed == controller.WanderBehaviour.WanderSpeed)
         {
             animator.SetBool("isWalking", true);
             animator.SetBool("isRunning", false);

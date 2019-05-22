@@ -23,6 +23,7 @@ public class WanderBehaviour : Behaviour
 
     public bool IsReadyToWander { get => isReadyToWander; }
     public Vector3 NavigationCenter { get => navigationCenter; set => navigationCenter = value; }
+    public float WanderSpeed { get => wanderSpeed; }
 
     private void Awake()
     {
