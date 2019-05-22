@@ -327,11 +327,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spell Bar
       objectReference: {fileID: 0}
-    - target: {fileID: 5929258158546480357, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2462344199705168445, guid: fa6d067c86cb3f1478ff2451d2295566,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -437,6 +432,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5929258158546480357, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 537095478171278734, guid: fa6d067c86cb3f1478ff2451d2295566,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -458,6 +458,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2770180373559650906}
     - target: {fileID: 4347914830500394772, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UISpell, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997223493019681529, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2770180373559650906}
+    - target: {fileID: 8997223493019681529, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UISpell, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997223493019681529, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2770180373559650906}
+    - target: {fileID: 8997223493019681529, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UISpell, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758914975896737407, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2770180373559650906}
+    - target: {fileID: 5758914975896737407, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UISpell, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758914975896737407, guid: fa6d067c86cb3f1478ff2451d2295566,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2770180373559650906}
+    - target: {fileID: 5758914975896737407, guid: fa6d067c86cb3f1478ff2451d2295566,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UISpell, Assembly-CSharp
@@ -486,46 +526,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997223493019681529, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2770180373559650906}
-    - target: {fileID: 8997223493019681529, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UISpell, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997223493019681529, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2770180373559650906}
-    - target: {fileID: 8997223493019681529, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UISpell, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5758914975896737407, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2770180373559650906}
-    - target: {fileID: 5758914975896737407, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UISpell, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5758914975896737407, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2770180373559650906}
-    - target: {fileID: 5758914975896737407, guid: fa6d067c86cb3f1478ff2451d2295566,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UISpell, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa6d067c86cb3f1478ff2451d2295566, type: 3}
@@ -908,10 +908,30 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UIStat, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 2758957178251445318, guid: 6704c3423620337459a11616c57540ee,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758957178251445318, guid: 6704c3423620337459a11616c57540ee,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2758957177839993106, guid: 6704c3423620337459a11616c57540ee,
         type: 3}
       propertyPath: m_Value
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611439417052166325, guid: 6704c3423620337459a11616c57540ee,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611439417052166325, guid: 6704c3423620337459a11616c57540ee,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2926739860450542700, guid: 6704c3423620337459a11616c57540ee,
         type: 3}
