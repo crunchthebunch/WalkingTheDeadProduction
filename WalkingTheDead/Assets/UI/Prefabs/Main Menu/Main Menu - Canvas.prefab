@@ -2067,21 +2067,6 @@ PrefabInstance:
       propertyPath: currentCanvas
       value: 
       objectReference: {fileID: 6687646998144991841}
-    - target: {fileID: 6599029475831841119, guid: 35297533e08b06c4da7b42cdee218e7a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -49.630737
-      objectReference: {fileID: 0}
-    - target: {fileID: 6599029475831841119, guid: 35297533e08b06c4da7b42cdee218e7a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.4179688
-      objectReference: {fileID: 0}
-    - target: {fileID: 6599029476408539965, guid: 35297533e08b06c4da7b42cdee218e7a,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4016611126605035152, guid: 35297533e08b06c4da7b42cdee218e7a,
         type: 3}
       propertyPath: m_LocalPosition.x
