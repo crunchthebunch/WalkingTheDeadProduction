@@ -10,6 +10,7 @@ public class Zombie : MonoBehaviour
     NavMeshAgent                  agent;
     Animator                      animator;
     StateController               controller;
+    SoundScript                 soundPlayer;
     //TODO Get all of these from a resources folder, programatically
     [SerializeField] AISettings settings = null;
     [SerializeField] GameObject[] deadBodies = null;
@@ -37,6 +38,10 @@ public class Zombie : MonoBehaviour
 
         // Add Scanner
         scanner = GetComponentInChildren<Scanner>();
+
+        //Get Sound Player
+        soundPlayer = GetComponent<SoundScript>();
+        soundPlayer.PlayRaiseClip();
 
         SetupHealth();
     }
@@ -72,12 +77,15 @@ public class Zombie : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        soundPlayer.PlayDamageClip();
         currentHealth -= amount;
         if (currentHealth < 0) Die();
     }
 
     public void Die()
     {
+        soundPlayer.PlayDeathSound();
+
         // Spawn a random dead body - Currently has 1
         int bodyIndex = Random.Range(0, deadBodies.Length);
         Vector3 deadPosition = transform.position;

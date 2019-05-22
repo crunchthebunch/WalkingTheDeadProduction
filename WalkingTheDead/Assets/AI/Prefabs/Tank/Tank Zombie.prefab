@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 542705392284738951}
   - component: {fileID: 2675873559464900238}
   - component: {fileID: 4732749657237694715}
+  - component: {fileID: 7437252532936530819}
   m_Layer: 11
   m_Name: Tank Zombie
   m_TagString: Zombie
@@ -118,7 +119,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1766a306d8bd1e748ba4eb0571d8f4b7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -218,6 +219,30 @@ MonoBehaviour:
   remainState: {fileID: 11400000, guid: d629973284bc81441808dad7a4c9885d, type: 2}
   recieveCommands: 1
   test: 0
+--- !u!114 &7437252532936530819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127392465679434063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf252cf860af6f84b914700edebaf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathClips:
+  - {fileID: 8300000, guid: 10ef29c85f14e5345814ad181001b195, type: 3}
+  - {fileID: 8300000, guid: e1077aec11649b949b70f78573641dc5, type: 3}
+  idleClips:
+  - {fileID: 8300000, guid: c5bc4a548907ffa428b95c4dfcd12064, type: 3}
+  takeDamageClips:
+  - {fileID: 8300000, guid: ce7b61a7acafff34592634d4e59e799f, type: 3}
+  screamClips: []
+  raiseClips:
+  - {fileID: 8300000, guid: 0872044718f800d4db74f90bb3ca1832, type: 3}
+  attackClips:
+  - {fileID: 8300000, guid: 0c3519e7c7ca45641b19995f568b6fea, type: 3}
 --- !u!114 &6898663396028983117
 MonoBehaviour:
   m_ObjectHideFlags: 0

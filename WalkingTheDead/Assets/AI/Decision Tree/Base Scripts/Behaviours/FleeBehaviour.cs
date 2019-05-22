@@ -9,6 +9,7 @@ public class FleeBehaviour : Behaviour
     NavMeshAgent agent;
     Scanner scanner;
     Animator animator;
+    SoundScript soundPlayer;
     float fleeDistance;
     float fleeSpeed = 0;
     float maxRandom = 0.2f;
@@ -22,12 +23,14 @@ public class FleeBehaviour : Behaviour
         scanner = GetComponentInChildren<Scanner>();
         fleeDistance = 15.0f;
         animator = GetComponentInChildren<Animator>();
+        soundPlayer = GetComponent<SoundScript>();
 
     }
 
     public override void DoBehaviour()
     {
         // Keep Calculating New Flee routes until there are enemies around
+        soundPlayer.PlayScreamClip();
         animator.speed = fleeSpeed / settings.RunSpeed;
         StopCoroutine(FleeFromClosestEnemy());
         StartCoroutine(FleeFromClosestEnemy());

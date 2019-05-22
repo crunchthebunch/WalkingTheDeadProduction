@@ -61,6 +61,8 @@ GameObject:
   - component: {fileID: 8591765417491819237}
   - component: {fileID: 123307637323766155}
   - component: {fileID: 5018638683375351403}
+  - component: {fileID: 223938636494317218}
+  - component: {fileID: 8780064980750123152}
   m_Layer: 0
   m_Name: Human
   m_TagString: Human
