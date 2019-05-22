@@ -9,14 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371e9cc50ec05e9408f997d670c53f29, type: 3}
-  m_Name: Villager Settings
+  m_Script: {fileID: 11500000, guid: 51f94cce2460b3b4ba241464c12b4bd3, type: 3}
+  m_Name: End Attack
   m_EditorClassIdentifier: 
-  visionRange: 5
-  walkSpeed: 3
-  runSpeed: 4
-  navigationRadius: 10
-  healthMax: 10
-  meleeAttackRange: 0
-  attackDamage: 0
-  attackDelay: 2

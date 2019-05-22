@@ -38,7 +38,7 @@ public class Zombie : MonoBehaviour
         // Add Scanner
         scanner = GetComponentInChildren<Scanner>();
 
-        setupHealth();
+        SetupHealth();
     }
 
     private void Start()
@@ -91,7 +91,7 @@ public class Zombie : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void setupHealth()
+    void SetupHealth()
     {
         maxHealth = settings.HealthMax;
         maxHealth = Randomize(maxHealth);

@@ -14,9 +14,12 @@ struct AnimationID
     string name;
     int hashID;
 
+
+
     public string Name { get => name; }
     public int HashID { get => hashID; }
 }
+
 public class Villager : MonoBehaviour
 {
     [SerializeField] AISettings settings = null;
@@ -27,6 +30,10 @@ public class Villager : MonoBehaviour
     AnimationID     idleAnimation;
     StateController controller;
     Animator        animator;
+
+    float currentHealth = 0;
+    float maxHealth = 0;
+    float maxRandom = 0.2f;
 
     public NavMeshAgent Agent { get => agent; }
     public Scanner ZombieScanner { get => scanner; }
@@ -44,6 +51,8 @@ public class Villager : MonoBehaviour
         // Get the controller - TODO might want to add this component and set it up later on
         controller = GetComponent<StateController>();
         controller.SetupController(settings);
+
+        SetupHealth();
     }
 
     private void Start()
@@ -51,17 +60,37 @@ public class Villager : MonoBehaviour
         scanner.SetupScanner("Zombie", settings.VisionRange);
     }
 
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth < 0) Die();
+    }
+
     public void Die()
     {
-        // Spawn a random dead body
+        // Spawn a random dead body - Currently has 1
         int bodyIndex = Random.Range(0, deadBodies.Length);
         Vector3 deadPosition = transform.position;
-        deadPosition.y = transform.position.y - transform.lossyScale.y;
 
-        Instantiate(deadBodies[bodyIndex], deadPosition, transform.rotation);
+        Vector3 rotation = transform.rotation.eulerAngles;
+        rotation.y = Random.Range(0, 360);
+
+        Instantiate(deadBodies[bodyIndex], deadPosition, Quaternion.Euler(rotation));
 
         // Kill yourself
         Destroy(gameObject);
+    }
+
+    void SetupHealth()
+    {
+        maxHealth = settings.HealthMax;
+        maxHealth = Randomize(maxHealth);
+        currentHealth = maxHealth;
+    }
+
+    float Randomize(float value)
+    {
+        return Random.Range(1 - maxRandom, 1 + maxRandom) * value;
     }
 
     private void Update()

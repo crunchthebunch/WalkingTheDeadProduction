@@ -24,6 +24,10 @@ public class MeleeSoldier : MonoBehaviour
     AnimationHashIDs animationIDs;
     StateController controller;
 
+    float currentHealth = 0;
+    float maxHealth = 0;
+    float maxRandom = 0.2f;
+
     public List<GameObject> additionalPatrolPositions { get => additionalPatrolpositions; }
     public Animator Animator { get => animator;  }
     internal AnimationHashIDs AnimationIDs { get => animationIDs; }
@@ -48,6 +52,8 @@ public class MeleeSoldier : MonoBehaviour
         animationIDs.isChasingID = Animator.StringToHash("isChasing");
         animationIDs.isWalkingID = Animator.StringToHash("isWalking");
         animationIDs.attackID = Animator.StringToHash("attack");
+
+        SetupHealth();
     }
 
     private void Start()
@@ -56,18 +62,37 @@ public class MeleeSoldier : MonoBehaviour
         scanner.SetupScanner("Necromancer", settings.VisionRange);
     }
 
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth < 0) Die();
+    }
+
     public void Die()
     {
-        // Spawn a random dead body
+        // Spawn a random dead body - Currently has 1
         int bodyIndex = Random.Range(0, deadBodies.Length);
         Vector3 deadPosition = transform.position;
-        deadPosition.y = transform.position.y - transform.localScale.y;
 
-        Instantiate(deadBodies[bodyIndex], deadPosition, transform.rotation);
+        Vector3 rotation = transform.rotation.eulerAngles;
+        rotation.y = Random.Range(0, 360);
 
-        soldierAudioSource.Play();
+        Instantiate(deadBodies[bodyIndex], deadPosition, Quaternion.Euler(rotation));
+
         // Kill yourself
         Destroy(gameObject);
+    }
+
+    void SetupHealth()
+    {
+        maxHealth = settings.HealthMax;
+        maxHealth = Randomize(maxHealth);
+        currentHealth = maxHealth;
+    }
+
+    float Randomize(float value)
+    {
+        return Random.Range(1 - maxRandom, 1 + maxRandom) * value;
     }
 
     void UpdateAnimations()

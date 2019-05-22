@@ -5,10 +5,12 @@ using UnityEngine;
 public class NecromancerMainMenu : MonoBehaviour
 {
     Animator animator;
+    AudioSource audioSource;
 
     void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void StandUp()
@@ -16,6 +18,10 @@ public class NecromancerMainMenu : MonoBehaviour
         animator.SetTrigger("StartPressed");
     }
 
+    public void PlayBookSound()
+    {
+        audioSource.Play();
+    }
     
     
 }
