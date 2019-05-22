@@ -10,20 +10,27 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioClip menuClickSound = null;
     [SerializeField] AudioClip menuHoverSound = null;
     [SerializeField] GameObject buttons = null;
+    [SerializeField] Canvas menuCanvas = null;
+    [SerializeField] Canvas creditsCanvas = null;
+
     Animator buttonAnimator;
     AudioSource audioSource;
+    UIFader uiFader;
+
+    
 
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        buttonAnimator = buttons.GetComponent<Animator>();  
+        buttonAnimator = buttons.GetComponent<Animator>();
+        uiFader = GetComponentInChildren<UIFader>();
     }
 
     public void StartGame()
     {
         // Make Necromancer Stand up
-        necromancer.StandUp(5.0f);
+        necromancer.StandUp();
 
         // Play Sound
         audioSource.PlayOneShot(menuClickSound);
@@ -31,14 +38,27 @@ public class MainMenu : MonoBehaviour
         // Move Menu Down
         buttonAnimator.SetTrigger("MoveDown");
 
+        // Fade out
+        Invoke("FadeOut", 5f);
+
         // Start Game with Delay
         StopCoroutine(WaitSeconds(startDelay));
         StartCoroutine(WaitSeconds(startDelay));
     }
 
+    void FadeOut()
+    {
+        uiFader.FadeOut();
+    }
+
     public void LoadCredits()
     {
+        uiFader.SwitchToCanvas(creditsCanvas);
+    }
 
+    public void LoadMenu()
+    {
+        uiFader.SwitchToCanvas(menuCanvas);
     }
 
     public void QuitGame()
@@ -52,6 +72,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator WaitSeconds(float seconds)
     {
         print("Waiting for " + seconds + " seconds.");
+
         yield return new WaitForSeconds(seconds);
 
         SceneLoader.LoadLevel0();

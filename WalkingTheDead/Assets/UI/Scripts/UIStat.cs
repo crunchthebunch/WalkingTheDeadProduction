@@ -49,7 +49,7 @@ public class UIStat : MonoBehaviour
 
     public void AdjustDisplayedValue()
     {
-        if (textUI.enabled)
+        if (textUI.isActiveAndEnabled)
         {
             textUI.AdjustValue();
         }
