@@ -35,6 +35,7 @@ public class PatrolBehaviour : Behaviour
 
     public override void DoBehaviour()
     {
+        agent.speed = settings.WalkingSpeed;
         if (isReadyToPatrol)
         {
             StopCoroutine(Patrol());
