@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visionRange: 10
   walkSpeed: 5
-  runSpeed: 8
+  runSpeed: 6
   navigationRadius: 7.5
   healthMax: 5
   meleeAttackRange: 1

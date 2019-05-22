@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371e9cc50ec05e9408f997d670c53f29, type: 3}
-  m_Name: Villager Settings
+  m_Script: {fileID: 11500000, guid: cac67b056161eec40b3a03fa4b29315e, type: 3}
+  m_Name: Soldier - Attack
   m_EditorClassIdentifier: 
-  visionRange: 5
-  walkSpeed: 3
-  runSpeed: 4
-  navigationRadius: 10
-  healthMax: 10
-  meleeAttackRange: 0
-  attackDamage: 0
-  attackDelay: 2
+  actions: []
+  transitions: []
+  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

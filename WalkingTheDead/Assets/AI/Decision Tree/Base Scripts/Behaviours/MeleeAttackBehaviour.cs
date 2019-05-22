@@ -7,19 +7,27 @@ public class MeleeAttackBehaviour : Behaviour
 {
     AISettings settings;
     Scanner scanner;
-    bool readyToAttack;
-    float attackTimer;
+
     GameManager gameManager;
     Animator animator;
 
     NavMeshAgent agent;
-
     GameObject toKill;
+
+    bool attackComplete = true;
+    float delayCurrent = 0f;
+    float delayMax = 0f;
+    float maxRandom = 0.2f;
+
+    float attackRange = 0;
+
+    public bool AttackComplete { get => attackComplete; set => attackComplete = value; }
 
     public override void DoBehaviour()
     {
-        if (readyToAttack)
+        if (delayCurrent <= 0)
         {
+            
             toKill = scanner.GetClosestTargetInRange();
             // If it exists
             if (toKill)
@@ -27,24 +35,17 @@ public class MeleeAttackBehaviour : Behaviour
                 Vector3 enemyPosition = toKill.transform.position;
 
                 // If the closest Enemy is in range
-                if (Vector3.Distance(enemyPosition, transform.position) < settings.MeleeAttackRange)
+                if (Vector3.Distance(enemyPosition, transform.position) < attackRange)
                 {
                     animator.SetTrigger("Attack");
-                    readyToAttack = false;
-                    attackTimer = settings.AttackDelay;
+                    delayCurrent = delayMax;
                 }
             }
         }
-        else
+        else if (delayCurrent > 0)
         {
-            if (attackTimer <= 0)
-            {
-                readyToAttack = true;
-            }
-            else
-            {
-                attackTimer -= Time.deltaTime;
-            }
+            delayCurrent -= Time.deltaTime;
+            agent.speed = 0;
         }
     }
 
@@ -52,13 +53,34 @@ public class MeleeAttackBehaviour : Behaviour
     {
         agent = GetComponent<NavMeshAgent>();
         scanner = GetComponentInChildren<Scanner>();
-        readyToAttack = true;
         gameManager = GameObject.FindObjectOfType<GameManager>();
         animator = GetComponentInChildren<Animator>();
+
+
     }
 
     public override void SetupBehaviour(AISettings settings)
     {
         this.settings = settings;
+        SetupValues();
+        AttackScript attack = GetComponentInChildren<AttackScript>();
+        if (attack)
+        {
+            attack.SetupAttack(settings);
+        }
+    }
+
+    void SetupValues()
+    {
+        delayMax = settings.AttackDelay;
+        delayMax = Randomize(delayMax);
+
+        attackRange = settings.MeleeAttackRange;
+        attackRange = Randomize(attackRange);
+    }
+
+    float Randomize(float value)
+    {
+        return Random.Range(1 - maxRandom, 1 + maxRandom) * value;
     }
 }
