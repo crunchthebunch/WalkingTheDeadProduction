@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zombie Settings
   m_EditorClassIdentifier: 
   visionRange: 10
-  walkSpeed: 2
+  walkSpeed: 5
   runSpeed: 8
   navigationRadius: 7.5
   healthMax: 5
