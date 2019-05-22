@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 2278864110251223398}
   - component: {fileID: 4172635563701925910}
   - component: {fileID: 1937312643227737708}
+  - component: {fileID: 883491340}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -361,14 +362,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 8171068610250063899}
-  height: 10
-  distance: 3
+  height: 5
+  distance: 10
   angle: 60
   smoothing: 0
   scrollspeed: 15
   minScroll: 0
   maxScroll: 10
   rotationSpeed: 5
+--- !u!81 &883491340
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178773074320471425}
+  m_Enabled: 1
 --- !u!1 &8534865592809802877
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,11 +734,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8171068610250063899}
     m_Modifications:
-    - target: {fileID: 1206920174300858157, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
-        type: 3}
-      propertyPath: m_Name
-      value: Pentagram
-      objectReference: {fileID: 0}
     - target: {fileID: 1693855524203509889, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -785,6 +789,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1206920174300858157, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17,
+        type: 3}
+      propertyPath: m_Name
+      value: Pentagram
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c3cbfbd0207fc1428ddd9ce469d0b17, type: 3}
 --- !u!4 &2743204316981723904 stripped
@@ -806,11 +815,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8171068610250063899}
     m_Modifications:
-    - target: {fileID: 2598494893678786286, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
-        type: 3}
-      propertyPath: m_Name
-      value: Soul Ring
-      objectReference: {fileID: 0}
     - target: {fileID: 2598494893678786280, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
         type: 3}
       propertyPath: playOnAwake
@@ -881,6 +885,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2598494893678786286, guid: 29165e353c8e5fe43be3ba264d7e4d9a,
+        type: 3}
+      propertyPath: m_Name
+      value: Soul Ring
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29165e353c8e5fe43be3ba264d7e4d9a, type: 3}
 --- !u!4 &1893919692803329125 stripped
@@ -902,11 +911,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8171068610250063899}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 1233ccc4582cb7441885f3340ddd4325,
-        type: 3}
-      propertyPath: m_Name
-      value: Necromancer_Walking
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1233ccc4582cb7441885f3340ddd4325,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -962,6 +966,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1233ccc4582cb7441885f3340ddd4325,
+        type: 3}
+      propertyPath: m_Name
+      value: Necromancer_Walking
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 1233ccc4582cb7441885f3340ddd4325,
         type: 3}
       propertyPath: m_Controller
@@ -992,11 +1001,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8171068610250063899}
     m_Modifications:
-    - target: {fileID: 8858413265445037032, guid: 2651f0c89be277b4ba9bdd3375517e8b,
-        type: 3}
-      propertyPath: m_Name
-      value: Shadow
-      objectReference: {fileID: 0}
     - target: {fileID: 7205301148941145441, guid: 2651f0c89be277b4ba9bdd3375517e8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1072,6 +1076,11 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8858413265445037032, guid: 2651f0c89be277b4ba9bdd3375517e8b,
+        type: 3}
+      propertyPath: m_Name
+      value: Shadow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2651f0c89be277b4ba9bdd3375517e8b, type: 3}
 --- !u!4 &969719699333109987 stripped
@@ -1093,11 +1102,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8171068610250063899}
     m_Modifications:
-    - target: {fileID: 2598494893678786286, guid: d710dc7d70b2cbb4f86bb7e66bd8b181,
-        type: 3}
-      propertyPath: m_Name
-      value: Light Ring
-      objectReference: {fileID: 0}
     - target: {fileID: 2598494893678786281, guid: d710dc7d70b2cbb4f86bb7e66bd8b181,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1162,6 +1166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598494893678786286, guid: d710dc7d70b2cbb4f86bb7e66bd8b181,
+        type: 3}
+      propertyPath: m_Name
+      value: Light Ring
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d710dc7d70b2cbb4f86bb7e66bd8b181, type: 3}

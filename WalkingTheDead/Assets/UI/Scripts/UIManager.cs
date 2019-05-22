@@ -91,6 +91,8 @@ public class UIManager : MonoBehaviour
         fader.SwitchToCanvas(loseScreen);
     }
 
+   
+
     public void ShowMap()
     {
         // Allow hotkey in game mode (not in pause mode)
@@ -110,8 +112,21 @@ public class UIManager : MonoBehaviour
         Invoke("LoadMenuScene", 1f);
     }
 
+    public void LoadNextLevel()
+    {
+        fader.FadeOut();
+        Time.timeScale = 1.0f;
+
+        Invoke("LoadNextScene", 1f);
+    }
+
     void LoadMenuScene()
     {
         SceneLoader.LoadMainMenu();
+    }
+
+    void LoadNextScene()
+    {
+        SceneLoader.LoadLevel1();
     }
 }
