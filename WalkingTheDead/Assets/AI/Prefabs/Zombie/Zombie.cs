@@ -10,20 +10,22 @@ public class Zombie : MonoBehaviour
     NavMeshAgent                  agent;
     Animator                      animator;
     StateController               controller;
-    GameObject player;
     //TODO Get all of these from a resources folder, programatically
     [SerializeField] AISettings settings = null;
-    [SerializeField] GameObject[] deadBodies = null;   
+    [SerializeField] GameObject[] deadBodies = null;
+
+    float maxHealth = 0;
+    float maxRandom = 0.2f;
+    float currentHealth = 0;
+
 
     public AISettings Settings { get => settings; }
     public Scanner Scanner { get => scanner; }
+    public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
 
     void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-
-        //Find Player
-        player = GameObject.Find("PlayerCharacter");
 
         // Setup Navmesh
         agent = GetComponent<NavMeshAgent>();
@@ -35,6 +37,8 @@ public class Zombie : MonoBehaviour
 
         // Add Scanner
         scanner = GetComponentInChildren<Scanner>();
+
+        setupHealth();
     }
 
     private void Start()
@@ -65,6 +69,13 @@ public class Zombie : MonoBehaviour
             animator.SetBool("Walking", false);
         }
     }
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth < 0) Die();
+    }
+
     public void Die()
     {
         // Spawn a random dead body - Currently has 1
@@ -72,11 +83,23 @@ public class Zombie : MonoBehaviour
         Vector3 deadPosition = transform.position;
 
         Vector3 rotation = transform.rotation.eulerAngles;
-        rotation.y = 90.0f;
+        rotation.y = Random.Range(0, 360);
 
         Instantiate(deadBodies[bodyIndex], deadPosition, Quaternion.Euler(rotation));
 
         // Kill yourself
         Destroy(gameObject);
+    }
+
+    void setupHealth()
+    {
+        maxHealth = settings.HealthMax;
+        maxHealth = Randomize(maxHealth);
+        currentHealth = maxHealth;
+    }
+
+    float Randomize(float value)
+    {
+        return Random.Range(1 - maxRandom, 1 + maxRandom) * value;
     }
 }
